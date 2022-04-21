@@ -1,0 +1,19 @@
+<div id="app-alert" id="alerta">
+    <div class="fs_16 alert alert_{{type}}">
+        <div class="p-grid">
+            <div class="p-col-11 p-md-5 p-lg-11">
+                <span>
+                    <i *ngIf="iconType != undefined" class="p-text-bold pi pi-{{iconType}} fs_18 p-mr-2"></i>
+                    <span class="fs_16">{{text}}</span>
+                </span>
+            </div>
+            <div class="p-col-1 p-md-1 p-lg-1 btn-icon">
+                <span class="btn-close btn-close_{{type}}" (click)="close()">
+                    <i class="p-text-bold fs_18 pi pi-times"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="p-mt-3"></div>
+</div>
+

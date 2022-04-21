@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+body {
+  font-size: 14px !important;
+}
+
+input {
+  width: 100%;
+  border: 1px solid #C6D5DE;
+  padding: 0px 0px 0px 6px;
+  border-radius: 5px;
+  text-align: left;
+  height: 37px;
+  font-size: 16px;
+  box-shadow: none !important;
+  color: #1E3645;
+}
+
+input:focus {
+  outline: none !important;
+  border: 2px solid #719ECE;
+  box-shadow: 0 0 10px #0377BD;
+}
+
+input:disabled {
+  background: #DDE6EB;
+  color: #AFC4D1;
+}
+
+input::-webkit-input-placeholder { /* Edge */
+  font-size: 14px;
+  color: #C6D5DE;
+  font: oblique 16px Open Sans;
+}
+
+input::-ms-input-placeholder { /* Internet Explorer */
+  font-size: 14px;
+  color: #C6D5DE;
+  font: oblique 16px Open Sans;
+}
+
+input::placeholder {
+  font-size: 14px;
+  color: #C6D5DE;
+  font: oblique 16px Open Sans;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+.div-body {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.label {
+  color: #6B6A6A;
+  font-size: 14px;
+}
+
+.p-button-secondary {
+  color: #2196F3;
+}
+
+.p-button-danger {
+  color: #DC2626;
+}
+
+.fila {
+  background-color: #aba0a011;
+}

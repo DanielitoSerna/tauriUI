@@ -1,0 +1,19 @@
+<p-dialog header="&nbsp;"
+          position="rigth"
+          [modal]="true"
+          [baseZIndex]="10000"
+          [draggable]="false"
+          [resizable]="false"
+          (onHide)="close()"
+          [(visible)]="visible"
+          [style]="{width: '550px', height: '200px'}"
+          header="¿Esta seguro que desea cancelar la transacción?"
+          styleClass="modal-cancelar">
+          <div class="modal-footer">
+            <div class="wrapper">
+              <button pButton pRipple type="button" label="No" class="p-button-outlined" (click)="close()"></button>
+              <div class="p-mr-2"></div>
+              <p-button label="Si" (click)="atras()"></p-button>
+            </div>
+          </div>
+</p-dialog>

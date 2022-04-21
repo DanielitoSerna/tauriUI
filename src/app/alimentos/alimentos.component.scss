@@ -1,0 +1,40 @@
+button {
+  min-width: 10rem;
+  margin-right: .5rem;
+}
+
+@media screen and (max-width: 960px) {
+  button {
+    width: 100%;
+    margin-bottom: .5rem;
+  }
+}
+
+::ng-deep .p-dropdown {
+  width: 74% !important;
+}
+
+::ng-deep .p-picklist-source-controls {
+  display: none !important;
+}
+
+::ng-deep .p-picklist-target-controls {
+  display: none !important;
+}
+
+
+.categoria {
+  color: #1E364580;
+  font: italic normal normal 13px/17px Open Sans;
+}
+
+.descripcion-alimento {
+  width: 330px !important;
+  height: 344px !important;
+  overflow: auto;
+}
+
+.nombre-descripcion {
+  font-size: 12px !important;
+  font-weight: bold !important;
+}

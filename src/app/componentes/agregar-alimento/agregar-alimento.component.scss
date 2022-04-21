@@ -1,0 +1,20 @@
+::ng-deep .modal-cancelar {
+    border-top: 7px solid #25bdd9;
+}
+
+.pi-times {
+    font-weight: bold !important;
+}
+
+.modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding-top: 30px;
+}
+
+.wrapper {
+  display: flex;
+  text-align: end;
+}
+

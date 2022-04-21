@@ -1,0 +1,209 @@
+<app-alerts [text]="text" [type]="tipoAlerta" *ngIf="text != ''" (change)="text = ''"></app-alerts>
+<button pButton pRipple type="button" label="Adicionar alimento a la biblioteca"
+icon="pi pi-plus" class="p-button-success" (click)="agregar = true"></button>
+<div class="p-mt-3"></div>
+<div class="p-grid">
+    <div class="p-col-12 p-md-8 p-lg-8">
+      <p-pickList [source]="alimentosDisponibles" [target]="alimentosSeleccionados"
+        sourceHeader="Alimentos disponibles" targetHeader="Alimentos seleccionados"
+        [responsive]="true" [sourceStyle]="{'height':'300px'}"
+        [targetStyle]="{'height':'300px'}" filterBy="nombre,categoria"
+        sourceFilterPlaceholder="Buscar por nombre o categoría" 
+        targetFilterPlaceholder="Buscar por nombre o categoría"
+        (onTargetSelect)="verDetalle($event)">
+        <ng-template let-product pTemplate="item">
+            <div class="product-item">
+                <div class="product-list-detail">
+                  <div>
+                    <span>{{product.nombre}}</span>
+                  </div>
+                  <div>
+                    <span class="categoria">{{product.categoria}} - {{product.tipo}}</span>
+                    &nbsp;
+                    <span class="pi pi-pencil p-button-secondary" *ngIf="product.usuario == 'usuario'" 
+                    pTooltip="Editar alimento"
+                    p-tooltip-text (click)="editar(product)"></span>
+                    &nbsp;
+                    <span class="pi pi-trash p-button-danger" *ngIf="product.usuario == 'usuario'" 
+                    pTooltip="Eliminar alimento"
+                    p-tooltip-text (click)="eliminarAlimento(product)"></span>
+                  </div>
+                </div>
+            </div>
+        </ng-template>
+      </p-pickList>
+    </div>
+    <div class="p-col-12 p-md-4 p-lg-4">
+      <p-panel header="Descipción del alimento">
+        <div class="categoria descripcion-alimento" *ngIf="seleccionado == null || alimentosSeleccionados.length == 0">
+          Selecione un alimento de la lista de alimentos para ver la composisión del mismo
+        </div>
+        <div *ngIf="seleccionado != null && alimentosSeleccionados.length > 0" class="p-grid descripcion-alimento">
+          <div class="p-col-12 p-md-8 p-lg-8 fila">
+            <span class="nombre-descripcion">MS (%)</span>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">
+            {{obtenerValor(seleccionado['ms'])}}
+          </div>
+          <div class="p-col-12 p-md-8 p-lg-8">
+            <span class="nombre-descripcion">ED,(Mcal/kg MS)</span>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+            {{obtenerValor(seleccionado['ed'])}}
+          </div>
+          <div class="p-col-12 p-md-8 p-lg-8 fila ">
+            <span class="nombre-descripcion">FDA (% MS)</span>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">
+            {{obtenerValor(seleccionado['fda'])}}
+          </div>
+          <div class="p-col-12 p-md-8 p-lg-8 ">
+            <span class="nombre-descripcion">FDN (%MS)</span>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+            {{obtenerValor(seleccionado['fdn'])}}
+          </div>
+          <div class="p-col-12 p-md-8 p-lg-8 fila ">
+            <span class="nombre-descripcion">PB( %MS)</span>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">
+            {{obtenerValor(seleccionado['ms'])}}
+          </div>
+          <div class="p-col-12 p-md-8 p-lg-8">
+            <span class="nombre-descripcion">Almidón (%MS)</span>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+            {{obtenerValor(seleccionado['almidon'])}}
+          </div>
+          <div class="p-col-12 p-md-8 p-lg-8 fila ">
+            <span class="nombre-descripcion">Fracción A (%PB)</span>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">
+            {{obtenerValor(seleccionado['fraccionA'])}}
+          </div>
+          <div class="p-col-12 p-md-8 p-lg-8">
+            <span class="nombre-descripcion">Fracción B (% PB)</span>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+            {{obtenerValor(seleccionado['fraccionB'])}}
+          </div>
+          <div class="p-col-12 p-md-8 p-lg-8 fila ">
+            <span class="nombre-descripcion">Fracción C (% PB)</span>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">
+            {{obtenerValor(seleccionado['fraccionC'])}}
+          </div>
+          <div class="p-col-12 p-md-8 p-lg-8">
+            <span class="nombre-descripcion">Digestibilidad PNDR (%PNDR)</span>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+            {{obtenerValor(seleccionado['digestibilidadPndr'])}}
+          </div>
+          <div class="p-col-12 p-md-8 p-lg-8 fila ">
+            <span class="nombre-descripcion">kd Fracción B</span>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">
+            {{obtenerValor(seleccionado['kdFraccionB'])}}
+          </div>
+          <div class="p-col-12 p-md-8 p-lg-8">
+            <span class="nombre-descripcion">PNDR (%PB)</span>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+            {{obtenerValor(seleccionado['pndr'])}}
+          </div>
+          <div class="p-col-12 p-md-8 p-lg-8 fila ">
+            <span class="nombre-descripcion">Grasa cruda (%MS)</span>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">
+            {{obtenerValor(seleccionado['grasaCruda'])}}
+          </div>
+          <div class="p-col-12 p-md-8 p-lg-8">
+            <span class="nombre-descripcion">Cenizas (%MS)</span>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+            {{obtenerValor(seleccionado['ceniza'])}}
+          </div>
+          <div class="p-col-12 p-md-8 p-lg-8 fila ">
+            <span class="nombre-descripcion">Ca (%MS)</span>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">
+            {{obtenerValor(seleccionado['porcentajeCa'])}}
+          </div>
+          <div class="p-col-12 p-md-8 p-lg-8">
+            <span class="nombre-descripcion">P (%MS)</span>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+            {{obtenerValor(seleccionado['porcentajeP'])}}
+          </div>
+          <div class="p-col-12 p-md-8 p-lg-8 fila ">
+            <span class="nombre-descripcion">Na (%MS)</span>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">
+            {{obtenerValor(seleccionado['porcentajeNa'])}}
+          </div>
+          <div class="p-col-12 p-md-8 p-lg-8">
+            <span class="nombre-descripcion">Cl (%MS)</span>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+            {{obtenerValor(seleccionado['porcentajeCl'])}}
+          </div>
+          <div class="p-col-12 p-md-8 p-lg-8 fila ">
+            <span class="nombre-descripcion">K (%MS)</span>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">
+            {{obtenerValor(seleccionado['porcentajeK'])}}
+          </div>
+          <div class="p-col-12 p-md-8 p-lg-8">
+            <span class="nombre-descripcion">Mg (mg/kg)</span>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+            {{obtenerValor(seleccionado['porcentajeMg'])}}
+          </div>
+          <div class="p-col-12 p-md-8 p-lg-8 fila ">
+            <span class="nombre-descripcion">S (%MS)</span>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">
+            {{obtenerValor(seleccionado['porcentajeS'])}}
+          </div>
+          <div class="p-col-12 p-md-8 p-lg-8">
+            <span class="nombre-descripcion">Coeficiente absorción Ca (g/g)</span>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+            {{obtenerValor(seleccionado['coeficienteAbsorcionCa'])}}
+          </div>
+          <div class="p-col-12 p-md-8 p-lg-8 fila ">
+            <span class="nombre-descripcion">Coeficiente absorción P (g/g)</span>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">
+            {{obtenerValor(seleccionado['coeficienteAbsorcionP'])}}
+          </div>
+          <div class="p-col-12 p-md-8 p-lg-8">
+            <span class="nombre-descripcion">Coeficiente absorción Na (g/g)</span>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+            {{obtenerValor(seleccionado['coeficienteAbsorcionNa'])}}
+          </div>
+          <div class="p-col-12 p-md-8 p-lg-8 fila ">
+            <span class="nombre-descripcion">Coeficiente absorción Cl (g/g)</span>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">
+            {{obtenerValor(seleccionado['coeficienteAbsorcionCl'])}}
+          </div>
+          <div class="p-col-12 p-md-8 p-lg-8">
+            <span class="nombre-descripcion">Coeficiente absorción K (g/g)</span>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+            {{obtenerValor(seleccionado['coeficienteAbsorcionK'])}}
+          </div>
+        </div>
+      </p-panel>
+    </div>
+</div>
+<div class="p-mt-3"></div>
+<div class="footer">
+  <p-button label="Anterior" icon="pi pi-arrow-left" iconPos="left" (click)="anterior()"></p-button>
+  <div class="p-mr-2"></div>
+  <p-button label="Siguiente" icon="pi pi-arrow-right" iconPos="right" (click)="siguiente()"></p-button>
+</div>
+<app-agregar-alimento [visible]="agregar" (change)="agregarAlimento($event)" (closed)="agregar = false" [bibliotecaDto]="alimentoDto"></app-agregar-alimento>
+<app-eliminar [visible]="eliminar" [alimento]="alimentoDto" (eliminar)="confirmarEliminar($event)"></app-eliminar>
