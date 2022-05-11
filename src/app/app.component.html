@@ -1,1 +1,82 @@
-<router-outlet></router-outlet>
+<div class="header">
+  <div style="display: flex;">
+    <div style="width: 35%;">
+      <a href="https://www.udea.edu.co" target="_blank" class="logo">
+        <img width="230" alt="Angular Logo" src="./assets/logo-udea.png"/>
+      </a>
+    </div>
+    <div style="width: 35%;">
+      <a href="https://www.politecnicojic.edu.co" target="_blank" class="logo">
+        <img width="250" alt="Angular Logo" src="./assets/logo-poli.png"/>
+      </a>
+    </div>
+    <div *ngIf="!isLoggedin" style="padding-left: 10%;">
+      <button id="google-auth-button" class="css-1i6ynxb" type="button" tabindex="0" (click)="loginWithGoogle()">
+        <span class="css-1ujqpe8">
+          <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.331/static/media/google-logo.e086107b.svg" alt="">
+        </span>
+        <span class="css-19r5em7" style="font-size: 16px;"><span>Iniciar sesión con Google</span></span>
+      </button>
+    </div>
+    <div *ngIf="isLoggedin" class="info-usuario">
+      <div class="p-grid">
+        <div class="p-text-right">
+          <div class="icono-usuario">
+            <span class="">{{nombre?.substring(0, 1) + '' + apellido?.substring(0, 1)}}</span>
+          </div>
+        </div>
+        <div class="p-col-12 p-md-9 p-lg-9">
+          <span class="nombre-usuario">{{nombreUsuario}}</span>
+          &nbsp;
+          <span class="descripcion">{{correo}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="isLoggedin">
+  <div class="content">
+      <div class="container">
+          <nav>
+              <ul>
+                <li>
+                  <a [routerLink]="['/inicio']" routerLinkActive="router-link-active" 
+                     [routerLinkActiveOptions]="{exact: true}" pTooltip="Inicio">
+                    <i class="pi pi-home animate__animated animate__zoomIn"></i>
+                  </a>
+                  <a [routerLink]="['/reportes']" routerLinkActive="router-link-active" 
+                     [routerLinkActiveOptions]="{exact: true}" pTooltip="Simulaciones">
+                    <i class="pi pi-chart-line animate__animated animate__zoomIn"></i>
+                  </a>
+                  <a [routerLink]="['/entradas']" routerLinkActive="router-link-active" 
+                     [routerLinkActiveOptions]="{exact: true}" pTooltip="Nueva simulación">
+                    <i class="pi pi-plus-circle animate__animated animate__zoomIn"></i>
+                  </a>
+                  <a [routerLink]="['/biblioteca']" routerLinkActive="router-link-active" 
+                     *ngIf="tipo == 'A'"
+                     [routerLinkActiveOptions]="{exact: true}" pTooltip="Biblioteca">
+                    <i class="pi pi-book animate__animated animate__zoomIn"></i>
+                  </a>
+                  <a [routerLink]="['/usuarios']" routerLinkActive="router-link-active" 
+                      *ngIf="tipo == 'A'" 
+                      [routerLinkActiveOptions]="{exact: true}" pTooltip="Usuarios">
+                    <i class="pi pi-users animate__animated animate__zoomIn"></i>
+                  </a>
+                  <a (click)="logOut()" style="cursor: pointer;" routerLinkActive="router-link-active" 
+                     [routerLinkActiveOptions]="{exact: true}" pTooltip="Cerrar sesión">
+                    <i class="pi pi-sign-in animate__animated animate__zoomIn"></i>
+                  </a>
+                </li>  
+              </ul>
+            </nav>
+      </div>
+      <div class="contenido-principal">
+          <div class="spinner" *ngIf="service.isProgress()">
+            <span class="label-spinner">Cargando...</span>
+            <p-progressSpinner [style]="{ width: '150px', height: '150px' }" styleClass="custom-spinner"
+              strokeWidth="3"></p-progressSpinner>
+          </div>
+          <router-outlet></router-outlet>
+      </div>
+  </div>    
+</div>

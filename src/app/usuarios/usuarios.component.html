@@ -1,0 +1,74 @@
+<div class="div-body">
+  <div>
+    <app-alerts [text]="text" type="success" *ngIf="text != ''" (change)="text = ''"></app-alerts>
+    <div class="p-mt-2"></div>
+    <p-table *ngIf="usuarios.length > 0" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
+      currentPageReportTemplate="{first} - {last} de {totalRecords} simulaciones" [rowsPerPageOptions]="[10,25,50]" [value]="usuarios"
+      [scrollable]="true" scrollHeight="65vh"  styleClass="p-datatable-striped" sortMode="single">
+      <ng-template pTemplate="header">
+          <tr>
+              <th  pSortableColumn="nombres">
+                Nombres
+                <p-sortIcon field="nombres"></p-sortIcon>
+              </th>
+              <th pSortableColumn="apellidos">
+                Apellidos
+                <p-sortIcon field="apellidos"></p-sortIcon>
+              </th>
+              <th  pSortableColumn="correo">
+                Correo electronico
+                <p-sortIcon field="correo"></p-sortIcon>
+              </th>
+              <th  pSortableColumn="tipo">
+                Tipo de usuario
+                <p-sortIcon field="tipo"></p-sortIcon>
+              </th>
+              <th  pSortableColumn="fechaCreacion">
+                Fecha de creación
+                <p-sortIcon field="fechaCreacion"></p-sortIcon>
+              </th>
+              <th  pSortableColumn="fechaSesion">
+                Fecha del ultimo incio de sesión
+                <p-sortIcon field="fechaSesion"></p-sortIcon>
+              </th>
+              <th style="width: 3rem"></th>
+          </tr>
+          <tr>
+            <th>
+              <p-columnFilter type="text" field="nombres" [showMenu]="false" [matchMode]="'contains'"></p-columnFilter>
+            </th>
+            <th>
+              <p-columnFilter type="text" field="apellidos" [showMenu]="false" [matchMode]="'contains'"></p-columnFilter>
+            </th>
+            <th>
+              <p-columnFilter type="text" field="correo" [showMenu]="false" [matchMode]="'contains'"></p-columnFilter>
+            </th>
+            <th>
+              <p-columnFilter type="text" field="tipo" [showMenu]="false" [matchMode]="'contains'"></p-columnFilter>
+            </th>
+            <th></th>
+            <th></th>
+            <th class="td-actions"></th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-usuario>
+          <tr>
+              <td>{{usuario.nombres}}</td>
+              <td>{{usuario.apellidos}}</td>
+              <td>{{usuario.correo}}</td>
+              <td>{{usuario.tipo == 'A' ? 'Adminitrador' : 'Usuario'}}</td>
+              <td>{{usuario.fechaCreacion | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+              <td>{{usuario.fechaSesion | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+              <td class="td-actions">
+                <span class="pi pi-pencil funcionalidad animate__animated animate__zoomIn"
+                  pTooltip="Editar usuario"
+                  tooltipPosition="top"
+                  p-tooltip-text (click)="editar(usuario)"></span>
+              </td>
+          </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+<app-editar-usuario *ngIf="verEditar" [visible]="verEditar" [usuario]="usuarioDto" (closed)="verEditar = false; usuarioDto = {}" (confirmar)="confirmar()"></app-editar-usuario>
+

@@ -1,0 +1,88 @@
+<div class="div-body">
+  <div class="div-content">
+    <app-alerts [text]="text" type="success" *ngIf="text != ''" (change)="text = ''"></app-alerts>
+    <button pButton pRipple type="button" label="Nuevo alimento" icon="pi pi-plus" class="p-button-success" (click)="alimentoDto = {}; agregar = true"></button>
+    <div class="p-mt-2"></div>
+    <div class="descripcion descripcion-alimento div-info " *ngIf="alimentos == null || alimentos.length == 0">
+      <div>
+        <span class="pi pi-info-circle icon-info"></span>
+      </div>
+      <div>
+        No se encontraron reportes asociados a tu usuario, crea uno para visualizarlo en esta pantalla.
+      </div>
+    </div>
+    <p-table *ngIf="alimentos.length > 0" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
+      currentPageReportTemplate="{first} - {last} de {totalRecords} alimentos" [rowsPerPageOptions]="[10,25,50]" 
+      [value]="alimentos" [scrollable]="true" scrollHeight="65vh" 
+      styleClass="p-datatable-striped" sortMode="single" [autoLayout]="true">
+      <ng-template pTemplate="header">
+          <tr>
+              <th pSortableColumn="nombre">
+                Nombre del alimento
+                <p-sortIcon field="nombre"></p-sortIcon>
+              </th>
+              <th pSortableColumn="categoria">
+                Categoría
+                <p-sortIcon field="categoria"></p-sortIcon>
+              </th>
+              <th pSortableColumn="tipo">
+                Tipo
+                <p-sortIcon field="tipo"></p-sortIcon>
+              </th>
+              <th pSortableColumn="usuario">
+                Usuario que creo
+                <p-sortIcon field="usuario"></p-sortIcon>
+              </th>
+              <th class="td-accion"></th>
+          </tr>
+          <tr>
+            <th>
+              <p-columnFilter type="text" field="nombre" [showMenu]="false" [matchMode]="'contains'"></p-columnFilter>
+            </th>
+            <th>
+              <p-columnFilter type="text" field="categoria" [showMenu]="false" [matchMode]="'contains'"></p-columnFilter>
+            </th>
+            <th>
+              <p-columnFilter type="text" field="tipo" [showMenu]="false" [matchMode]="'contains'"></p-columnFilter>
+            </th>
+            <th>
+              <p-columnFilter type="text" field="usuario" [showMenu]="false" [matchMode]="'contains'"></p-columnFilter>
+            </th>
+            <th></th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-aliento>
+          <tr>
+              <td>{{aliento.nombre}}</td>
+              <td>{{aliento.categoria}}</td>
+              <td>{{aliento.tipo}}</td>
+              <td>{{aliento.usuario}}</td>
+              <td class="td-accion">
+                <span class="pi pi-pencil p-button-secondary funcionalidad animate__animated animate__zoomIn"
+                pTooltip="Editar alimento"
+                tooltipPosition="top"
+                p-tooltip-text (click)="editar(aliento)"></span>
+                
+                <div class="p-mr-2"></div>
+                
+                <span class="pi pi-copy funcionalidad animate__animated animate__zoomIn"
+                pTooltip="Crear una copia del alimento"
+                tooltipPosition="top"
+                p-tooltip-text (click)="copia(aliento)"></span>
+
+                <div class="p-mr-2"></div>
+
+                <span class="pi pi-trash p-button-danger funcionalidad animate__animated animate__zoomIn" 
+                  pTooltip="Eliminar alimento"
+                  tooltipPosition="top"
+                  p-tooltip-text (click)="eliminarAlimento(aliento)"></span>
+              </td>
+          </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+<app-agregar-alimento *ngIf="agregar" [visible]="agregar" (confirmar)="agregarAlimento($event)" (closed)="agregar = false" [bibliotecaDto]="alimentoDto"></app-agregar-alimento>
+<app-eliminar *ngIf="eliminar" [visible]="eliminar" [alimento]="alimentoDto" (eliminar)="confirmarEliminar($event)"></app-eliminar>
+
+

@@ -25,7 +25,8 @@ import {RadioButtonModule} from 'primeng/radiobutton';
 import {PickListModule} from 'primeng/picklist';
 import {DialogModule} from "primeng/dialog";
 import {PanelModule} from 'primeng/panel';
-
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import { AccordionModule } from 'primeng/accordion';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,9 @@ import {PanelModule} from 'primeng/panel';
     RadioButtonModule,
     PickListModule,
     DialogModule,
-    PanelModule
+    PanelModule,
+    ProgressSpinnerModule,
+    AccordionModule
   ],
   exports: [
     ToastComponent,
@@ -78,7 +81,9 @@ import {PanelModule} from 'primeng/panel';
     RadioButtonModule,
     PickListModule,
     DialogModule,
-    PanelModule
+    PanelModule,
+    ProgressSpinnerModule,
+    AccordionModule
   ],
   providers: [
     MessageService

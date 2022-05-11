@@ -5,6 +5,8 @@ import { CancelarComponent } from './cancelar/cancelar.component';
 import {PrimeModule} from "../primeNG/prime.module";
 import { AgregarAlimentoComponent } from './agregar-alimento/agregar-alimento.component';
 import { EliminarComponent } from './eliminar/eliminar.component';
+import { MomentPipe } from './moment.pipe';
+import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 
 @NgModule({
   declarations: [
@@ -12,7 +14,9 @@ import { EliminarComponent } from './eliminar/eliminar.component';
     AppAlertsComponent,
     CancelarComponent,
     AgregarAlimentoComponent,
-    EliminarComponent
+    EliminarComponent,
+    MomentPipe,
+    EditarUsuarioComponent
   ],
   imports: [
     PrimeModule
@@ -22,7 +26,9 @@ import { EliminarComponent } from './eliminar/eliminar.component';
     AppAlertsComponent,
     CancelarComponent,
     AgregarAlimentoComponent,
-    EliminarComponent
+    EliminarComponent,
+    MomentPipe,
+    EditarUsuarioComponent
   ],
   providers: [],
 })

@@ -1,32 +1,81 @@
 <div class="div-body">
   <div>
-    <button pButton pRipple type="button" label="Nuevo reporte" icon="pi pi-plus" class="p-button-success" (click)="nuevoReporte()"></button>
+    <app-alerts [text]="text" type="success" *ngIf="text != ''" (change)="text = ''"></app-alerts>
+    <button pButton pRipple type="button" label="Nueva simulación" icon="pi pi-plus" class="p-button-success" (click)="nuevoReporte()"></button>
     <div class="p-mt-2"></div>
-    <p-table [value]="customers" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
-      currentPageReportTemplate="{first} - {last} de {totalRecords} reportes" [rowsPerPageOptions]="[10,25,50]">
+    <div class="descripcion descripcion-alimento div-info " *ngIf="resportes == null || resportes.length == 0">
+      <div>
+        <span class="pi pi-info-circle icon-info"></span>
+      </div>
+      <div>
+        No se encontraron reportes asociados a tu usuario, crea uno para visualizarlo en esta pantalla.
+      </div>
+    </div>
+    <p-table *ngIf="resportes.length > 0" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
+      currentPageReportTemplate="{first} - {last} de {totalRecords} reportes" [rowsPerPageOptions]="[10,25,50]" [value]="resportes"
+      [scrollable]="true" scrollHeight="65vh"  styleClass="p-datatable-striped" sortMode="single" [autoLayout]="true">
       <ng-template pTemplate="header">
           <tr>
-              <th>Nombre del reporte</th>
+              <th  pSortableColumn="nombre">
+                Nombre de la simulación
+                <p-sortIcon field="nombre"></p-sortIcon>
+              </th>
               <th>País</th>
-              <th>Departamento/Estado</th>
-              <th>Municipio</th>
-              <th>Fecha de creación</th>
+              <th  pSortableColumn="departamento">
+                Departamento/Estado
+                <p-sortIcon field="departamento"></p-sortIcon>
+              </th>
+              <th  pSortableColumn="municipio">
+                Municipio
+                <p-sortIcon field="municipio"></p-sortIcon>
+              </th>
+              <th  pSortableColumn="fechaCreacion">
+                Fecha de creación
+                <p-sortIcon field="fechaCreacion"></p-sortIcon>
+              </th>
               <th></th>
+          </tr>
+          <tr>
+            <th>
+              <p-columnFilter type="text" field="nombreReporte" [showMenu]="false" [matchMode]="'contains'"></p-columnFilter>
+            </th>
+            <th>
+              <p-columnFilter type="text" field="pais" [showMenu]="false" [matchMode]="'contains'"></p-columnFilter>
+            </th>
+            <th>
+              <p-columnFilter type="text" field="departamento.nombreDepartamento" [showMenu]="false" [matchMode]="'contains'"></p-columnFilter>
+            </th>
+            <th>
+              <p-columnFilter type="text" field="municipio.municipio" [showMenu]="false" [matchMode]="'contains'"></p-columnFilter>
+            </th>
+            <th></th>
+            <th class="td-actions"></th>
           </tr>
       </ng-template>
       <ng-template pTemplate="body" let-customer>
           <tr>
-              <td>{{customer.name}}</td>
-              <td>{{customer.country.name}}</td>
-              <td>{{customer.company}}</td>
-              <td>{{customer.representative.name}}</td>
+              <td>{{customer.nombreReporte}}</td>
+              <td>{{customer.pais}}</td>
+              <td>{{customer.departamento.nombreDepartamento}}</td>
+              <td>{{customer.municipio.municipio}}</td>
+              <td>{{customer.fechaCreacion | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+              <td class="td-actions">
+                <span class="pi pi-pencil funcionalidad animate__animated animate__zoomIn"
+                  pTooltip="Editar simulación"
+                  tooltipPosition="top"
+                  p-tooltip-text (click)="editar(customer)"></span>
+
+                  <span class="pi pi-copy funcionalidad animate__animated animate__zoomIn"
+                  pTooltip="Crear una copia de la simulación"
+                  tooltipPosition="top"
+                  p-tooltip-text (click)="copia(customer)"></span>
+
+                  <span class="pi pi-cloud-download funcionalidad animate__animated animate__zoomIn"
+                  pTooltip="Descargar reporte"
+                  tooltipPosition="top"
+                  p-tooltip-text (click)="descargar(customer)"></span>
+              </td>
           </tr>
-      </ng-template>
-      <ng-template pTemplate="paginatorleft">
-          <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
-      </ng-template>
-      <ng-template pTemplate="paginatorright">
-          <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
       </ng-template>
     </p-table>
   </div>

@@ -1,227 +1,251 @@
-<div class="div-body">
+<div class="div-body animate__animated animate__fadeInDown">
   <p-tabView [(activeIndex)]="activeIndex1">
     <p-tabPanel>
+      <div class="p-mt-3"></div>
       <ng-template pTemplate="header">
         <i class="pi pi-calendar"></i>
         <div class="p-mr-2"></div>
-        <span>Información general del reporte</span>
+        <span>Información general de la simulación</span>
         </ng-template>
-          <app-alerts [text]="text" type="danger" *ngIf="text != ''" (change)="text = ''"></app-alerts>
-          <h3>Información general</h3>
+        <app-alerts [text]="text" type="danger" *ngIf="text != ''" (change)="text = ''"></app-alerts>
+        <p-accordion [multiple]="true">
+          <p-accordionTab header="Información general" [selected]="true">
+            <div class="p-grid">
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <app-label label="Nombre de la simulación"></app-label>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-8">
+                <input type="text" pInputText [(ngModel)]="entrada.nombreReporte" [required]="true" id="nombreReporte">
+              </div>
+            </div>
+  
+            <div class="p-mt-2"></div>
+  
+            <div class="p-grid">
+              <div class="p-col-12 p-md-6 p-lg-4">
+                  <app-label label="País"></app-label>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <app-label label="Departamento/Estado"></app-label>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <app-label label="Municipio"></app-label>
+              </div>
+            </div>
+            <div class="p-grid">
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <p-dropdown [options]="paises" [(ngModel)]="entrada.pais" styleClass="width_full"
+                  placeholder="Seleccione..." optionLabel="nombre" optionValue="nombre"
+                  [showClear]="true" optionDisabled="inactive" [required]="true">
+                </p-dropdown>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <p-dropdown [options]="departamentos" [(ngModel)]="entrada.departamentoDto" styleClass="width_full"
+                  placeholder="Seleccione..." optionLabel="nombreDepartamento" optionValue="id"
+                  [showClear]="true" optionDisabled="inactive" [required]="true" (onChange)="consultarMunicipios($event)"
+                  [disabled]="entrada.pais == null">
+                </p-dropdown>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <p-dropdown [options]="municipios" [(ngModel)]="entrada.municipioDto" styleClass="width_full"
+                  placeholder="Seleccione..." optionLabel="municipio" optionValue="id"
+                  [showClear]="true" optionDisabled="inactive" [required]="true">
+                </p-dropdown>
+              </div>
+            </div>
+          </p-accordionTab>
+          <p-accordionTab header="Descripción del animal" [selected]="true">
+            <div class="p-grid">
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <app-label label="Raza"></app-label>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <app-label label="Tipo de animal"></app-label>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <app-label label="Peso corporal"></app-label>
+              </div>
+            </div>
+            <div class="p-grid">
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <p-dropdown [options]="razas" [(ngModel)]="entrada.raza" styleClass="width_full"
+                  placeholder="Seleccione..." optionLabel="nombre" optionValue="nombre"
+                  [showClear]="true" optionDisabled="inactive" [required]="true">
+                </p-dropdown>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <p-dropdown [options]="tipos" [(ngModel)]="entrada.tipoAnimal" styleClass="width_full"
+                  placeholder="Seleccione..." optionLabel="nombre" optionValue="nombre"
+                  [showClear]="true" optionDisabled="inactive" [required]="true">
+                </p-dropdown>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <p-inputNumber [(ngModel)]="entrada.pesoCorporal" suffix=" Kg" [min]="0" mode="decimal" 
+                  [required]="true" decimalSeparator="," thousandSeparator="." placeholder="Kg"></p-inputNumber>
+              </div>
+            </div>
+  
+            <div class="p-mt-2"></div>
+  
+            <div class="p-grid">
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <app-label label="Condición corporal"></app-label>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <app-label label="Días en leche"></app-label>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <app-label label="Días de preñez"></app-label>
+              </div>
+            </div>
+            <div class="p-grid">
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <p-dropdown [options]="condiciones" [(ngModel)]="entrada.condicionCorporal" styleClass="width_full"
+                placeholder="Seleccione..." [showClear]="true" optionDisabled="inactive" [required]="true">
+                </p-dropdown>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <p-inputNumber [(ngModel)]="entrada.diasLeche" suffix=" días" [min]="0" mode="decimal" placeholder="días" [required]="true"></p-inputNumber>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <p-inputNumber [(ngModel)]="entrada.diasPrenez" suffix=" días" [min]="0" mode="decimal" placeholder="días" [required]="true"></p-inputNumber>
+              </div>
+            </div>
+  
+            <div class="p-mt-2"></div>
+  
+            <div class="p-grid">
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <app-label label="Número de partos"></app-label>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <app-label label="Intervalo entre partos"></app-label>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <app-label label="Ganancia de peso, kg/día"></app-label>
+              </div>
+            </div>
+            <div class="p-grid">
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <p-inputNumber [(ngModel)]="entrada.numeroParto" [min]="0" mode="decimal" [required]="true"></p-inputNumber>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <p-inputNumber [(ngModel)]="entrada.intervaloParto" suffix=" días" [min]="0" mode="decimal" placeholder="días" [required]="true"></p-inputNumber>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <p-inputNumber [(ngModel)]="entrada.gananciaPeso" suffix=" Kg" [min]="0" mode="decimal" placeholder="kg" [required]="true" [minFractionDigits]="2"></p-inputNumber>
+              </div>
+            </div>
+          </p-accordionTab>
+          <p-accordionTab header="Producción" [selected]="true">
+            <label>Composición de la leche</label>
+            <div class="p-mt-2"></div>
+  
+            <div class="p-grid">
+              <div class="p-col-12 p-md-6 p-lg-3">
+                <app-label label="Grasa"></app-label>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-3">
+                <app-label label="Proteína cruda"></app-label>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-3">
+                <app-label label="Lactosa"></app-label>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-3">
+                <app-label label="Precio de venta (Litro)"></app-label>
+              </div>
+            </div>
+            <div class="p-grid">
+              <div class="p-col-12 p-md-6 p-lg-3">
+                <p-inputNumber [(ngModel)]="entrada.grasa" suffix=" %" [min]="0" [max]="100" mode="decimal" [minFractionDigits]="2" placeholder="%" [required]="true"
+                decimalSeparator="," thousandSeparator="."></p-inputNumber>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-3">
+                <p-inputNumber [(ngModel)]="entrada.proteinaCruda" suffix=" %" [min]="0" [max]="100" mode="decimal" [minFractionDigits]="2" placeholder="%" [required]="true"
+                decimalSeparator="," thousandSeparator="."></p-inputNumber>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-3">
+                <p-inputNumber [(ngModel)]="entrada.lactosa" suffix=" %" [min]="0" [max]="100" mode="decimal" [minFractionDigits]="2" placeholder="%" [required]="true"
+                  decimalSeparator="," thousandSeparator="."></p-inputNumber>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-3">
+                <p-inputNumber [(ngModel)]="entrada.precioVenta" prefix="$ " mode="decimal" [minFractionDigits]="2" placeholder="$" [required]="true"
+                decimalSeparator="," thousandSeparator="."></p-inputNumber>
+              </div>
+            </div>
+            
+            <div class="p-mt-2"></div>
 
-          <div class="p-grid">
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <app-label label="Nombre del reporte"></app-label>
+            <div class="p-grid">
+              <div class="p-col-12 p-md-6 p-lg-3">
+                <app-label label="Producción de leche, litros/día"></app-label>
+              </div>
             </div>
-            <div class="p-col-12 p-md-6 p-lg-8">
-              <input type="text" pInputText [(ngModel)]="nombreReporte" [required]="true" id="nombreReporte">
+            <div class="p-grid">
+              <div class="p-col-12 p-md-6 p-lg-3">
+                <p-inputNumber [(ngModel)]="entrada.produccionLeche" [min]="0" mode="decimal" [required]="true" placeholder="litros/día"></p-inputNumber>
+              </div>
             </div>
-          </div>
-
-          <div class="p-mt-2"></div>
-
-          <div class="p-grid">
-            <div class="p-col-12 p-md-6 p-lg-4">
-                <app-label label="País"></app-label>
+            <p-divider></p-divider>
+            <h3>Manejo</h3>
+  
+            <div class="p-grid">
+              <div class="field-radiobutton">
+                <p-radioButton value="confinamiento" [(ngModel)]="entrada.manejo"></p-radioButton>
+                <label class="p-text-bold label">&nbsp;Confinamiento</label>
+              </div>
+              <div class="p-mr-3"></div>
+              <div class="field-radiobutton">
+                <p-radioButton value="pastoreo" [(ngModel)]="entrada.manejo"></p-radioButton>
+                <label class="p-text-bold label">&nbsp;Pastoreo</label>
+              </div>
             </div>
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <app-label label="Departamento/Estado"></app-label>
+            <div class="p-mt-3"></div>
+            <div class="p-grid">
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <app-label label="Distancia entre la sala ordeño y la pradera" [required]="entrada.manejo == 'pastoreo'"></app-label>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <app-label label="Número de viajes" [required]="entrada.manejo == 'pastoreo'"></app-label>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <app-label label="Topografía" [required]="entrada.manejo == 'pastoreo'"></app-label>
+              </div>
             </div>
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <app-label label="Municipio"></app-label>
+            <div class="p-grid">
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <p-inputNumber [(ngModel)]="entrada.distancia" suffix=" m" [min]="0" [disabled]="entrada.manejo == 'confinamiento'"
+                  mode="decimal" [minFractionDigits]="2" placeholder="m" [required]="entrada.manejo == 'pastoreo'"
+                  decimalSeparator="," thousandSeparator="."></p-inputNumber>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <p-inputNumber [(ngModel)]="entrada.numeroViajes" [disabled]="entrada.manejo == 'confinamiento'"
+                  [min]="0" mode="decimal" [required]="entrada.manejo == 'pastoreo'"></p-inputNumber>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-4">
+                <p-dropdown [options]="tipografias" [(ngModel)]="entrada.tipografia" styleClass="width_full"
+                  placeholder="Seleccione..." optionLabel="nombre" optionValue="nombre"
+                  [showClear]="true" optionDisabled="inactive"
+                  [disabled]="entrada.manejo == 'confinamiento'" [required]="entrada.manejo == 'pastoreo'">
+                </p-dropdown>
+              </div>
             </div>
-          </div>
-          <div class="p-grid">
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <p-dropdown [options]="paises" [(ngModel)]="pais" styleClass="width_full"
-                placeholder="Seleccione..." optionLabel="nombre" optionValue="nombre"
-                [showClear]="true" optionDisabled="inactive" [required]="true">
-              </p-dropdown>
-            </div>
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <p-dropdown [options]="departamentos" [(ngModel)]="departamento" styleClass="width_full"
-                placeholder="Seleccione..." optionLabel="nombreDepartamento" optionValue="id"
-                [showClear]="true" optionDisabled="inactive" [required]="true" (onChange)="consultarMunicipios($event)"
-                [disabled]="pais == null">
-              </p-dropdown>
-            </div>
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <p-dropdown [options]="municipios" [(ngModel)]="municipio" styleClass="width_full"
-                placeholder="Seleccione..." optionLabel="municipio" optionValue="id"
-                [showClear]="true" optionDisabled="inactive" [required]="true">
-              </p-dropdown>
-            </div>
-          </div>
-
-          <p-divider></p-divider>
-          <h3>Descripción del animal</h3>
-
-          <div class="p-grid">
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <app-label label="Raza"></app-label>
-            </div>
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <app-label label="Tipo de animal"></app-label>
-            </div>
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <app-label label="Peso corporal"></app-label>
-            </div>
-          </div>
-          <div class="p-grid">
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <p-dropdown [options]="razas" [(ngModel)]="raza" styleClass="width_full"
-                placeholder="Seleccione..." optionLabel="nombre" optionValue="nombre"
-                [showClear]="true" optionDisabled="inactive" [required]="true">
-              </p-dropdown>
-            </div>
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <p-dropdown [options]="tipos" [(ngModel)]="tipoAnimal" styleClass="width_full"
-                placeholder="Seleccione..." optionLabel="nombre" optionValue="nombre"
-                [showClear]="true" optionDisabled="inactive" [required]="true">
-              </p-dropdown>
-            </div>
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <p-inputNumber [(ngModel)]="peso" suffix=" Kg" [min]="0" [max]="100" mode="decimal" [required]="true"></p-inputNumber>
-            </div>
-          </div>
-
-          <div class="p-mt-2"></div>
-
-          <div class="p-grid">
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <app-label label="Condición corporal"></app-label>
-            </div>
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <app-label label="Días en leche"></app-label>
-            </div>
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <app-label label="Días de preñez"></app-label>
-            </div>
-          </div>
-          <div class="p-grid">
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <p-inputNumber [(ngModel)]="condicion" [min]="1" [max]="5" mode="decimal" placeholder="1-5" [required]="true"></p-inputNumber>
-            </div>
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <p-inputNumber [(ngModel)]="diasPrenez" suffix=" Días" [min]="0" [max]="100" mode="decimal" placeholder="Días" [required]="true"></p-inputNumber>
-            </div>
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <p-inputNumber [(ngModel)]="diasLecha" suffix=" Días" [min]="0" [max]="100" mode="decimal" placeholder="Días" [required]="true"></p-inputNumber>
-            </div>
-          </div>
-
-          <div class="p-mt-2"></div>
-
-          <div class="p-grid">
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <app-label label="Número de partos"></app-label>
-            </div>
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <app-label label="Intervalo entre partos"></app-label>
-            </div>
-          </div>
-          <div class="p-grid">
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <p-inputNumber [(ngModel)]="numeroPartos" [min]="0" [max]="100" mode="decimal" [required]="true"></p-inputNumber>
-            </div>
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <p-inputNumber [(ngModel)]="intervaloPartos" suffix=" Días" [min]="0" [max]="100" mode="decimal" placeholder="Días" [required]="true"></p-inputNumber>
-            </div>
-          </div>
-
-          <p-divider></p-divider>
-          <h3>Producción</h3>
-          <label>Composición de la leche</label>
-          <div class="p-mt-2"></div>
-
-          <div class="p-grid">
-            <div class="p-col-12 p-md-6 p-lg-3">
-              <app-label label="Grasa"></app-label>
-            </div>
-            <div class="p-col-12 p-md-6 p-lg-3">
-              <app-label label="Proteína cruda"></app-label>
-            </div>
-            <div class="p-col-12 p-md-6 p-lg-3">
-              <app-label label="Lactosa"></app-label>
-            </div>
-            <div class="p-col-12 p-md-6 p-lg-3">
-              <app-label label="Precio de venta (Litro)"></app-label>
-            </div>
-          </div>
-          <div class="p-grid">
-            <div class="p-col-12 p-md-6 p-lg-3">
-              <p-inputNumber [(ngModel)]="porGrasa" suffix=" %" [min]="0" [max]="100" mode="decimal" [minFractionDigits]="1" placeholder="%" [required]="true"></p-inputNumber>
-            </div>
-            <div class="p-col-12 p-md-6 p-lg-3">
-              <p-inputNumber [(ngModel)]="porProteina" suffix=" %" [min]="0" [max]="100" mode="decimal" [minFractionDigits]="1" placeholder="%" [required]="true"></p-inputNumber>
-            </div>
-            <div class="p-col-12 p-md-6 p-lg-3">
-              <p-inputNumber [(ngModel)]="porLactosa" suffix=" %" [min]="0" [max]="100" mode="decimal" [minFractionDigits]="1" placeholder="%" [required]="true"></p-inputNumber>
-            </div>
-            <div class="p-col-12 p-md-6 p-lg-3">
-              <p-inputNumber [(ngModel)]="precioVenta" prefix="$ " mode="decimal" locale="en-US" [minFractionDigits]="2" placeholder="$" [required]="true"></p-inputNumber>
-            </div>
-          </div>
-
-          <p-divider></p-divider>
-          <h3>Manejo</h3>
-
-          <div class="p-grid">
-            <div class="field-radiobutton">
-              <p-radioButton value="confinamiento" [(ngModel)]="manejo"></p-radioButton>
-              <label class="p-text-bold label">&nbsp;Confinamiento</label>
-            </div>
-            <div class="p-mr-3"></div>
-            <div class="field-radiobutton">
-              <p-radioButton value="pastoreo" [(ngModel)]="manejo"></p-radioButton>
-              <label class="p-text-bold label">&nbsp;Pastoreo</label>
-            </div>
-          </div>
-          <div class="p-mt-3"></div>
-          <div class="p-grid">
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <app-label label="Distancia entre la sala ordeño y la pradera"></app-label>
-            </div>
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <app-label label="Número de viajes"></app-label>
-            </div>
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <app-label label="Tipografía"></app-label>
-            </div>
-          </div>
-          <div class="p-grid">
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <p-inputNumber [(ngModel)]="distanciaOrdeno" suffix=" m" [min]="0" [max]="100"
-                [disabled]="manejo == 'confinamiento'"
-                mode="decimal" [minFractionDigits]="2" placeholder="m" [required]="manejo == 'pastoreo'"></p-inputNumber>
-            </div>
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <p-inputNumber [(ngModel)]="numeroViajes" [disabled]="manejo == 'confinamiento'"
-                [min]="0" [max]="100" mode="decimal" [required]="manejo == 'pastoreo'"></p-inputNumber>
-            </div>
-            <div class="p-col-12 p-md-6 p-lg-4">
-              <p-dropdown [options]="tipografias" [(ngModel)]="tipografica" styleClass="width_full"
-                placeholder="Seleccione..." optionLabel="nombre" optionValue="nombre"
-                [showClear]="true" optionDisabled="inactive"
-                [disabled]="manejo == 'confinamiento'" [required]="manejo == 'pastoreo'">
-              </p-dropdown>
-            </div>
-          </div>
-
-          <div class="p-mt-2"></div>
-          <div class="footer">
-            <button pButton pRipple type="button" label="Cancelar" class="p-button-outlined" (click)="cancelar = true"></button>
-            <div class="p-mr-2"></div>
-            <p-button label="Continuar" icon="pi pi-arrow-right" iconPos="right" (click)="siguiente()"></p-button>
-          </div>
+          </p-accordionTab>
+      </p-accordion>
+      <div class="p-mt-2"></div>
+      <div class="footer">
+        <button pButton pRipple type="button" label="Cancelar" class="p-button-outlined" (click)="cancelar = true"></button>
+        <div class="p-mr-2"></div>
+        <button pButton pRipple type="button" class="p-button-success" label="Continuar" icon="pi pi-arrow-right" iconPos="right" (click)="siguiente()"></button>
+      </div>
     </p-tabPanel>
     <p-tabPanel [disabled]="activeIndex1 != 1">
       <ng-template pTemplate="header">
         <i class="pi pi-chart-bar"></i>
         <div class="p-mr-2"></div>
-        <span>Alimnetación</span>
+        <span>Alimentos</span>
       </ng-template>
-      <app-alimentos [alimentosSeleccionados]="alimentosSeleccionados" (confirmar)="confirmarAlimentos($event)" (atras)="tabAnterior()"></app-alimentos>
+      <app-alimentos [alimentosSeleccionados]="alimentosSeleccionados" [dieta]="dieta" (confirmar)="confirmarAlimentos($event)" (atras)="tabAnterior()"></app-alimentos>
     </p-tabPanel>
     <p-tabPanel [disabled]="activeIndex1 != 2">
       <ng-template pTemplate="header">
@@ -230,7 +254,15 @@
         <span>Dieta</span>
       </ng-template>
       <app-dieta *ngIf="activeIndex1 == 2" [alimentosSeleccionados]="alimentosSeleccionados" (atras)="tabAnterior()"
-        [alimentos]="dieta" (confirmar)="dieta = $event"></app-dieta>
+        [alimentos]="dieta" (confirmar)="dieta = $event" (continuar)="tabSiguiente()"></app-dieta>
+    </p-tabPanel>
+    <p-tabPanel [disabled]="activeIndex1 != 3">
+      <ng-template pTemplate="header">
+        <i class="pi pi-chart-line"></i>
+        <div class="p-mr-2"></div>
+        <span>Balance</span>
+      </ng-template>
+      <app-balance *ngIf="activeIndex1 == 3" (atras)="tabAnterior()" (confirmar)="guardar(false)" (abriDescargar)="guardar(true)"></app-balance>
     </p-tabPanel>
   </p-tabView>
 </div>

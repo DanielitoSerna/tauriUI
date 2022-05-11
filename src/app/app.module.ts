@@ -13,6 +13,13 @@ import { AppService } from './app.services';
 import { HttpClientModule } from '@angular/common/http';
 import { AlimnetosComponent } from './alimentos/alimentos.component';
 import { DietaComponent } from './dieta/dieta.component';
+import { BibliotecaComponent } from './biblioteca/biblioteca.component';
+import { BalanceComponent } from './balance/balance.component';
+import { InicioComponent } from './inicio/inicio.component';
+import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+import { GoogleLoginProvider } from 'angularx-social-login';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+
 
 @NgModule({
   declarations: [
@@ -20,16 +27,35 @@ import { DietaComponent } from './dieta/dieta.component';
     EntradasComponent,
     ReportesComponent,
     AlimnetosComponent,
-    DietaComponent
+    DietaComponent,
+    BibliotecaComponent,
+    BalanceComponent,
+    InicioComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     PrimeModule,
     ComponentesModule,
-    HttpClientModule
+    HttpClientModule,
+    SocialLoginModule,
   ],
-  providers: [AppService],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider('326021480668-hhiucsmi7at1m2grc24ne5u01fh7q1v1.apps.googleusercontent.com'),
+          },
+        ],
+      } as SocialAuthServiceConfig,
+    },
+    AppService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

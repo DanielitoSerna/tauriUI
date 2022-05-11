@@ -20,15 +20,15 @@ export class EliminarComponent implements OnInit {
   }
 
   no() {
-    this.eliminar.emit(null);
     this.visible = false;
+    this.eliminar.emit(null);
   }
 
   si() {
     if (this.alimento.id != null) {
       this.service.eliminarBiblioteca(this.alimento.id).then(data => {
-        this.eliminar.emit(this.alimento);
         this.visible = false;
+        this.eliminar.emit(this.alimento);
       });
     }
   }

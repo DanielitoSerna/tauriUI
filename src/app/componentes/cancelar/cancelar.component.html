@@ -6,14 +6,17 @@
           [resizable]="false"
           (onHide)="close()"
           [(visible)]="visible"
-          [style]="{width: '550px', height: '200px'}"
+          [style]="{width: '550px', height: '230px'}"
           header="¿Esta seguro que desea cancelar la transacción?"
-          styleClass="modal-cancelar">
+          styleClass="modal-cancelar animate__animated animate__fadeInDown">
+          <div>
+            <span class="descripcion">Si cancela se perderan los datos ingresados o modificaciones realizadas</span>
+          </div>
           <div class="modal-footer">
             <div class="wrapper">
               <button pButton pRipple type="button" label="No" class="p-button-outlined" (click)="close()"></button>
               <div class="p-mr-2"></div>
-              <p-button label="Si" (click)="atras()"></p-button>
+              <button pButton pRipple type="button" class="p-button-success" label="Si, estoy seguro" (click)="atras()"></button>
             </div>
           </div>
 </p-dialog>

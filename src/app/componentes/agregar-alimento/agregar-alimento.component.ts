@@ -9,7 +9,7 @@ import { AppService } from '../../app.services';
 export class AgregarAlimentoComponent implements OnInit {
 
   @Input() visible = true;
-  @Output() change = new EventEmitter<any>();
+  @Output() confirmar = new EventEmitter<any>();
   @Output() closed = new EventEmitter<any>();
   @Input() bibliotecaDto:any = {};
 
@@ -26,17 +26,28 @@ export class AgregarAlimentoComponent implements OnInit {
 
   }
 
+  cancelar() {
+    this.bibliotecaDto = {};
+    this.visible = false;
+    this.closed.emit();
+  }
+
   guardar() {
-    alert('paso a guardar');
     if(this.bibliotecaDto.tipo == null || this.bibliotecaDto.nombre == null || this.bibliotecaDto.categoria == null){
       this.text = 'Debe ingresar todos los datos del formulario marcados como requeridos para poder continuar, por favor verifique';
       document.getElementById("nombreAlimento")?.focus();
     } else {
-      this.bibliotecaDto.usuario = "usuario";
+      if(this.bibliotecaDto.usuario == undefined) {
+        this.bibliotecaDto.usuario = localStorage.getItem("usuario");
+      } else if(this.bibliotecaDto.id == null) {
+        this.bibliotecaDto.usuario = "SISTEMA"
+      }
+      this.service.initProgress();
       this.service.guardarAlimento(this.bibliotecaDto).then(data => {
+        this.service.finishProgress();
         this.text = '';
         this.visible = false;
-        this.change.emit(data);
+        this.confirmar.emit(data);
       })
     }
   }

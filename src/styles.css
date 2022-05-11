@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import 'animate.css';
 
 body {
   font-size: 14px !important;
+  margin: 0px;
 }
 
 input {
@@ -52,9 +54,10 @@ input::placeholder {
 }
 
 .div-body {
-  padding: 30px;
-  display: flex;
+  padding: 20px;
   justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .label {
@@ -71,5 +74,127 @@ input::placeholder {
 }
 
 .fila {
-  background-color: #aba0a011;
+  background-color: #38f7070f;
+}
+
+.icon-info {
+  font-size: 50px !important;
+  padding-left: 40%;
+  padding-right: 40%;
+  padding-bottom: 5%;
+}
+
+.categoria {
+  color: #1E364580;
+  font: italic normal normal 13px/17px Open Sans;
+}
+
+.descripcion-alimento {
+  height: 40.5vh !important;
+  overflow: auto;
+  align-content: center;
+  padding-right: 10px;
+}
+
+.div-info {
+  width: 800px !important;
+  padding: 50px;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: rgb(223, 222, 222);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar {
+  height: 9px;
+  overflow: visible;
+  width: 9px;
+}
+
+::-webkit-scrollbar-button {
+  height: 0;
+  width: 0;
+}
+
+::-webkit-scrollbar-track {
+  background-clip: padding-box;
+  box-shadow: inset 1px 0 0 #e6e6e6
+}
+
+::-webkit-scrollbar-track:hover {
+  background-color: #f3f3f3;
+  box-shadow: inset 1px 0 0 #e6e6e6
+}
+
+::-webkit-scrollbar-track:active {
+  background-color: #f3f3f3;
+  box-shadow: inset 1px 0 0 #dcdcdc,
+  inset -1px 0 0 #eeeeee
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #cccccc;
+  background-clip: padding-box;
+  border: solid transparent;
+  border-width: 1px 1px 1px 0px;
+  min-height: 28px;
+  padding: 100px 0 0;
+  box-shadow: inset 1px 1px 0 #e6e6e6,
+  inset 0 -1px 0 #eeeeee
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #999999;
+  box-shadow: inset 1px 1px 1px #c0c0c0
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: #808080;
+  box-shadow: inset 1px 1px 3px #a6a6a6
+}
+
+.funcionalidad {
+  padding: 8px;
+  cursor: pointer;
+  color: #0e2811;
+}
+
+.funcionalidad:hover {
+  background-color: #CDFAC3;
+  border-radius: 15px;
+  color: #3c515e;
+}
+
+.p-button-outlined {
+  color: #689F38 !important;
+  border: 1px solid #689F38 !important;
+}
+
+.descripcion {
+  color: #1e364580;
+  font: 13px/17px Open Sans;
+  font-size: 14px;
+}
+
+.animate__animated.animate__zoomIn {
+  --animate-duration: 1s;
+}
+
+.animate__animated.animate__fadeInDown{
+  --animate-duration: 0.5s;
+}
+
+.animate__animated.animate__slideInUp {
+  --animate-duration: 0.3s;
+}
+
+::ng-deep .p-component {
+  font-size: 15px !important;
+}
+
+.subtitulo {
+  font-size: 16px;
+  font-weight: bold;
 }

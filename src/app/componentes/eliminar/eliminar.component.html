@@ -6,14 +6,17 @@
           [resizable]="false"
           (onHide)="no()"
           [(visible)]="visible"
-          [style]="{width: '550px', height: '200px'}"
+          [style]="{width: '550px', height: '230px'}"
           header="¿Esta seguro que desea eliminar el alimento?"
-          styleClass="modal-cancelar">
+          styleClass="modal-cancelar animate__animated animate__fadeInDown">
+          <div>
+            <span class="descripcion">Tenga en cuenta que si elimina el alimento, se eliminará la utilización del mismo de todos los reportes</span>
+          </div>
           <div class="modal-footer">
             <div class="wrapper">
               <button pButton pRipple type="button" label="No" class="p-button-outlined" (click)="no()"></button>
               <div class="p-mr-2"></div>
-              <p-button label="Si, estoy seguro" (click)="si()"></p-button>
+              <button pButton pRipple type="button" class="p-button-success" label="Si, estoy seguro" (click)="si()"></button>
             </div>
           </div>
 </p-dialog>

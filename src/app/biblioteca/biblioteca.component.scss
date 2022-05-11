@@ -1,5 +1,9 @@
-::ng-deep .td-actions {
-    width: 100px;
+.div-content {
+    width: 100%;
+}
+
+.td-accion {
+    width: 90px !important;
 }
 
 ::ng-deep .p-datatable .p-datatable-thead>tr>th {

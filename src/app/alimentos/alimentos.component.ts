@@ -11,18 +11,41 @@ export class AlimnetosComponent {
   @Output() confirmar = new EventEmitter<any>();
   @Output() atras = new EventEmitter<any>();
   @Input() alimentosSeleccionados:any[]  = [];
+  @Input() dieta:any[]  = [];
 
   alimentoDto:any = {};
   alimentosDisponibles:any[] = [];
+  alimentosDisponiblesT: any[] = [];
 
   public seleccionado = undefined;
   public agregar = false;
   public eliminar = false;
   public text = '';
   public tipoAlerta = '';
+  public usuario:string = '';
+  public categorias = [];
+  public categoriaS = null;
 
   constructor(private service: AppService) {
-    this.service.listarBiblioteca('usuario').then(data => this.alimentosDisponibles = data);
+    this.usuario = String(localStorage.getItem("usuario"));
+    this.service.listarBiblioteca(this.usuario).then(data => {
+      this.alimentosDisponibles = data;
+      this.alimentosDisponiblesT = data;
+      if(this.dieta != null && this.dieta.length > 0){
+        this.dieta.forEach(d => {
+          if(d.idBiblioteca != null) {
+            let index = this.alimentosDisponibles.findIndex(x => x['id'] == d.idBiblioteca); 
+            if(index > -1) {
+              let alimento = this.alimentosDisponibles[index];
+              this.alimentosDisponibles.splice(index, 1);
+              this.alimentosDisponiblesT.splice(index, 1);
+              this.alimentosSeleccionados.push(alimento);
+            }
+          }
+        });
+      }
+    });
+    this.service.listarCategorias().then(data => this.categorias = data);
   }
 
   verDetalle(event: any) {
@@ -31,7 +54,7 @@ export class AlimnetosComponent {
 
   obtenerValor(valor: any) {
     if(valor != null){
-      return valor;
+      return valor.toLocaleString("sv-SE", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
     } else {
       return "-";
     }
@@ -64,12 +87,14 @@ export class AlimnetosComponent {
         this.text = "Se actualizo el alimento satisfactoriamente";
         if(indexS != -1) {
           this.alimentosDisponibles[indexD] = event;
+          this.alimentosDisponiblesT[indexD] = event;
         } else {
           this.alimentosSeleccionados[indexS] = event;
         }
       } else if(indexD === -1) {
         this.text = "Se creo el alimento satisfactoriamente";
         this.alimentosDisponibles.push(event);
+        this.alimentosDisponiblesT.push(event);
       }
     }
   }
@@ -89,20 +114,40 @@ export class AlimnetosComponent {
   confirmarEliminar(event: any) {
     this.tipoAlerta = 'success';
     if(event != undefined) {
-      var indexD = this.alimentosDisponibles.findIndex(x => x['id'] == this.alimentoDto.id); 
-      var indexS = this.alimentosSeleccionados.findIndex(x => x['id'] == this.alimentoDto.id); 
-      if(indexD > -1) {
-        this.alimentosDisponibles.splice(indexD, 1);
-      } else if(indexS > -1) {
-        this.alimentosDisponibles.splice(indexS, 1);
-      }
+      let alimentosD: any[] = [];
+      let alimentosS: any[] = [];
+      this.alimentosDisponibles.forEach(x => {
+        if(x.id != this.alimentoDto.id) {
+          alimentosD.push(x);
+        }
+      });
+      this.alimentosSeleccionados.forEach(x => {
+        if(x.id != this.alimentoDto.id) {
+          alimentosS.push(x);
+        }
+      });
+      this.alimentosDisponibles = alimentosD;
+      this.alimentosDisponiblesT = alimentosD;
+      this.alimentosSeleccionados = alimentosS;
       this.text = 'Alimento eliminado satisfactoriamente';
       this.eliminar = false;
-      this.alimentoDto = null;
+      this.alimentoDto = {};
     } else {
       this.eliminar = false;
       this.text = '';
       this.alimentoDto = {};
+    }
+  }
+
+  filtrar() {
+    if(this.alimentosDisponiblesT.length < this.alimentosDisponibles.length) {
+      this.alimentosDisponiblesT = this.alimentosDisponibles;
+    }
+    if(this.categoriaS != null) {
+      let result = this.alimentosDisponiblesT.filter(alimento => alimento.categoria == this.categoriaS);
+      this.alimentosDisponibles = result;
+    } else {
+      this.alimentosDisponibles = this.alimentosDisponiblesT;
     }
   }
 }

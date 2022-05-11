@@ -1,0 +1,55 @@
+<p-dialog header="&nbsp;"
+          position="rigth"
+          [modal]="true"
+          [baseZIndex]="10000"
+          [draggable]="false"
+          [resizable]="false"
+          (onHide)="cancelar()"
+          [(visible)]="visible"
+          [style]="{width: '450px', height: '360px'}"
+          header="Editar usuario"
+          styleClass="modal-cancelar animate__animated animate__fadeInDown">
+          <div>
+            <div>
+              <label>Nombres: &nbsp;</label>
+              <label class="descripcion">{{usuario.nombres}}</label>
+              <div class="p-mt-2"></div>
+            </div>
+            <div>
+              <label>Apellidos: &nbsp;</label>
+              <label class="descripcion">{{usuario.apellidos}}</label>
+              <div class="p-mt-2"></div>
+            </div>
+            <div>
+              <label>Correo electronico: &nbsp;</label>
+              <label class="descripcion">{{usuario.correo}}</label>
+              <div class="p-mt-2"></div>
+            </div>
+            <div>
+              <label>Fecha de creación: &nbsp;</label>
+              <label class="descripcion">{{usuario.fechaSesion | date: 'dd/MM/yyyy HH:mm:ss'}}</label>
+              <div class="p-mt-2"></div>
+            </div>
+            <div>
+              <label>Fecha del ultimo inicio de sesión: &nbsp;</label>
+              <label class="descripcion">{{usuario.fechaCreacion | date: 'dd/MM/yyyy HH:mm:ss'}}</label>
+              <div class="p-mt-2"></div>
+            </div>
+            <div>
+              <label>Tipo de usuario: &nbsp;</label>
+                <p-dropdown [options]="tipos" [(ngModel)]="usuario.tipo" styleClass="width_full"
+                  placeholder="Seleccione..." 
+                  [showClear]="true" optionDisabled="inactive" [required]="true"
+                  optionLabel="name" optionValue="value">
+                </p-dropdown>
+              <div class="p-mt-2"></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="wrapper">
+              <button pButton pRipple type="button" label="Cancelar" class="p-button-outlined" (click)="cancelar()"></button>
+              <div class="p-mr-2"></div>
+              <button pButton pRipple type="button" class="p-button-success" label="Guardar" (click)="guardar()"></button>
+            </div>
+          </div>
+</p-dialog>

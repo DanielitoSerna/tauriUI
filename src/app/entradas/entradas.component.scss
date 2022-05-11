@@ -11,7 +11,7 @@ button {
 }
 
 ::ng-deep .p-dropdown {
-  width: 74% !important;
+  width: 230px !important;
 }
 
 ::ng-deep .p-picklist-source-controls {
@@ -20,4 +20,12 @@ button {
 
 ::ng-deep .p-picklist-target-controls {
   display: none !important;
+}
+
+::ng-deep .p-component {
+  font-size: 15px !important;
+}
+
+::ng-deep .p-tabview .p-tabview-panels {
+  padding: 0px 10px 10px 0px!important
 }

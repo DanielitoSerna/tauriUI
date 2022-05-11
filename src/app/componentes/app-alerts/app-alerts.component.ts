@@ -30,7 +30,7 @@ export class AppAlertsComponent implements OnInit {
         this.iconType = 'info-circle'
         break;
       case 'success':
-        this.iconType = 'chevron-circle-down'
+        this.iconType = 'star-fill'
         break;
       case 'warning':
         this.iconType = 'exclamation-triangle'
