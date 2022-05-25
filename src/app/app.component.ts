@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {SocialAuthService, GoogleLoginProvider, SocialUser} from 'angularx-social-login';
 import { AppService } from './app.services';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -47,8 +47,8 @@ export class AppComponent implements OnInit {
         localStorage.setItem("usuario", this.socialUser.email);
         localStorage.setItem("nombre", this.socialUser.firstName);
         localStorage.setItem("apellido", this.socialUser.lastName);
+        localStorage.setItem("tipoUsuario", "U");
         this.router.navigate(['/inicio']);
-        this.validarUsuario();
       }
     });
   }
@@ -63,24 +63,5 @@ export class AppComponent implements OnInit {
     localStorage.removeItem("nombre");
     localStorage.removeItem("apellido");
     window.location.reload();
-  }
-
-  validarUsuario() {
-    this.service.listarUsuario(this.correo).then(data => {
-      let usuario:any = {}; 
-      if(data.length > 0) {
-        usuario = data[0];
-      } else {
-        usuario.nombres = this.nombre;
-        usuario.apellidos = this.apellido;
-        usuario.correo = this.correo;
-        usuario.fechaCreacion = new Date();
-        usuario.tipo = 'U';
-      }
-      usuario.fechaSesion = new Date();
-      localStorage.setItem("tipoUsuario", usuario.tipo);
-      this.tipo = usuario.tipo;
-      this.service.guardarUsuario(usuario).then(data => {});
-    })
   }
 }

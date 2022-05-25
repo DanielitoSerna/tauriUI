@@ -1,0 +1,38 @@
+.app-bibliografica {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    color: rgba(0,0,0,.7);
+    text-shadow: 0 1px rgb(255 255 255 / 10%);
+    background: #E7E8E7;
+    left: 0px;
+    padding: 5px;
+    border-top: 1px solid #afc4d1;
+}
+
+.app-parrafo {
+    padding: 10px;
+}
+
+.modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding-top: 30px;
+}
+
+.wrapper {
+    display: flex;
+    text-align: end;
+}
+
+.p-button-success-app {
+    color: #fff;
+    background: #069a7e;
+    border: 1px solid #0e7774;
+  }
+    
+  .p-button-success-app:hover {
+    background: #0e7774;
+    border: 1px solid #0e7774;
+  }

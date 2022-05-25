@@ -31,7 +31,9 @@ export class DietaComponent implements OnInit {
         this.agregarAlimento(a);
       } else {
         let dieta = alimentosS[index];
+        dieta.idBiblioteca = a.id;
         dieta.alimento = a;
+        this.calcularPrecioOfrecido(dieta);
         this.alimentos.push(dieta);
       }
     });
@@ -39,7 +41,8 @@ export class DietaComponent implements OnInit {
 
   agregarAlimento(a: any) {
     this.alimentos.push({
-      alimento: a
+      alimento: a,
+      idBiblioteca: a.id
     });
   }
 
@@ -92,7 +95,7 @@ export class DietaComponent implements OnInit {
         suma = (suma + Number(alimento.cantidad));
       }
     });
-    return suma.toLocaleString("sv-SE", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+    return suma.toLocaleString("de-DE", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
   }
 
   sumaForraje() {
@@ -102,7 +105,7 @@ export class DietaComponent implements OnInit {
         suma = (suma + Number(alimento.cantidad));
       }
     });
-    return suma.toLocaleString("sv-SE", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+    return suma.toLocaleString("de-DE", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
   }
 
   sumaConcentrado() {
@@ -112,7 +115,7 @@ export class DietaComponent implements OnInit {
         suma = (suma + Number(alimento.cantidad));
       }
     });
-    return suma.toLocaleString("sv-SE", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+    return suma.toLocaleString("de-DE", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
   }
 
   sumaPrecio() {
@@ -124,6 +127,25 @@ export class DietaComponent implements OnInit {
         sumaSact = (sumaSact + Number(alimento.cantidad));
       }
     });
-    return (Number(suma) / Number(sumaSact)).toLocaleString("sv-SE", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+    return (Number(suma) / Number(sumaSact)).toLocaleString("de-DE", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
   }
+
+  calcularPrecio(item: any) {
+    if(item.alimento.ms != undefined && item.precioOf != undefined) {
+      item.precio = (item.precioOf / (item.alimento.ms / 100)).toFixed(2);
+    } else if(item.alimento.ms == undefined){
+      item.precio = 0;
+      item.precioOf = 0;
+    }
+  }
+
+  calcularPrecioOfrecido(item: any) {
+    if(item.alimento.ms != undefined && item.precio != undefined) {
+      item.precioOf = (item.precio * (item.alimento.ms / 100)).toFixed(2);
+    } else if(item.alimento.ms == undefined) {
+      item.precio = 0;
+      item.precioOf = 0;
+    }
+  }
+
 }

@@ -27,5 +27,23 @@ button {
 }
 
 ::ng-deep .p-tabview .p-tabview-panels {
-  padding: 0px 10px 10px 0px!important
+  padding: 0.5rem !important
+}
+
+.p-button-success-app {
+  color: #fff;
+  background: #069a7e;
+  border: 1px solid #0e7774;
+}
+  
+.p-button-success-app:hover {
+  background: #0e7774;
+  border: 1px solid #0e7774;
+}
+
+
+.app-info {
+  cursor: pointer;
+  padding-left: 10px;
+  color: rgb(59, 130, 246);
 }

@@ -34,16 +34,15 @@
             </div>
             <div class="p-grid">
               <div class="p-col-12 p-md-6 p-lg-4">
-                <p-dropdown [options]="paises" [(ngModel)]="entrada.pais" styleClass="width_full"
-                  placeholder="Seleccione..." optionLabel="nombre" optionValue="nombre"
+                <p-dropdown [options]="paises" [(ngModel)]="entrada.departamento?.pais.id" styleClass="width_full"
+                  placeholder="Seleccione..." optionLabel="pais" optionValue="id" (onChange)="consultarDepartamentos($event)"
                   [showClear]="true" optionDisabled="inactive" [required]="true">
                 </p-dropdown>
               </div>
               <div class="p-col-12 p-md-6 p-lg-4">
                 <p-dropdown [options]="departamentos" [(ngModel)]="entrada.departamentoDto" styleClass="width_full"
                   placeholder="Seleccione..." optionLabel="nombreDepartamento" optionValue="id"
-                  [showClear]="true" optionDisabled="inactive" [required]="true" (onChange)="consultarMunicipios($event)"
-                  [disabled]="entrada.pais == null">
+                  [showClear]="true" optionDisabled="inactive" [required]="true" (onChange)="consultarMunicipios($event)">
                 </p-dropdown>
               </div>
               <div class="p-col-12 p-md-6 p-lg-4">
@@ -78,10 +77,12 @@
                   placeholder="Seleccione..." optionLabel="nombre" optionValue="nombre"
                   [showClear]="true" optionDisabled="inactive" [required]="true">
                 </p-dropdown>
+                <span pTooltip="Mas información" class="app-info pi pi-info-circle" (click)="abrirInfo('Tipo de animal')"></span>
               </div>
               <div class="p-col-12 p-md-6 p-lg-4">
                 <p-inputNumber [(ngModel)]="entrada.pesoCorporal" suffix=" Kg" [min]="0" mode="decimal" 
                   [required]="true" decimalSeparator="," thousandSeparator="." placeholder="Kg"></p-inputNumber>
+                  <span pTooltip="Mas información" class="app-info pi pi-info-circle" (click)="abrirInfo('Peso corporal')"></span>
               </div>
             </div>
   
@@ -103,12 +104,15 @@
                 <p-dropdown [options]="condiciones" [(ngModel)]="entrada.condicionCorporal" styleClass="width_full"
                 placeholder="Seleccione..." [showClear]="true" optionDisabled="inactive" [required]="true">
                 </p-dropdown>
+                <span pTooltip="Mas información" class="app-info pi pi-info-circle" (click)="abrirInfo('Condición corporal')"></span>
               </div>
               <div class="p-col-12 p-md-6 p-lg-4">
                 <p-inputNumber [(ngModel)]="entrada.diasLeche" suffix=" días" [min]="0" mode="decimal" placeholder="días" [required]="true"></p-inputNumber>
+                <span pTooltip="Mas información" class="app-info pi pi-info-circle" (click)="abrirInfo('Días en leche')"></span>
               </div>
               <div class="p-col-12 p-md-6 p-lg-4">
                 <p-inputNumber [(ngModel)]="entrada.diasPrenez" suffix=" días" [min]="0" mode="decimal" placeholder="días" [required]="true"></p-inputNumber>
+                <span pTooltip="Mas información" class="app-info pi pi-info-circle" (click)="abrirInfo('Días de preñez')"></span>
               </div>
             </div>
   
@@ -128,12 +132,15 @@
             <div class="p-grid">
               <div class="p-col-12 p-md-6 p-lg-4">
                 <p-inputNumber [(ngModel)]="entrada.numeroParto" [min]="0" mode="decimal" [required]="true"></p-inputNumber>
+                <span pTooltip="Mas información" class="app-info pi pi-info-circle" (click)="abrirInfo('Número de partos')"></span>
               </div>
               <div class="p-col-12 p-md-6 p-lg-4">
                 <p-inputNumber [(ngModel)]="entrada.intervaloParto" suffix=" días" [min]="0" mode="decimal" placeholder="días" [required]="true"></p-inputNumber>
+                <span pTooltip="Mas información" class="app-info pi pi-info-circle" (click)="abrirInfo('Intervalo entre partos')"></span>
               </div>
               <div class="p-col-12 p-md-6 p-lg-4">
-                <p-inputNumber [(ngModel)]="entrada.gananciaPeso" suffix=" Kg" [min]="0" mode="decimal" placeholder="kg" [required]="true" [minFractionDigits]="2"></p-inputNumber>
+                <p-inputNumber [(ngModel)]="entrada.gananciaPeso" suffix=" Kg/día" [min]="0" mode="decimal" placeholder="kg" [required]="true" [minFractionDigits]="2"></p-inputNumber>
+                <span pTooltip="Mas información" class="app-info pi pi-info-circle" (click)="abrirInfo('Ganancia de peso')"></span>
               </div>
             </div>
           </p-accordionTab>
@@ -184,6 +191,7 @@
             <div class="p-grid">
               <div class="p-col-12 p-md-6 p-lg-3">
                 <p-inputNumber [(ngModel)]="entrada.produccionLeche" [min]="0" mode="decimal" [required]="true" placeholder="litros/día"></p-inputNumber>
+                <span pTooltip="Mas información" class="app-info pi pi-info-circle" (click)="abrirInfo('Producción de leche')"></span>
               </div>
             </div>
             <p-divider></p-divider>
@@ -232,12 +240,13 @@
             </div>
           </p-accordionTab>
       </p-accordion>
-      <div class="p-mt-2"></div>
+      <div class="p-mt-3"></div>
       <div class="footer">
         <button pButton pRipple type="button" label="Cancelar" class="p-button-outlined" (click)="cancelar = true"></button>
         <div class="p-mr-2"></div>
-        <button pButton pRipple type="button" class="p-button-success" label="Continuar" icon="pi pi-arrow-right" iconPos="right" (click)="siguiente()"></button>
+        <button pButton pRipple type="button" class="p-button-success-app" label="Continuar" icon="pi pi-arrow-right" iconPos="right" (click)="siguiente()"></button>
       </div>
+      <div class="p-mt-4"></div>
     </p-tabPanel>
     <p-tabPanel [disabled]="activeIndex1 != 1">
       <ng-template pTemplate="header">
@@ -262,9 +271,29 @@
         <div class="p-mr-2"></div>
         <span>Balance</span>
       </ng-template>
-      <app-balance *ngIf="activeIndex1 == 3" (atras)="tabAnterior()" (confirmar)="guardar(false)" (abriDescargar)="guardar(true)"></app-balance>
+      <app-balance *ngIf="activeIndex1 == 3" [data]="{entradaDto: entrada, dietaDtos: dieta}" 
+      (atras)="tabAnterior()" (confirmar)="tabSiguiente()"></app-balance>
+    </p-tabPanel>
+    <p-tabPanel [disabled]="activeIndex1 != 4">
+      <ng-template pTemplate="header">
+        <i class="pi pi-chart-pie"></i>
+        <div class="p-mr-2"></div>
+        <span>Emisión GEI</span>
+      </ng-template>
+      <app-emision *ngIf="activeIndex1 == 4" [data]="{entradaDto: entrada, dietaDtos: dieta}" 
+      (atras)="tabAnterior()" (confirmar)="tabSiguiente()"></app-emision>
+    </p-tabPanel>
+    <p-tabPanel [disabled]="activeIndex1 != 5">
+      <ng-template pTemplate="header">
+        <i class="pi pi-dollar"></i>
+        <div class="p-mr-2"></div>
+        <span>Relación beneficio - costo</span>
+      </ng-template>
+      <app-relacion *ngIf="activeIndex1 == 5" [data]="{entradaDto: entrada, dietaDtos: dieta}" 
+      (atras)="tabAnterior()" (confirmar)="guardar(false)" (abriDescargar)="guardar(true)"></app-relacion>
     </p-tabPanel>
   </p-tabView>
 </div>
 
 <app-cancelar [visible]="cancelar" (change)="cancelar = false"></app-cancelar>
+<app-informacion [visible]="informacion" (closed)="informacion = false" [tipo]="tipo"></app-informacion>

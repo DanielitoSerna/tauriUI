@@ -9,6 +9,10 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 
 const routes: Routes = [
   {
+    path: '',
+    component: InicioComponent
+  },
+  {
     path: 'inicio',
     component: InicioComponent
   },

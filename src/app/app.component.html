@@ -1,17 +1,17 @@
 <div class="header">
+  <div class="app_brandTopBar__container">
+    <span class="verde30"></span>
+    <span class="verde50"></span>
+    <span class="verde60"></span>
+    <span class="verde70"></span>
+    <span class="verde100"></span>
+  </div>
   <div style="display: flex;">
-    <div style="width: 35%;">
-      <a href="https://www.udea.edu.co" target="_blank" class="logo">
-        <img width="230" alt="Angular Logo" src="./assets/logo-udea.png"/>
-      </a>
+    <div style="width: 70%; margin-top: -11px;">
+      <img style="height: 80px; width: 202px; margin-top: 7px;" alt="Angular Logo" src="./assets/logoTauri.png"/>
     </div>
-    <div style="width: 35%;">
-      <a href="https://www.politecnicojic.edu.co" target="_blank" class="logo">
-        <img width="250" alt="Angular Logo" src="./assets/logo-poli.png"/>
-      </a>
-    </div>
-    <div *ngIf="!isLoggedin" style="padding-left: 10%;">
-      <button id="google-auth-button" class="css-1i6ynxb" type="button" tabindex="0" (click)="loginWithGoogle()">
+    <div *ngIf="!isLoggedin" style="padding-left: 10%; padding-top: 12px;">
+      <button id="google-auth-button" class="css-1i6ynxb p-button-success-app" type="button" tabindex="0" (click)="loginWithGoogle()">
         <span class="css-1ujqpe8">
           <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.331/static/media/google-logo.e086107b.svg" alt="">
         </span>
@@ -70,7 +70,7 @@
               </ul>
             </nav>
       </div>
-      <div class="contenido-principal">
+      <div class="contenido-principal body-app">
           <div class="spinner" *ngIf="service.isProgress()">
             <span class="label-spinner">Cargando...</span>
             <p-progressSpinner [style]="{ width: '150px', height: '150px' }" styleClass="custom-spinner"
@@ -79,4 +79,52 @@
           <router-outlet></router-outlet>
       </div>
   </div>    
+</div>
+<div *ngIf="!isLoggedin" class="body-app body-app-ini">    
+    <div style="padding: 20px;" class="animate__animated animate__bounceInRight">
+      <img class="banner" alt="Angular Logo" src="./assets/banner.gif"/>
+      
+      <div class="p-mt-3"></div>
+
+      <p-card>
+        <div class="p-grid">
+          <div class="p-col-12 p-md-3 p-lg-3">
+            <div class="p-mt-6"></div>
+            <a href="https://www.udea.edu.co" target="_blank" class="logo">
+              <img width="250" alt="Angular Logo" src="./assets/logo-udea.png"/>
+            </a>
+            <div class="p-mt-6"></div>
+            <a href="https://www.politecnicojic.edu.co" target="_blank" class="logo">
+              <img width="250" alt="Angular Logo" src="./assets/logo-poli.png"/>
+            </a>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-9">
+            <p class="app-parrafo">
+              Tauri es un software que a partir de información suministrada por el
+              usuario, permite calcular los requerimientos de proteína metabolizable y
+              energía neta de vacas lecheras de acuerdo con los estándares nutricionales
+              sugeridos por el NRC(2001).
+            </p>
+            <p class="app-parrafo">
+                Por otra parte, esa misma información es empleada por modelos
+                matemáticos desarrollados en el trópico de altura para predecir el
+                consumo de materia seca y las emisiones de metano entérico producto de
+                la fermentación ruminal y óxido nitroso liberado al ambiente por los
+                procesos de nitrificación y denitrificación del nitrógeno presente en las
+                heces y la orina de animales en pastoreo.
+            </p>
+            <p class="app-parrafo">
+                Combinando los índices productivos del animal y los costos asociados con
+                su alimentación, Tauri calcula parámetros económicos que facilitan la
+                toma de decisiones.
+                La información entregada por el software puede ser empleada por el
+                usuario para ajustar planes de alimentación, balacear raciones acordes con
+                los requerimientos del animal y estimar el impacto que su sistema
+                productivo tiene sobre el ambiente.
+            </p>
+          </div>
+        </div>
+    </p-card>
+  </div>
+
 </div>

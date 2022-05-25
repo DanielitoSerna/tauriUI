@@ -7,3 +7,21 @@
   overflow: auto;
   padding: 10px;
 }
+
+.p-button-success-app {
+  color: #fff;
+  background: #069a7e;
+  border: 1px solid #0e7774;
+}
+  
+.p-button-success-app:hover {
+  background: #0e7774;
+  border: 1px solid #0e7774;
+}
+
+.tabla-dieta {
+  box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
+  padding: 10px;
+  border-radius: 15px;
+  margin: 0px;
+}

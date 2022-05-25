@@ -1,12 +1,10 @@
 <app-alerts [text]="text" [type]="tipoAlerta" *ngIf="text != ''" (change)="text = ''"></app-alerts>
-<div class="p-mt-3"></div>
-<span class="subtitulo">&nbsp;Consumo de materia seca actual (CMSact)</span>
-<div class="p-mt-1"></div>
+<div class="p-mt-2"></div>
 <div class="p-grid div-dieta" style="padding-left: 10px;">
-  <div class="p-col-12 p-md-4 p-lg-4">
+  <div class="p-col-12 p-md-3 p-lg-3">
     <app-label [required]="false" label="Alimento"></app-label>
   </div>
-  <div class="p-col-12 p-md-2 p-lg-2">
+  <div class="p-col-12 p-md-1 p-lg-1">
     <app-label [required]="false" label="Tipo"></app-label>
   </div>
   <div class="p-col-12 p-md-2 p-lg-2">
@@ -18,14 +16,17 @@
   <div class="p-col-12 p-md-2 p-lg-2">
     <app-label [required]="false" label="Precio ($/kg MS alimento)"></app-label>
   </div>
+  <div class="p-col-12 p-md-2 p-lg-2">
+    <app-label [required]="false" label="Precio ($/kg alimento, como ofrecido)"></app-label>
+  </div>
 </div>
 <div class="div-dieta-alimentos">
   <div *ngFor="let item of alimentos; let i = index">
     <div class="p-grid {{i % 2 == 0 ? 'fila' : ''}}">
-      <div class="p-col-12 p-md-4 p-lg-4">
+      <div class="p-col-12 p-md-3 p-lg-3">
         <span>{{item.alimento.nombre}}</span>
       </div>
-      <div class="p-col-12 p-md-2 p-lg-2">
+      <div class="p-col-12 p-md-1 p-lg-1">
         <span>{{item.alimento.tipo}}</span>
       </div>
       <div class="p-col-12 p-md-2 p-lg-2">
@@ -40,55 +41,76 @@
       </div>
       <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right">
         <p-inputNumber [(ngModel)]="item.precio" prefix="$ " mode="decimal" [minFractionDigits]="2" placeholder="$" [required]="true"
-          decimalSeparator="," thousandSeparator="."></p-inputNumber>
+          decimalSeparator="," thousandSeparator="." (ngModelChange)="calcularPrecioOfrecido(item)"></p-inputNumber>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right">
+        <p-inputNumber [(ngModel)]="item.precioOf" prefix="$ " mode="decimal" [minFractionDigits]="2" placeholder="$" [required]="true"
+          decimalSeparator="," thousandSeparator="." (ngModelChange)="calcularPrecio(item)"></p-inputNumber>
       </div>
     </div>
   </div>
 </div>
 <p-divider></p-divider>
-<div class="p-grid div-dieta">
+<div class="p-grid tabla-dieta">
   <div class="p-col-12 p-md-7 p-lg-7">
+    <span class="subtitulo">Consumo de materia seca actual (CMSact)</span>
   </div>
+  <div class="p-col-12 p-md-5 p-lg-5">
+    <span class="subtitulo">Consumo de materia seca predicho (kg MS/día)</span>
+  </div>
+
   <div class="p-col-12 p-md-3 p-lg-3 fila">
     <span>CMSact (kg MS/día)</span>
   </div>
   <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right fila">
     {{sumaSact()}}
   </div>
-</div>
-<div class="p-grid div-dieta">
-  <div class="p-col-12 p-md-7 p-lg-7">
+  <div class="p-col-12 p-md-2 p-lg-2"></div>
+  <div class="p-col-12 p-md-6 p-lg-3 fila">
+    <span>NRC (2001)</span>
   </div>
+  <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right fila">
+    <span>11,25</span>
+  </div>
+  
   <div class="p-col-12 p-md-3 p-lg-3">
     <span>CMS de forraje (kg MS/día)</span>
   </div>
   <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right">
     {{sumaForraje()}}
   </div>
-</div>
-<div class="p-grid div-dieta">
-  <div class="p-col-12  p-md-7 p-lg-7">
+  <div class="p-col-12 p-md-2 p-lg-2"></div>
+  <div class="p-col-12 p-md-6 p-lg-3">
+    <span>NRC (2021) - Efectos animales</span>
   </div>
+  <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right">
+    <span>16,67</span>
+  </div>
+  
   <div class="p-col-12 p-md-3 p-lg-3 fila">
     <span>CMS de concentrado (kg MS/día)</span>
   </div>
   <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right fila">
     {{sumaConcentrado()}}
   </div>
-</div>
-<div class="p-grid div-dieta">
-  <div class="p-col-12  p-md-7 p-lg-7">
+  <div class="p-col-12 p-md-2 p-lg-2"></div>
+  <div class="p-col-12 p-md-6 p-lg-3 fila">
+    <span>TAURI</span>
   </div>
+  <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right fila">
+    <span>20,91</span>
+  </div>
+  
   <div class="p-col-12 p-md-3 p-lg-3">
-    <span>Precio $/kg MS dieta</span>
+    <span>Precio de la dieta ($/kg MS)</span>
   </div>
   <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right">
     {{sumaPrecio()}}
   </div>
 </div>
-<div class="p-mt-2"></div>
+<div class="p-mt-3"></div>
 <div class="footer">
-  <button pButton pRipple type="button" class="p-button-success" label="Anterior" icon="pi pi-arrow-left" iconPos="left" (click)="anterior()"></button>
+  <button pButton pRipple type="button" class="p-button-success-app" label="Anterior" icon="pi pi-arrow-left" iconPos="left" (click)="anterior()"></button>
   <div class="p-mr-2"></div>
-  <button pButton pRipple type="button" class="p-button-success" label="Siguiente" icon="pi pi-arrow-right" iconPos="right" (click)="siguiente()"></button>
+  <button pButton pRipple type="button" class="p-button-success-app" label="Siguiente" icon="pi pi-arrow-right" iconPos="right" (click)="siguiente()"></button>
 </div>

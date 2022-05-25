@@ -1,5 +1,5 @@
 ::ng-deep .modal-cancelar {
-    border-top: 7px solid #33691e;
+    border-top: 10px solid #3ebdac;
 }
 
 .pi-times {
@@ -17,4 +17,15 @@
   display: flex;
   text-align: end;
 }
+
+.p-button-success-app {
+    color: #fff;
+    background: #069a7e;
+    border: 1px solid #0e7774;
+  }
+    
+  .p-button-success-app:hover {
+    background: #0e7774;
+    border: 1px solid #0e7774;
+  }
 

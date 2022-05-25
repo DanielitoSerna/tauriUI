@@ -54,7 +54,7 @@ export class AlimnetosComponent {
 
   obtenerValor(valor: any) {
     if(valor != null){
-      return valor.toLocaleString("sv-SE", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+      return valor.toLocaleString("de-DE", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
     } else {
       return "-";
     }

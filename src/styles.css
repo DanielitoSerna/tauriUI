@@ -54,7 +54,7 @@ input::placeholder {
 }
 
 .div-body {
-  padding: 20px;
+  padding: 10px;
   justify-content: center;
   width: 100%;
   height: 100%;
@@ -97,7 +97,6 @@ input::placeholder {
 }
 
 .div-info {
-  width: 800px !important;
   padding: 50px;
 }
 
@@ -168,8 +167,8 @@ input::placeholder {
 }
 
 .p-button-outlined {
-  color: #689F38 !important;
-  border: 1px solid #689F38 !important;
+  color: #069a7e !important;
+  border: 1px solid #069a7e !important;
 }
 
 .descripcion {
@@ -190,11 +189,52 @@ input::placeholder {
   --animate-duration: 0.3s;
 }
 
+.animate__animated.animate__slideInRight{
+  --animate-duration: 0.8s;
+}
+
 ::ng-deep .p-component {
   font-size: 15px !important;
+  font-family: 'Open sans' !important;
 }
 
 .subtitulo {
   font-size: 16px;
   font-weight: bold;
+}
+
+.app-parrafo {
+  font-family: 'Open Sans';
+  text-align: justify;
+}
+
+
+.app_brandTopBar__container {
+  display: grid;
+  grid-template-columns:  0.57fr 0.57fr 1.2fr 1.6fr 0.85fr;;
+  height: 8px;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+    
+.verde30 {
+  background-color: #43b649;
+}
+  
+.verde50 {
+  background-color: #8dc63f;
+}
+  
+.verde60 {
+  background-color: #3ebdac;
+}
+  
+.verde70 {
+  background-color: #069a7e;
+}
+  
+.verde100 {
+  background-color: #0e7774;
 }

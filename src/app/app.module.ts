@@ -19,6 +19,9 @@ import { InicioComponent } from './inicio/inicio.component';
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider } from 'angularx-social-login';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { EmisionComponent } from './emision/emision.component';
+import { NgChartsModule } from 'ng2-charts';
+import { RelacionComponent } from './relacion/relacion.component';
 
 
 @NgModule({
@@ -31,7 +34,9 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
     BibliotecaComponent,
     BalanceComponent,
     InicioComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    EmisionComponent,
+    RelacionComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +45,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
     ComponentesModule,
     HttpClientModule,
     SocialLoginModule,
+    NgChartsModule
   ],
   providers: [
     {

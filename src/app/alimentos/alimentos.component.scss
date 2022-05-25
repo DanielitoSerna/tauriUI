@@ -33,11 +33,22 @@ button {
 }
 
 ::ng-deep .p-button-icon-only {
-  background-color: #689F38;
-  border: 1px solid #689F38 !important;
+  background-color: #069a7e;
+  border: 1px solid #0e7774 !important;
 }
 
-.p-button-icon-only:hover {
-  background-color: #689F38;
-  border: 1px solid #689F38 !important;
+::ng-deep .p-button-icon-only:hover {
+  background-color: #0e7774;
+  border: 1px solid #0e7774 !important;
+}
+
+.p-button-success-app {
+  color: #fff;
+  background: #069a7e;
+  border: 1px solid #0e7774;
+}
+  
+.p-button-success-app:hover {
+  background: #0e7774;
+  border: 1px solid #0e7774;
 }

@@ -8,7 +8,16 @@
           [(visible)]="visible"
           [style]="{width: '450px', height: '360px'}"
           header="Editar usuario"
-          styleClass="modal-cancelar animate__animated animate__fadeInDown">
+          styleClass="animate__animated animate__fadeInDown">
+
+          <div class="app_brandTopBar__container">
+            <span class="verde30"></span>
+            <span class="verde50"></span>
+            <span class="verde60"></span>
+            <span class="verde70"></span>
+            <span class="verde100"></span>
+          </div>
+
           <div>
             <div>
               <label>Nombres: &nbsp;</label>
@@ -49,7 +58,7 @@
             <div class="wrapper">
               <button pButton pRipple type="button" label="Cancelar" class="p-button-outlined" (click)="cancelar()"></button>
               <div class="p-mr-2"></div>
-              <button pButton pRipple type="button" class="p-button-success" label="Guardar" (click)="guardar()"></button>
+              <button pButton pRipple type="button" class="p-button-success-app" label="Guardar" (click)="guardar()"></button>
             </div>
           </div>
 </p-dialog>

@@ -8,7 +8,16 @@
           [(visible)]="visible"
           [style]="{width: '1050px', height: '700px'}"
           header="{{bibliotecaDto.id == null ? 'Agregar alimento a la biblioteca' : 'Editar alimento'}}"
-          styleClass="modal-cancelar animate__animated animate__fadeInDown">
+          styleClass="animate__animated animate__fadeInDown">
+
+          <div class="app_brandTopBar__container">
+            <span class="verde30"></span>
+            <span class="verde50"></span>
+            <span class="verde60"></span>
+            <span class="verde70"></span>
+            <span class="verde100"></span>
+          </div>
+
           <div>
             <app-alerts [text]="text" type="danger" *ngIf="text != ''" (change)="text = ''"></app-alerts>
             <div class="p-grid">
@@ -149,13 +158,13 @@
                   <app-label label="Cenizas (%MS)" [required]="false"></app-label>
               </div>
               <div class="p-col-12 p-md-6 p-lg-3">
-                <app-label label="Ca (%MS)" [required]="false"></app-label>
+                <app-label label="Calcio (%MS)" [required]="false"></app-label>
               </div>
               <div class="p-col-12 p-md-6 p-lg-3">
-                <app-label label="P (%MS)" [required]="false"></app-label>
+                <app-label label="Fósforo (%MS)" [required]="false"></app-label>
               </div>
               <div class="p-col-12 p-md-6 p-lg-3">
-                <app-label label="Na (%MS)" [required]="false"></app-label>
+                <app-label label="Sodio (%MS)" [required]="false"></app-label>
               </div>
             </div>
             <div class="p-grid">
@@ -177,16 +186,16 @@
 
             <div class="p-grid">
               <div class="p-col-12 p-md-6 p-lg-3">
-                  <app-label label="Cl (%MS)" [required]="false"></app-label>
+                  <app-label label="Cloro (%MS)" [required]="false"></app-label>
               </div>
               <div class="p-col-12 p-md-6 p-lg-3">
-                <app-label label="K (%MS)" [required]="false"></app-label>
+                <app-label label="Potasio (%MS)" [required]="false"></app-label>
               </div>
               <div class="p-col-12 p-md-6 p-lg-3">
-                <app-label label="Mg (mg/kg)" [required]="false"></app-label>
+                <app-label label="Magnesio (mg/kg)" [required]="false"></app-label>
               </div>
               <div class="p-col-12 p-md-6 p-lg-3">
-                <app-label label="S (%MS)" [required]="false"></app-label>
+                <app-label label="Azufre (%MS)" [required]="false"></app-label>
               </div>
             </div>
             <div class="p-grid">
@@ -259,7 +268,7 @@
             <div class="wrapper">
               <button pButton pRipple type="button" label="Cancelar" class="p-button-outlined" (click)="cancelar()"></button>
               <div class="p-mr-2"></div>
-              <button pButton pRipple type="button" class="p-button-success" label="Guardar" (click)="guardar()"></button>
+              <button pButton pRipple type="button" class="p-button-success-app" label="Guardar" (click)="guardar()"></button>
             </div>
           </div>
 </p-dialog>

@@ -1,11 +1,11 @@
 <div id="alerta" class="animate__animated animate__fadeInDown">
     <div class="fs_16 alert alert_{{type}}">
         <div class="p-grid">
-            <div class="p-col-11 p-md-5 p-lg-11">
-                <span>
-                    <i *ngIf="iconType != undefined" class="p-text-bold pi pi-{{iconType}} fs_18 p-mr-2"></i>
-                    <span class="fs_16" style="font-family: Open Sans,sans-serif;">{{text}}</span>
-                </span>
+            <div class="p-col-11 p-md-5 p-lg-1">
+                <img style="width: 50px;" src="./assets/infoVaca.png">
+            </div>
+            <div class="p-col-11 p-md-5 p-lg-10" style="padding-top: 13px; margin-left: -20px;">
+                <span class="fs_16" style="font-family: 'Open Sans'">{{text}}</span>
             </div>
             <div class="p-col-1 p-md-1 p-lg-1 btn-icon">
                 <span class="btn-close btn-close_{{type}}" (click)="close()">

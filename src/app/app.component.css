@@ -7,7 +7,7 @@
   display: inline-flex;
   font-size: inherit;
   font-style: normal;
-  font-family: inherit;
+  font-family: 'Open Sans';
   max-width: 100%;
   position: relative;
   text-align: center;
@@ -24,7 +24,6 @@
   color: white !important;
   height: 40px !important;
   line-height: 40px !important;
-  background: #689F38 !important;
   box-shadow: rgb(0 0 0 / 20%) 1px 1px 5px 0px !important;
 }
 
@@ -79,35 +78,32 @@
 }
 
 .header {
-  height: 80px;
+  height: 88px;
   border-bottom: 1px solid #afc4d1;
-  border-top: 10px solid #33691e;
-  padding-top: 11px;
+  padding-top: 12px;
   font-size: 14px !important;
 }
 
 .content{
     width: 100%;
     display: grid;
-    grid-template-columns: 50px 95%;
-    grid-gap: 10px;
+    grid-template-columns: 50px 96%;
 }
 
 .contenido-principal {
-    height: 87vh;
+    height: calc(100vh - 88px);
     overflow: auto;
 }
 
 .container {
     border-right: 1px solid #afc4d1;
     box-sizing: border-box;
-    height: calc(100vh - 110px);
+    height: calc(100vh - 88px);
     margin: 0;
     padding: 12px 0;
     padding-left: 0;
     transition: all 0.6s;
     width: 50px;
-    height: 87vh;
     background-color: #ffffff;
 }
 nav {
@@ -146,13 +142,13 @@ span {
 
 .router-link-active {
     background-color: #f5f6f7;
-    border-left: 8px solid #33691e;
+    border-left: 8px solid #3ebdac;
     font-weight: 100;
 }
 
 router-link-active:hover {
     background-color: #c6d5de;
-    border-left: 8px solid #33691e;
+    border-left: 8px solid #3ebdac;
 }
 
 i {
@@ -179,17 +175,17 @@ i {
   @keyframes custom-progress-spinner-color {
     100%,
     0% {
-      stroke: #33691e;
+      stroke: #3ebdac;
     }
     40% {
-      stroke: #33691e;
+      stroke: #3ebdac;
     }
     66% {
-      stroke: #33691e;
+      stroke: #3ebdac;
     }
     80%,
     90% {
-      stroke: #33691e;
+      stroke: #3ebdac;
     }
   }
   
@@ -222,7 +218,8 @@ i {
     padding: 8px;
     border-radius: 30px;
     color: white;
-    background-color: #33691e;
+    background-color: #069a7e;
+    border-color: #0e7774;
     font-weight: bold;
     height: 40px;
     width: 40px;
@@ -240,5 +237,34 @@ i {
     display: flex;
     width: 28%;
     padding-left: 5%;
+    padding-top: 12px;
   }
+
+  .body-app {
+    background-color: #f5f6f7;
+    height: calc(100vh - 88px);
+    font-family: 'Open Sans' !important;
+  }
+
+  .body-app-ini {
+    overflow: auto;
+  }
+
+
+.p-button-success-app {
+  color: #fff;
+  background: #069a7e;
+  border: 1px solid #0e7774;
+}
+
+.p-button-success-app:hover {
+  background: #0e7774;
+  border: 1px solid #0e7774;
+}
+
+.banner {
+  box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
+  width: 96vw; 
+  height: 275px;
+}
   

@@ -1,0 +1,38 @@
+<p-dialog header="&nbsp;"
+          [modal]="true"
+          [baseZIndex]="10000"
+          [draggable]="false"
+          [resizable]="false"
+          [closable]="false"
+          [(visible)]="visible"
+          [style]="{width: '700px', height: '800px'}"
+          header="Terminos y condiciones"
+          styleClass="animate__animated animate__fadeInDown">
+
+          <div class="app_brandTopBar__container">
+            <span class="verde30"></span>
+            <span class="verde50"></span>
+            <span class="verde60"></span>
+            <span class="verde70"></span>
+            <span class="verde100"></span>
+          </div>
+
+          <div class="app-parrafo div-parrafo">
+            <p>
+              La producción de leche evoluciona durante la lactancia y suele caracterizarse por dos fases diferenciadas:
+              una fase ascendente desde el parto hasta el pico de producción (la producción máxima) y una fase
+              descendente, la más larga, desde este pico hasta el período seco. Durante la fase descendente, la secreción
+              de leche disminuye gradualmente hasta el animal secarse y la pendiente de esta fase representa la
+              persistencia de la lactancia. Idealmente, la lactancia tiene una duración de
+              305 días y el período seco de 60 días.
+            </p>
+          </div>
+
+          <div class="modal-footer">
+            <div class="wrapper">
+              <button pButton pRipple type="button" label="Rechazar" class="p-button-outlined" (click)="cancelar()"></button>
+              <div class="p-mr-2"></div>
+              <button pButton pRipple type="button" class="p-button-success-app" label="Aceptar" (click)="aceptar()"></button>
+            </div>
+          </div>
+</p-dialog>

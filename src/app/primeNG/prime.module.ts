@@ -27,6 +27,7 @@ import {DialogModule} from "primeng/dialog";
 import {PanelModule} from 'primeng/panel';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import { AccordionModule } from 'primeng/accordion';
+import {ChartModule} from 'primeng/chart';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { AccordionModule } from 'primeng/accordion';
     DialogModule,
     PanelModule,
     ProgressSpinnerModule,
-    AccordionModule
+    AccordionModule,
+    ChartModule
   ],
   exports: [
     ToastComponent,
@@ -83,7 +85,8 @@ import { AccordionModule } from 'primeng/accordion';
     DialogModule,
     PanelModule,
     ProgressSpinnerModule,
-    AccordionModule
+    AccordionModule,
+    ChartModule
   ],
   providers: [
     MessageService

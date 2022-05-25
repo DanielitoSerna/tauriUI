@@ -1,0 +1,335 @@
+<div class="p-mt-2"></div>
+<div class="p-grid">
+  <div class="p-col-12 p-md-6 p-lg-6">
+    <span class="subtitulo">&nbsp;&nbsp;Gases de origen entérico</span>
+    <div class="tabla-app p-grid">
+        <div class="p-col-12 p-md-8 p-lg-8 p-text-bold">
+          <app-label [required]="false" label="METANO (CH4)"></app-label>
+        </div>
+        <div class="p-col-12 p-md-2 p-lg-2 p-text-bold">
+          <app-label [required]="false" label="Gramos"></app-label>
+        </div>
+        <div class="p-col-12 p-md-2 p-lg-2 p-text-bold">
+          <app-label [required]="false" label="Litros"></app-label>
+        </div>
+
+        <div class="p-col-12 p-md-8 p-lg-8 fila">
+          <span>CH4/día</span>
+        </div>
+        <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right fila">
+        <span>{{getValor(emision.metanoDiaGramo)}}</span>
+        </div>
+        <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right fila">
+          <span>{{getValor(emision.metanoDiaLitro)}}</span>
+        </div>
+
+        <div class="p-col-12 p-md-8 p-lg-8">
+          <span>CH4/kg MS consumida</span>
+        </div>
+        <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right">
+        <span>{{getValor(emision.metanoMsConsumidoGramo)}}</span>
+        </div>
+        <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right">
+          <span>{{getValor(emision.metanoMsConsumidaLitro)}}</span>
+        </div>
+
+        <div class="p-col-12 p-md-8 p-lg-8 fila">
+          <span>CH4/kg LCG4.0%</span>
+        </div>
+        <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right fila">
+        <span>{{getValor(emision.metanoLcgGramo)}}</span>
+        </div>
+        <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right fila">
+          <span>{{getValor(emision.metanoLcgLitro)}}</span>
+        </div>
+
+        <div class="p-col-12 p-md-8 p-lg-8">
+          <span>Factor de emisión (kg/animal/año)</span>
+        </div>
+        <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right">
+        <span>{{getValor(emision.metanoFactorEmision)}}</span>
+        </div>
+
+
+        <div class="p-col-12 p-md-8 p-lg-8 fila">
+          <span>Ym (Energía bruta perdida en forma de metano, %)</span>
+        </div>
+        <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right fila">
+          <span>{{getValor(emision.metanoYm)}}</span>
+        </div>
+    </div>
+    <div class="tabla-app p-grid ">
+      <div class="p-col-12 p-md-8 p-lg-8 p-text-bold">
+        <app-label [required]="false" label="DIÓXIDO DE CARBONO (CO2)"></app-label>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-bold">
+        <app-label [required]="false" label="Gramos"></app-label>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2">
+        <app-label [required]="false" label="Litros"></app-label>
+      </div>
+
+      <div class="p-col-12 p-md-8 p-lg-8 fila">
+        <span>CO2/día</span>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right fila">
+        <span>{{getValor(emision.dioxidoCarbonoDiaGramo)}}</span>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right fila">
+        <span>{{getValor(emision.dioxidoCarbonoDiaLitro)}}</span>
+      </div>
+
+      <div class="p-col-12 p-md-8 p-lg-8">
+        <span>CO2/kg MS consumida</span>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right">
+        <span>{{getValor(emision.dioxidoCarbonoMsConsumidoGramo)}}</span>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right">
+        <span>{{getValor(emision.dioxidoCarbonoMsConsumidoLitro)}}</span>
+      </div>
+
+      <div class="p-col-12 p-md-8 p-lg-8 fila">
+        <span>CO2/kg LCG4.0%</span>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right fila">
+        <span>{{getValor(emision.dioxidoCarbonoLcgGramo)}}</span>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right fila">
+        <span>{{getValor(emision.dioxidoCarbonoLcgLitro)}}</span>
+      </div>
+
+      <div class="p-col-12 p-md-8 p-lg-8">
+        <span>Factor de emisión (kg/animal/año)</span>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right">
+        <span>{{getValor(emision.dioxidoCarbonoFactorEmision)}}</span>
+      </div>
+    </div>
+    
+    <div class="tabla-app p-grid">
+      <div class="p-col-12 p-md-8 p-lg-10 p-text-bold">
+        <app-label [required]="false" label="DIÓXIDO DE CARBONO EQUIVALENTE (CO2eq)"></app-label>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-bold">
+        <app-label [required]="false" label="Gramos"></app-label>
+      </div>
+
+      <div class="p-col-12 p-md-10 p-lg-10 fila">
+        <span>CO2/día</span>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right fila">
+        <span>{{getValor(emision.dioxidoCarbonoEqDiaGramo)}}</span>
+      </div>
+
+      <div class="p-col-12 p-md-10 p-lg-10">
+        <span>CO2/kg MS consumida</span>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right">
+        <span>{{getValor(emision.dioxidoCarbonoEqMsConsumidoGramo)}}</span>
+      </div>
+
+      <div class="p-col-12 p-md-10 p-lg-10 fila">
+        <span>CO2/kg LCG4.0%</span>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right fila">
+        <span>{{getValor(emision.dioxidoCarbonoEqLcgGramo)}}</span>
+      </div>
+
+      <div class="p-col-12 p-md-10 p-lg-10">
+        <span>Factor de emisión (kg/animal/año)</span>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right">
+        <span>{{getValor(emision.dioxidoCarbonoEqFactorEmision)}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="p-col-12 p-md-6 p-lg-6">
+    <span class="subtitulo">&nbsp;&nbsp;Gases desde las excretas en el suelo</span>
+    <div class="tabla-app p-grid">
+      <div class="p-col-12 p-md-8 p-lg-10  p-text-bold">
+        <app-label [required]="false" label="METANO (CH4)"></app-label>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2  p-text-bold">
+        <app-label [required]="false" label="Gramos"></app-label>
+      </div>
+
+      <div class="p-col-12 p-md-10 p-lg-10 fila">
+        <span>CH4/día</span>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right fila">
+        <span>{{getValor(emision.metanoDiaExcretaGramo)}}</span>
+      </div>
+
+      <div class="p-col-12 p-md-10 p-lg-10">
+        <span>CH4/kg MS consumida</span>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right">
+        <span>{{getValor(emision.metanoMsConsumidoExcretaGramo)}}</span>
+      </div>
+
+
+      <div class="p-col-12 p-md-10 p-lg-10 fila">
+        <span>CH4/kg LCG4.0%</span>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right fila">
+        <span>{{getValor(emision.metanoLcgExcretaGramo)}}</span>
+      </div>
+
+
+      <div class="p-col-12 p-md-10 p-lg-10">
+        <span>Factor de emisión (kg/animal/año)</span>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right">
+        <span>{{getValor(emision.metanoExcretaFactorEmision)}}</span>
+      </div>
+    </div>
+
+    <div class="tabla-app p-grid">
+      <div class="p-col-12 p-md-10 p-lg-10 p-text-bold">
+        <app-label [required]="false" label="DIÓXIDO DE CARBONO (CO2)"></app-label>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-bold">
+        <app-label [required]="false" label="Gramos"></app-label>
+      </div>
+
+      <div class="p-col-12 p-md-10 p-lg-10 fila">
+        <span>CO2/día</span>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right fila">
+        <span>{{getValor(emision.dioxidoCarbonoExcretaDiaGramo)}}</span>
+      </div>
+
+      <div class="p-col-12 p-md-10 p-lg-10">
+        <span>CO2/kg MS consumida</span>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right">
+        <span>{{getValor(emision.dioxidoCarbonoExcretaMsConsumidoGramo)}}</span>
+      </div>
+
+      <div class="p-col-12 p-md-10 p-lg-10 fila">
+        <span>CO2/kg LCG4.0%</span>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right fila">
+        <span>{{getValor(emision.dioxidoCarbonoExcretaLgcGramo)}}</span>
+      </div>
+
+      <div class="p-col-12 p-md-10 p-lg-10">
+        <span>Factor de emisión (kg/animal/año)</span>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right">
+        <span>{{getValor(emision.dioxidoCarbonoExcretaFactorEmision)}}</span>
+      </div>
+    </div>
+
+    <div class="tabla-app p-grid">
+      <div class="p-col-12 p-md-8 p-lg-10  p-text-bold">
+        <app-label [required]="false" label="DIÓXIDO DE CARBONO EQUIVALENTE (CO2eq)"></app-label>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2  p-text-bold">
+        <app-label [required]="false" label="Gramos"></app-label>
+      </div>
+
+      <div class="p-col-12 p-md-10 p-lg-10 fila">
+        <span>CO2/día</span>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right fila">
+        <span>{{getValor(emision.co2EqDiaGramo)}}</span>
+      </div>
+
+      <div class="p-col-12 p-md-10 p-lg-10">
+        <span>CO2/kg MS consumida</span>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right">
+        <span>{{getValor(emision.co2EqMsConsumidaGramo)}}</span>
+      </div>
+
+      <div class="p-col-12 p-md-10 p-lg-10 fila">
+        <span>CO2/kg LCG4.0%</span>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right fila">
+        <span>{{getValor(emision.co2EqLgcGramo)}}</span>
+      </div>
+
+      <div class="p-col-12 p-md-10 p-lg-10">
+        <span>Factor de emisión (kg/animal/año)</span>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right">
+        <span>{{getValor(emision.co2FactorEmision)}}</span>
+      </div>
+    </div>
+
+    <div class="tabla-app p-grid">
+      <div class="p-col-12 p-md-10 p-lg-10 p-text-bold">
+        <app-label [required]="false" label="ÓXIDO NITROSO (N2O)"></app-label>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-bold">
+        <app-label [required]="false" label="Gramos"></app-label>
+      </div>
+
+      <div class="p-col-12 p-md-10 p-lg-10 fila">
+        <span>N2O/día</span>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right fila">
+        <span>{{getValor(emision.oxidoNitrosoDiaGramo)}}</span>
+      </div>
+
+      <div class="p-col-12 p-md-10 p-lg-10">
+        <span>N2O/kg MS consumida</span>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right">
+        <span>{{getValor(emision.oxidoNitrosoMsConsumidoGramo)}}</span>
+      </div>
+
+      <div class="p-col-12 p-md-10 p-lg-10 fila">
+        <span>N2O/kg LCG4.0%</span>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right fila">
+        <span>{{getValor(emision.oxidoNitrosoLcgGramo)}}</span>
+      </div>
+
+      <div class="p-col-12 p-md-10 p-lg-10">
+        <span>Factor de emisión (kg/animal/año)</span>
+      </div>
+      <div class="p-col-12 p-md-2 p-lg-2 p-text-lg-right">
+        <span>{{getValor(emision.oxidoNitrosoFactorEmision)}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="p-grid">
+  <div class="p-col-12 p-md-3 p-lg-3 fila-grafica">
+    <div class="tabla-app">
+      <div class="p-mt-1"></div>
+      <span class="subtitulo">Distribución porcentual de la emisión de CH4/animal/año</span>
+      <p-chart type="pie" [data]="datosGrafica1" [plugins]="plugin" [options]="options" ></p-chart>
+    </div>
+  </div>
+  <div class="p-col-12 p-md-3 p-lg-3 fila-grafica">
+    <div class="tabla-app">
+      <div class="p-mt-1"></div>
+      <span class="subtitulo">Distribución porcentual de la emisión de CO2/animal/año</span>
+      <p-chart type="pie" [data]="datosGrafica2" [plugins]="plugin" [options]="options" ></p-chart>
+    </div>
+  </div>
+  <div class="p-col-12 p-md-3 p-lg-3 fila-grafica">
+    <div class="tabla-app">
+      <span class="subtitulo">Distribución porcentual de la emisión de CI2eq/animal/año</span>
+      <p-chart type="pie" [data]="datosGrafica4" [plugins]="plugin" [options]="options" ></p-chart>
+    </div>
+  </div>
+  <div class="p-col-12 p-md-3 p-lg-3 fila-grafica">
+    <div class="tabla-app">
+      <div class="p-mt-1"></div>
+      <span class="subtitulo">Distribución porcentual de la emisión de N2O/animal/año</span>
+      <p-chart type="pie" [data]="datosGrafica3" [plugins]="plugin" [options]="options" ></p-chart>
+    </div>
+  </div>
+</div>
+<div class="p-mt-3"></div>
+<div class="footer">
+  <button pButton pRipple type="button" class="p-button-success-app" label="Anterior" icon="pi pi-arrow-left" iconPos="left" (click)="anterior()"></button>
+  <div class="p-mr-2"></div>
+  <button pButton pRipple type="button" class="p-button-success-app" label="Siguiente" icon="pi pi-arrow-right" iconPos="right" (click)="siguiente()"></button>
+</div>
+<div class="p-mt-3"></div>

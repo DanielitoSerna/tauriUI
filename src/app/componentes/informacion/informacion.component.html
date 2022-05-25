@@ -1,0 +1,199 @@
+<p-dialog header="&nbsp;"
+          [position]="'right'"
+          [modal]="true"
+          [baseZIndex]="10000"
+          [draggable]="false"
+          [resizable]="false"
+          (onHide)="cancelar()"
+          [(visible)]="visible"
+          [style]="{width: '700px', height: '800px'}"
+          header="{{tipo}}"
+          styleClass="animate__animated animate__slideInRight">
+
+          <div class="app_brandTopBar__container">
+            <span class="verde30"></span>
+            <span class="verde50"></span>
+            <span class="verde60"></span>
+            <span class="verde70"></span>
+            <span class="verde100"></span>
+          </div>
+
+          <div *ngIf="tipo == 'Tipo de animal'" class="app-parrafo div-parrafo">
+            <p>
+              La producción de leche evoluciona durante la lactancia y suele caracterizarse por dos fases diferenciadas:
+              una fase ascendente desde el parto hasta el pico de producción (la producción máxima) y una fase
+              descendente, la más larga, desde este pico hasta el período seco. Durante la fase descendente, la secreción
+              de leche disminuye gradualmente hasta el animal secarse y la pendiente de esta fase representa la
+              persistencia de la lactancia. Idealmente, la lactancia tiene una duración de
+              305 días y el período seco de 60 días.
+            </p>
+            <div class="app-bibliografica">
+              (Bouallegue y M’Hamdi, 2019), (Pollott, 2011).
+            </div>
+          </div>
+
+          <div *ngIf="tipo == 'Peso corporal'" class="app-parrafo div-parrafo">
+            <p>
+              <span class="p-text-bold">Raza Holstein: </span>El biotipo de mayor peso adulto es de origen americano y/o canadiense, el biotipo intermedio
+              es de origen europeo y/o australiano, y el biotipo liviano es de origen neozelandés. El rango de pesos para
+              cada biótico es 650-680, 550-580 y 480-500 kg, respectivamente
+            </p>
+            <p>
+              <span class="p-text-bold">Raza Jersey: </span>El peso promedio en la madurez fluctúa entre 350 y 430 kg. En la
+              siguiente tabla se muestran los pesos para animales Holstein y Jersey entre los 12 y 36 meses de edad:e
+            </p>
+            <div style="display: flex;">
+              <img style="margin: auto;" src="./assets/info/pesos.png">
+            </div>
+            <div class="app-bibliografica">
+              (Garzón, 2018), (Delgado y Franco, 2006), McDowell (1988).
+            </div>
+          </div>
+
+          <div *ngIf="tipo == 'Condición corporal'" class="app-parrafo div-parrafo">
+            <p>
+              La calificación de la condición corporal (CC) valora el nivel de reservas de grasa corporal del ganado, que es independiente del tamaño. La condición corporal influye sobre la productividad, reproducción, salud y longevidad del ganado lechero. 
+              En la siguiente tabla se presenta la condición corporal sugerida de acuerdo con la etapa de lactancia:
+            </p>
+            <div style="display: flex;">
+              <img style="margin: auto;" src="./assets/info/condicion.png">
+            </div> 
+            <div class="app-bibliografica">
+              (Heinrichs et al. 2022).
+            </div>
+          </div>
+
+          <div *ngIf="tipo == 'Días en leche'" class="app-parrafo div-parrafo">
+            <p>
+              Hace referencia al número de días que la vaca se encuentra produciendo leche contados a partir de la fecha de su último parto. Este valor es importante para calcular el consumo de materia seca del animal de acuerdo con los estándares del NRC (2001 y 2021). La curva de lactancia representa la producción de leche a lo largo del ciclo productivo e idealmente tiene una duración de 305 días.            
+            </p>
+            <p>
+              La forma estándar de la curva de lactancia es la siguiente:
+              Imagen del archivo: CURVA DE LACTANCIA (EN POWER POINT). Fuente: Ricardo debe citar la fuente. También puede ser: Heinrichs, J., Jones, C.M., y Ishler, V.A., Body Condition Scoring as a Tool for Dairy Herd Management. Penn State Extension (2022)
+              <a href="https://extension.psu.edu/body-condition-scoring-as-a-tool-for-dairy-herd-management">https://extension.psu.edu/body-condition-scoring-as-a-tool-for-dairy-herd-management</a>              
+            </p>
+            <div class="app-bibliografica">
+              (Pollott, 2011).
+            </div>
+          </div>
+
+          <div *ngIf="tipo == 'Días de preñez'" class="app-parrafo div-parrafo">
+            <p>
+              Variable que impacta los requerimientos de energía metabolizable para la preñez. El NRC (2001) calcula los requerimientos a partir de los 190 días de gestación, asumiendo un máximo de 279 días de preñez. Por debajo de los 190 días, los requerimientos de preñez no se consideran significativos.
+            </p>
+            <div style="display: flex;">
+              <img style="margin: auto;" src="./assets/info/prenez.png">
+            </div>  
+            <p>
+              Relación entre los días de preñez y cantidad de energía metabolizable requerida.
+            </p>          
+            <div class="app-bibliografica">
+              (adaptado de Moe and Tyrrell, 1972).
+            </div>
+          </div>
+
+          <div *ngIf="tipo == 'Número de partos'" class="app-parrafo div-parrafo">
+            <p>
+              La edad al primer parto consiste en el tiempo que tarda un animal en alcanzar su madurez sexual y 
+              reproducirse por primera vez, reflejando la velocidad de crecimiento de la hembra y la edad a la pubertad, 
+              cuya presentación tardía reduce el valor económico del animal al disminuir el número potencial de 
+              descendientes -y lactancias- producidos en su vida útil. Al reducir la edad al primer parto, mayor 
+              será el número de terneros y leche producida por año de vida, por lo tanto, la productividad del 
+              hato también será mayor. Se recomienda que las novillas tengan su primer cría entre 23 y 25 meses de 
+              edad (preferiblemente 24 meses).
+            </p>
+            <div class="app-bibliografica">
+              (Salazar-Carranza et al. 2013).
+            </div>
+          </div>
+
+          <div *ngIf="tipo == 'Intervalo entre partos'" class="app-parrafo div-parrafo">
+            <p>
+              El intervalo entre partos constituye el carácter más importante en la evaluación de la eficiencia 
+              reproductiva dentro de un hato, ya que la duración ideal es de 365 días, es decir, un ternero/vaca/año. 
+              El intervalo entre partos esta formado por el período de servicio y el período de gestación, 
+              lo que indica que una vaca deberá ser fecundada alrededor de los 85 días después del parto, 
+              si se tiene en cuenta que el período de gestación. 
+              En la siguiente tabla se presenta un análisis descriptivo de las características productivas y 
+              reproductivas del ganado Holstein y Jersey en el Departamento de Antioquia (Colombia).
+            </p>
+            <div style="display: flex;">
+              <img style="margin: auto;" src="./assets/info/intervalo.png">
+            </div> 
+            <div class="app-bibliografica">
+              (Ossa et al. 2006),  Zambrano et al. (2014).
+            </div>
+          </div>
+
+          <div *ngIf="tipo == 'Producción de leche'" class="app-parrafo div-parrafo">
+            <p>
+              Cantidad de leche producida diariamente por el animal. Variable empleada por el modelo para 
+              calcular los requerimientos diarios de energía, proteína y minerales. 
+              Varía de acuerdo con el número y la duración de la lactancia, conforme la siguiente tabla:
+            </p>
+            <div style="display: flex;">
+              <img style="margin: auto;" src="./assets/info/produccion.png">
+            </div> 
+            <p>Tasa de aumento en la producción de leche en el punto medio entre el inicio y el pico de la lactancia.</p>
+            <p>Persistencia medida como la tasa de disminución de la producción de leche en el punto medio entre el 
+              pico y el final de la lactancia; un valor más alto indica una persistencia más baja.</p>
+            <p>
+              Entre otros factores, la producción de leche y sus constituyentes está determinada por la genética, el clima 
+              y la nutrición. Durante la lactancia se registran cambios en la composición de la leche. La concentración 
+              de grasa y proteína disminuye con la secreción láctea, principalmente por efecto de dilución; contrariamente,
+               la disminución de la producción de leche se acompaña de un aumento en el contenido de grasa y proteína. 
+               La composición de la leche se puede utilizar como herramienta de diagnóstico y seguimiento en 
+               la evaluación nutricional. Valores más altos en la relación grasa:proteína (G/P) están asociados con 
+               una disminución en el consumo de materia seca y un aumento en la movilización de grasa durante el balance 
+               energético negativo posparto. En la siguiente tabla se presenta la producción 
+               de leche y sus constituyentes, conforme avanza la lactancia (datos correspondientes a 95405 lactancias 
+               de ganado de la raza Holstein).
+            </p>
+            <div style="display: flex;">
+              <img style="margin: auto;" src="./assets/info/produccion1.png">
+            </div> 
+            <div class="app-bibliografica">
+              (Pollott, 2011), (Bouallegue y M’Hamdi, 2020), Silvestre et al. (2009).
+            </div>
+          </div>
+
+          <div *ngIf="tipo == 'Ganancia de peso'" class="app-parrafo div-parrafo">
+            <p>
+              Monitorear el crecimiento de los animales es una forma de medir el desempeño de un programa de crianza. 
+              Un retraso en el crecimiento afecta la edad óptima al primer parto, reduce la cantidad total de leche 
+              durante la vida productiva del animal y genera problemas al parto. Por otro lado, acelerar el crecimiento 
+              de los animales también reduce su producción de leche y su longevidad.
+            </p>
+            <div style="display: flex;">
+              <img style="margin: auto;" src="./assets/info/ganancia.png">
+            </div> 
+            <p>
+              Peso maduro: 680 y 454 kg para las razas Holstein y Jersey, respectivamente. 
+              El peso ayunado corresponde al 96% del peso vivo.
+            </p>
+            <p>
+              La eficiencia alimenticia es una medida que permite determinar la capacidad relativa de las vacas para convertir 
+              los nutrientes del alimento en leche o componentes de la leche. Corresponde a los litros de leche que se 
+              producen por cada kilogramo de materia seca consumida.
+            </p>
+            <p>El costo por litro de leche corresponde a la relación entre el costo de la dieta ($/kg MS) y la conversión 
+              alimenticia. La conversión alimenticia es el inverso de la eficiencia (1/eficiencia alimenticia), informando 
+              los kg de materia seca que se requieren para producir 1 L de leche.</p>
+            <p>
+              El margen de utilidad bruta se obtiene por diferencia entre los ingresos por venta y el costo de producción 
+              del litro de leche. 
+            </p>
+            <p>
+              El margen porcentual resulta de la relación (margen de utilidad bruta/ingresos por venta del litro de leche) × 100. 
+            </p>
+            <p>
+              La relación precio de venta/costo de alimentación (PCA) corresponde al precio de venta de un litro de leche 
+              dividido por el costo de un kilogramo de materia seca de alimento (dieta). Este indicador, por tanto, 
+              corresponde a los kilogramos de materia seca de alimento que pueden ser comprados con los ingresos 
+              generados por la venta de un litro de leche. 
+            </p>
+            <div class="app-bibliografica">
+              (Heinrichs y Jones, 2022).
+            </div>
+          </div>
+</p-dialog>

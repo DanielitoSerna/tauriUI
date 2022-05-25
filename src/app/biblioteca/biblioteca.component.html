@@ -1,14 +1,17 @@
-<div class="div-body">
+<div class="div-body animate__animated animate__fadeInDown">
   <div class="div-content">
     <app-alerts [text]="text" type="success" *ngIf="text != ''" (change)="text = ''"></app-alerts>
-    <button pButton pRipple type="button" label="Nuevo alimento" icon="pi pi-plus" class="p-button-success" (click)="alimentoDto = {}; agregar = true"></button>
+    <button pButton pRipple type="button" label="Nuevo alimento" icon="pi pi-plus" class="p-button-success-app" (click)="alimentoDto = {}; agregar = true"></button>
     <div class="p-mt-2"></div>
-    <div class="descripcion descripcion-alimento div-info " *ngIf="alimentos == null || alimentos.length == 0">
-      <div>
-        <span class="pi pi-info-circle icon-info"></span>
+    <div class="descripcion div-info " *ngIf="alimentos == null || alimentos.length == 0">
+      <div style="display: flex;">
+        <img style="margin: auto;" src="./assets/info.png">
       </div>
-      <div>
-        No se encontraron reportes asociados a tu usuario, crea uno para visualizarlo en esta pantalla.
+      <div class="p-mt-4"></div>
+      <div style="font-size: 18px; font-family: 'Open sans'; display: flex;">
+        <div style="margin: auto;">
+          No se encontraron reportes asociados a tu usuario, crea uno para visualizarlo en esta pantalla.
+        </div>        
       </div>
     </div>
     <p-table *ngIf="alimentos.length > 0" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"

@@ -20,9 +20,13 @@ export class AppService {
     finishProgress() {
         localStorage.removeItem('cargando');
     }
+
+    listarPaises(): Promise<any>{
+        return this.http.get(`${this.configUrl}/paises`).toPromise();
+    }
     
-    listarDepartamentos(): Promise<any>{
-        return this.http.get(`${this.configUrl}/departamentos`).toPromise();
+    listarDepartamentos(id: string): Promise<any>{
+        return this.http.get(`${this.configUrl}/departamentos?idPais=` + id).toPromise();
     }
 
     listarMunicipios(id: string): Promise<any>{
@@ -87,5 +91,17 @@ export class AppService {
 
     guardarUsuario(usuario: any): Promise<any>{
         return this.http.post(`${this.configUrl}/guardarUsuario`, usuario).toPromise();
+    }
+
+    calcularBalance(modelo: any): Promise<any>{
+        return this.http.post(`${this.configUrl}/retornarModelo`, modelo).toPromise();
+    }
+
+    calcularEmision(modelo: any): Promise<any>{
+        return this.http.post(`${this.configUrl}/emisionGei`, modelo).toPromise();
+    }
+
+    relacionCostoBeneficio(modelo: any): Promise<any>{
+        return this.http.post(`${this.configUrl}/relacionCostoBeneficio`, modelo).toPromise();
     }
 }

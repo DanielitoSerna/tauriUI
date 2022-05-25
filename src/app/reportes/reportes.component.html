@@ -1,14 +1,17 @@
-<div class="div-body">
+<div class="div-body animate__animated animate__fadeInDown">
   <div>
     <app-alerts [text]="text" type="success" *ngIf="text != ''" (change)="text = ''"></app-alerts>
-    <button pButton pRipple type="button" label="Nueva simulación" icon="pi pi-plus" class="p-button-success" (click)="nuevoReporte()"></button>
+    <button pButton pRipple type="button" label="Nueva simulación" icon="pi pi-plus" class="p-button-success-app" (click)="nuevoReporte()"></button>
     <div class="p-mt-2"></div>
-    <div class="descripcion descripcion-alimento div-info " *ngIf="resportes == null || resportes.length == 0">
-      <div>
-        <span class="pi pi-info-circle icon-info"></span>
+    <div class="descripcion div-info " *ngIf="resportes == null || resportes.length == 0">
+      <div style="display: flex;">
+        <img style="margin: auto;" src="./assets/info.png">
       </div>
-      <div>
-        No se encontraron reportes asociados a tu usuario, crea uno para visualizarlo en esta pantalla.
+      <div class="p-mt-4"></div>
+      <div style="font-size: 18px; font-family: 'Open sans'; display: flex;">
+        <div style="margin: auto;">
+          No se encontraron reportes asociados a tu usuario, crea uno para visualizarlo en esta pantalla.
+        </div>        
       </div>
     </div>
     <p-table *ngIf="resportes.length > 0" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
@@ -55,7 +58,7 @@
       <ng-template pTemplate="body" let-customer>
           <tr>
               <td>{{customer.nombreReporte}}</td>
-              <td>{{customer.pais}}</td>
+              <td>{{customer.departamento.pais.pais}}</td>
               <td>{{customer.departamento.nombreDepartamento}}</td>
               <td>{{customer.municipio.municipio}}</td>
               <td>{{customer.fechaCreacion | date: 'dd/MM/yyyy HH:mm:ss'}}</td>

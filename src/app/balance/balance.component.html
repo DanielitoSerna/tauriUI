@@ -1,221 +1,261 @@
-<div class="p-mt-3"></div>
-<div class="p-grid margin p-text-bold">
+<div class="p-grid">
+  <div class="p-col-12 p-md-9 p-lg-9">
+    <div class="tabla-balance">
+      <div class="p-grid margin p-text-bold">
+        <div class="p-col-12 p-md-4 p-lg-4">
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1">
+          <app-label [required]="false" label="NEL"></app-label>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1">
+          <app-label [required]="false" label="PM"></app-label>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1">
+          <app-label [required]="false" label="Ca"></app-label>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1">
+          <app-label [required]="false" label="P"></app-label>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1">
+          <app-label [required]="false" label="K"></app-label>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1">
+          <app-label [required]="false" label="Mg"></app-label>
+        </div>
+      </div>
+      <div class="p-grid margin p-text-bold">
+        <div class="p-col-12 p-md-4 p-lg-4">
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1">
+          <app-label [required]="false" label="(Mcal/día)"></app-label>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1">
+          <app-label [required]="false" label="(g/día)"></app-label>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1">
+          <app-label [required]="false" label="(g/día)"></app-label>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1">
+          <app-label [required]="false" label="(g/día)"></app-label>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1">
+          <app-label [required]="false" label="(g/día)"></app-label>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1">
+          <app-label [required]="false" label="(g/día)"></app-label>
+        </div>
+      </div>
+      <div class="p-grid fila margin">
+        <div class="p-col-12 p-md-4 p-lg-4">Mantenimiento</div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.neMaint)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.mpMaint)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.fecalCalcium + balance.urinaryCalcium)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.fecalPhosphorous + balance.urinaryPhosphorous)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.kFecal + balance.kUrinary)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.mgFecal + balance.mgUrinary)}}</span>
+        </div>
+      </div>
+      <div class="p-grid margin">
+        <div class="p-col-12 p-md-4 p-lg-4">Crecimiento</div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.growht)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.mpGrowth)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.growthCalcium)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.growthPhosphorous)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.kGrowth)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.mgGrowth)}}</span>
+        </div>
+      </div>
+      <div class="p-grid fila margin">
+        <div class="p-col-12 p-md-4 p-lg-4">Lactancia</div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.yEn)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.mpLact)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.lactationCalcium)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.lactationPhosphorous)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.kLactation)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.mgLactation)}}</span>
+        </div>
+      </div>
+      <div class="p-grid margin">
+        <div class="p-col-12 p-md-4 p-lg-4">Preñez</div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.nePreg)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.mpPreg)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.pregnancyCalcium)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.pregnancyPhosphorous)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.kPregnancy)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.mgPregnancy)}}</span>
+        </div>
+      </div>
+      <div class="p-grid fila margin p-text-bold">
+        <div class="p-col-12 p-md-4 p-lg-4">Total requerido</div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.totalNeRequirement)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.totalMpRequirement)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.caRequirement)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.pRequirement)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.kRequirement)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.mgRequirement)}}</span>
+        </div>
+      </div>
+      <div class="p-grid margin p-text-bold">
+        <div class="p-col-12 p-md-4 p-lg-4">Total consumido</div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.totalConsumidoNel)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.totalConsumidoPm)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.totalConsumidoCa)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.totalConsumidoP)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.totalConsumidoK)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.totalConsumidoMg)}}</span>
+        </div>
+      </div>
+      <div class="p-grid fila margin p-text-bold">
+        <div class="p-col-12 p-md-4 p-lg-4">Balance</div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.balanceNel)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.balancePm)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.balanceCa)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.balanceP)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.balanceK)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
+          <span>{{getValor(balance.balanceMg)}}</span>
+        </div>
+      </div>
+      <div class="p-grid margin p-text-bold">
+        <div class="p-col-12 p-md-4 p-lg-4">% Requerimiento</div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right {{obteneClaseValor(balance.porcentajeNel)}}">
+          <span>{{getValor(balance.porcentajeNel)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right {{obteneClaseValor(balance.porcentajePm)}}">
+          <span>{{getValor(balance.porcentajePm)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right {{obteneClaseValor(balance.porcentajeCa)}}">
+          <span>{{getValor(balance.porcentajeCa)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right {{obteneClaseValor(balance.porcentajeP)}}">
+          <span>{{getValor(balance.porcentajeP)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right {{obteneClaseValor(balance.porcentajeK)}}">
+          <span>{{getValor(balance.porcentajeK)}}</span>
+        </div>
+        <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right {{obteneClaseValor(balance.porcentajeMg)}}">
+          <span>{{getValor(balance.porcentajeMg)}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="p-col-12 p-md-3 p-lg-3">
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1">
-    <app-label [required]="false" label="NEL"></app-label>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1">
-    <app-label [required]="false" label="PM"></app-label>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1">
-    <app-label [required]="false" label="Ca"></app-label>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1">
-    <app-label [required]="false" label="P"></app-label>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1">
-    <app-label [required]="false" label="K"></app-label>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1">
-    <app-label [required]="false" label="Mg"></app-label>
-  </div>
-</div>
-<div class="p-grid margin p-text-bold">
-  <div class="p-col-12 p-md-3 p-lg-3">
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1">
-    <app-label [required]="false" label="(Mcal/día)"></app-label>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1">
-    <app-label [required]="false" label="(g/día)"></app-label>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1">
-    <app-label [required]="false" label="(g/día)"></app-label>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1">
-    <app-label [required]="false" label="(g/día)"></app-label>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1">
-    <app-label [required]="false" label="(g/día)"></app-label>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1">
-    <app-label [required]="false" label="(g/día)"></app-label>
+    <div class="tabla-balance">
+      <div class="p-grid">
+        <div class="p-col-12 p-md-8 p-lg-8 fila">
+          Forraje (% CMSact)
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">{{calcularForraje()}}</div>
+        <div class="p-col-12 p-md-8 p-lg-8">
+          Concentrado (% CMSact)
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">{{calcularConcentrado()}}</div>
+        <div class="p-col-12 p-md-8 p-lg-8 fila">
+          FDN (% CMSact)
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">{{calcularFdn()}}</div>
+        <div class="p-col-12 p-md-8 p-lg-8">
+          FDA (% CMSact)
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">{{calcularFda()}}</div>
+        <div class="p-col-12 p-md-8 p-lg-8 fila">
+          Almidón (% CMSact)
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">{{calcularAlmidon()}}</div>
+        <div class="p-col-12 p-md-8 p-lg-8">
+          PB (% CMSact)
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">{{calcularPb()}}</div>
+        <div class="p-col-12 p-md-8 p-lg-8 fila">
+          PDR (% PB)
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-4 fila p-text-lg-right">-</div>
+        <div class="p-col-12 p-md-8 p-lg-8">
+          PNDR (% PB)
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">-</div>
+      </div>
+    </div>
   </div>
 </div>
-<div class="p-grid fila margin">
-  <div class="p-col-12 p-md-3 p-lg-3">Mantenimiento</div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>9,5</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>880,9</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>18,8</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>21,2</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>175,0</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>1,8</span>
-  </div>
-</div>
-<div class="p-grid margin">
-  <div class="p-col-12 p-md-3 p-lg-3">Crecimiento</div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>9,5</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>880,9</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>18,8</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>21,2</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>175,0</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>1,8</span>
-  </div>
-</div>
-<div class="p-grid fila margin">
-  <div class="p-col-12 p-md-3 p-lg-3">Lactancia</div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>9,5</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>880,9</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>18,8</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>21,2</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>175,0</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>1,8</span>
-  </div>
-</div>
-<div class="p-grid margin">
-  <div class="p-col-12 p-md-3 p-lg-3">Preñez</div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>9,5</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>880,9</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>18,8</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>21,2</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>175,0</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>1,8</span>
-  </div>
-</div>
-<div class="p-grid fila margin p-text-bold">
-  <div class="p-col-12 p-md-3 p-lg-3">Total requerido</div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>9,5</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>880,9</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>18,8</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>21,2</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>175,0</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>1,8</span>
-  </div>
-</div>
-<div class="p-grid margin p-text-bold">
-  <div class="p-col-12 p-md-3 p-lg-3">Total consumido</div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>9,5</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>880,9</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>18,8</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>21,2</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>175,0</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>1,8</span>
-  </div>
-</div>
-<div class="p-grid fila margin p-text-bold">
-  <div class="p-col-12 p-md-3 p-lg-3">Balance</div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>9,5</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>880,9</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>18,8</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>21,2</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>175,0</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right">
-    <span>1,8</span>
-  </div>
-</div>
-<div class="p-grid margin p-text-bold">
-  <div class="p-col-12 p-md-3 p-lg-3">% requerimiento</div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right success">
-    <span>9,5</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right danger">
-    <span>880,9</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right danger">
-    <span>18,8</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right warning">
-    <span>21,2</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right warning">
-    <span>175,0</span>
-  </div>
-  <div class="p-col-12 p-md-1 p-lg-1 p-text-lg-right danger">
-    <span>1,8</span>
-  </div>
-</div>
-<div class="p-mt-3"></div>
 <div class="footer">
-  <button pButton pRipple type="button" class="p-button-success" label="Anterior" icon="pi pi-arrow-left" iconPos="left" (click)="anterior()"></button>
+  <button pButton pRipple type="button" class="p-button-success-app" label="Anterior" icon="pi pi-arrow-left" iconPos="left" (click)="anterior()"></button>
   <div class="p-mr-2"></div>
-  <button pButton pRipple type="button" class="p-button-success" label="Descargar reporte" icon="pi pi-cloud-download" iconPos="left" (click)="descargar()"></button>
-  <div class="p-mr-2"></div>
-  <button pButton pRipple type="button" class="p-button-success" label="Guardar simulación" icon="pi pi-save" iconPos="left" (click)="guardar()"></button>
+  <button pButton pRipple type="button" class="p-button-success-app" label="Siguiente" icon="pi pi-arrow-right" iconPos="right" (click)="siguiente()"></button>
 </div>

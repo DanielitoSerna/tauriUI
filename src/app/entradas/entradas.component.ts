@@ -12,6 +12,8 @@ export class EntradasComponent {
 
   public text = "";
   public cancelar = false;
+  public informacion = false;
+  public tipo = "";
 
   public entrada: any = {
     manejo: 'confinamiento'
@@ -27,9 +29,8 @@ export class EntradasComponent {
   dieta = [];
 
   public states = [];
-  public paises = [
-    {nombre: "Colombia"}
-  ];
+  public paises = [];
+
   public razas = [
     {nombre: "Holstein"},
     {nombre: "Jersey"}
@@ -50,13 +51,16 @@ export class EntradasComponent {
 
   constructor(private service: AppService,
               private route: Router) {
-    this.service.listarDepartamentos().then(data => this.departamentos = data);
+    this.service.listarPaises().then(data => this.paises = data);
     let reporte = sessionStorage.getItem("reporte");
     if(reporte != null && reporte != undefined) {
       this.service.initProgress();
       sessionStorage.removeItem("reporte");
       this.entrada = JSON.parse(reporte);
-      this.service.listarMunicipios(this.entrada.departamentoDto).then(data => this.municipios = data);
+      if(this.entrada.departamento != null && this.entrada.departamento.pais != null) {
+        this.service.listarDepartamentos(this.entrada.departamento.pais.id).then(data => this.departamentos = data);
+        this.service.listarMunicipios(this.entrada.departamentoDto).then(data => this.municipios = data);
+      }
       this.service.listarDieta(this.entrada.id).then(data => {
         this.service.finishProgress();
         this.dieta = data
@@ -74,7 +78,6 @@ export class EntradasComponent {
   infoGeneralValida() : boolean {
     let valido = true;
     valido = this.entrada.nombreReporte != null;
-    valido = valido ? this.entrada.pais != null : valido;
     valido = valido ? this.entrada.departamentoDto != null : valido;
     valido = valido ? this.entrada.municipioDto != null : valido;
 
@@ -119,7 +122,12 @@ export class EntradasComponent {
   }
 
   tabSiguiente() {
-    this.activeIndex1 = this.activeIndex1 + 1;
+    if(this.activeIndex1 == 2) {
+      this.guardar(true);
+    } else {
+      this.activeIndex1 = this.activeIndex1 + 1;
+    }
+   
   }
 
   tabAnterior() {
@@ -129,6 +137,13 @@ export class EntradasComponent {
   consultarMunicipios(event: any) {
     if(event.value != null) {
       this.service.listarMunicipios(event.value).then(data => this.municipios = data);
+    }
+  }
+
+  consultarDepartamentos(event: any) {
+    this.municipios = [];
+    if(event.value != null) {
+      this.service.listarDepartamentos(event.value).then(data => this.departamentos = data);
     }
   }
 
@@ -160,7 +175,7 @@ export class EntradasComponent {
         });
         this.service.finishProgress();
         if(descargar) {
-          window.open(this.service.configUrl + '/exportar?reporteId='+this.entrada.id);
+          this.activeIndex1 = this.activeIndex1 + 1;
         } else {
           if(editar) {
             sessionStorage.setItem("reporteEditado", JSON.stringify("si"));
@@ -169,7 +184,13 @@ export class EntradasComponent {
           }
           this.route.navigate(['/reportes']);
         }
+          
       });
     });
+  }
+
+  abrirInfo(tipo: any) {
+    this.tipo = tipo;
+    this.informacion = true;
   }
 }

@@ -1,0 +1,53 @@
+<div class="p-mt-2"></div>
+<div style="display: flex;">
+  <div class="tabla-app p-grid" style="margin: auto;">
+    <div class="p-col-12 p-md-8 p-lg-8 p-text-bold">
+      <app-label [required]="false" label="Eficiencia alimenticia (L/Kg MS)"></app-label>
+    </div>
+    <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+      <span>{{getValor(relacion.eficienciaAlimentica)}}</span>
+    </div>
+    <div class="p-col-12 p-md-8 p-lg-8 p-text-bold">
+      <app-label [required]="false" label="Costo de la dieta ($/kg MS)"></app-label>
+    </div>
+    <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+      <span>{{getValor(relacion.costoDieta)}}</span>
+    </div>
+    <div class="p-col-12 p-md-8 p-lg-8 p-text-bold">
+      <app-label [required]="false" label="Costo/L leche"></app-label>
+    </div>
+    <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+      <span>{{getValor(relacion.costoLitroLeche)}}</span>
+    </div>
+  </div>
+  <div class="p-mr-3"></div>
+  <div class="tabla-app p-grid" style="margin: auto;">
+    <div class="p-col-12 p-md-8 p-lg-8 p-text-bold">
+      <app-label [required]="false" label="Margen de utilidad bruta ($/L leche)"></app-label>
+    </div>
+    <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+      <span>{{getValor(relacion.margenUtilidadBruta)}}</span>
+    </div>
+    <div class="p-col-12 p-md-8 p-lg-8 p-text-bold">
+      <app-label [required]="false" label="Margen porcentual (%)"></app-label>
+    </div>
+    <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+      <span>{{getValor(relacion.margenPorcentual)}}</span>
+    </div>
+    <div class="p-col-12 p-md-8 p-lg-8 p-text-bold">
+      <app-label [required]="false" label="Relación precio de venta/Costo de alimentación"></app-label>
+    </div>
+    <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+      <span>{{getValor(relacion.relacionPrecioVentaCostoAlimentacion)}}</span>
+    </div>
+  </div>
+</div>
+<div class="p-mt-3"></div>
+<div class="footer">
+  <button pButton pRipple type="button" class="p-button-success-app" label="Anterior" icon="pi pi-arrow-left" iconPos="left" (click)="anterior()"></button>
+  <div class="p-mr-2"></div>
+  <button pButton pRipple type="button" class="p-button-success-app" label="Descargar reporte" icon="pi pi-cloud-download" iconPos="left" (click)="descargar()"></button>
+  <div class="p-mr-2"></div>
+  <button pButton pRipple type="button" class="p-button-success-app" label="Guardar simulación" icon="pi pi-save" iconPos="left" (click)="guardar()"></button>
+</div>
+<div class="p-mt-3"></div>
