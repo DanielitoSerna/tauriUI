@@ -42,3 +42,16 @@
   padding: 10px;
   border-radius: 15px;
 }
+
+.fila-app {
+  display: flex;
+}
+
+.columan {
+  flex: 1; 
+  padding: 7px;
+}
+
+.columan-nombre {
+  flex: 2;
+}

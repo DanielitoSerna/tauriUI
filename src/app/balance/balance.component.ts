@@ -13,12 +13,17 @@ export class BalanceComponent implements OnInit {
   @Input() data: any;
 
   public balance: any = {};
+  public calculo: any = {};
 
   constructor(private service: AppService) {  }
 
   ngOnInit() { 
     this.service.calcularBalance(this.data).then(data => {
       this.balance = data;
+    });
+
+    this.service.calculoBalance(this.data).then(data => {
+      this.calculo = data;
     });
   }
 
@@ -45,134 +50,6 @@ export class BalanceComponent implements OnInit {
       return value.toLocaleString("de-DE", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
     } else {
       return '-';
-    }
-  }
-
-  calcularForraje() {
-    let suma = 0;
-    let sumaForraje = 0;
-    this.data.dietaDtos.forEach((alimento: any) => {
-      if(alimento.cantidad != null) {
-        suma = (suma + Number(alimento.cantidad));
-      }
-      if(alimento.cantidad != null && alimento.alimento.tipo == 'Forraje') {
-        sumaForraje = (sumaForraje + Number(alimento.cantidad));
-      }
-    });
-    if(sumaForraje > 0 ) {
-      return (suma / sumaForraje * 100).toLocaleString("de-DE", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
-    } else {
-      return (0).toLocaleString("de-DE", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
-    }
-  }
-
-  calcularConcentrado() {
-    let suma = 0;
-    let sumaConcentrado = 0;
-    this.data.dietaDtos.forEach((alimento: any) => {
-      if(alimento.cantidad != null) {
-        suma = (suma + Number(alimento.cantidad));
-      }
-      if(alimento.cantidad != null && alimento.alimento.tipo == 'Concentrado') {
-        sumaConcentrado = (sumaConcentrado + Number(alimento.cantidad));
-      }
-    });
-    if(sumaConcentrado > 0 ) {
-      return (suma / sumaConcentrado * 100).toLocaleString("de-DE", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
-    } else {
-      return (0).toLocaleString("de-DE", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
-    }
-  }
-
-  calcularFdn() {
-    let suma = 0;
-    let sumaFdn = 0;
-    this.data.dietaDtos.forEach((alimento: any) => {
-      if(alimento.cantidad != null) {
-        suma += Number(alimento.cantidad);
-      }
-      if(alimento.alimento.fdn != null && alimento.cantidad > 0) {
-        sumaFdn += (Number(alimento.alimento.fdn) / Number(alimento.cantidad) * 100);
-      }
-    });
-    if(suma > 0 ) {
-      return (sumaFdn / suma * 100).toLocaleString("de-DE", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
-    } else {
-      return (0).toLocaleString("de-DE", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
-    }
-  }
-
-  calcularFda() {
-    let suma = 0;
-    let sumaFda = 0;
-    this.data.dietaDtos.forEach((alimento: any) => {
-      if(alimento.cantidad != null) {
-        suma += Number(alimento.cantidad);
-      }
-      if(alimento.alimento.fda != null && alimento.cantidad > 0) {
-        sumaFda += (Number(alimento.alimento.fda) / Number(alimento.cantidad) * 100);
-      }
-    });
-    if(suma > 0 ) {
-      return (sumaFda / suma * 100).toLocaleString("de-DE", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
-    } else {
-      return (0).toLocaleString("de-DE", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
-    }
-  }
-
-  calcularAlmidon() {
-    let suma = 0;
-    let sumaAlmidon = 0;
-    this.data.dietaDtos.forEach((alimento: any) => {
-      if(alimento.cantidad != null) {
-        suma += Number(alimento.cantidad);
-      }
-      if(alimento.alimento.almidon != null && alimento.cantidad > 0) {
-        sumaAlmidon += (Number(alimento.alimento.almidon) / Number(alimento.cantidad) * 100);
-      }
-    });
-    if(suma > 0 ) {
-      return (sumaAlmidon / suma * 100).toLocaleString("de-DE", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
-    } else {
-      return (0).toLocaleString("de-DE", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
-    }
-  }
-
-  calcularPb() {
-    let suma = 0;
-    let sumaPb = 0;
-    this.data.dietaDtos.forEach((alimento: any) => {
-      if(alimento.cantidad != null) {
-        suma += Number(alimento.cantidad);
-      }
-      if(alimento.alimento.pb != null && alimento.cantidad > 0) {
-        sumaPb += (Number(alimento.alimento.pb) / Number(alimento.cantidad) * 100 / 1000);
-      }
-    });
-    sumaPb = sumaPb / 1000;
-    if(suma > 0 ) {
-      return (sumaPb / suma * 100).toLocaleString("de-DE", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
-    } else {
-      return (0).toLocaleString("de-DE", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
-    }
-  }
-
-  calcularPdr() {
-    let suma = 0;
-    let sumaPdr = 0;
-    this.data.dietaDtos.forEach((alimento: any) => {
-      if(alimento.cantidad != null) {
-        suma += Number(alimento.cantidad);
-      }
-      if(alimento.alimento.pb != null && alimento.cantidad > 0) {
-        sumaPdr += (Number(alimento.alimento.pb) / Number(alimento.cantidad) * 100 / 1000);
-      }
-    });
-    sumaPdr = sumaPdr / 1000;
-    if(suma > 0 ) {
-      return (sumaPdr / suma * 100).toLocaleString("de-DE", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
-    } else {
-      return (0).toLocaleString("de-DE", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
     }
   }
 }

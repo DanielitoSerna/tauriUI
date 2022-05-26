@@ -13,13 +13,16 @@ export class DietaComponent implements OnInit {
   @Output() atras = new EventEmitter<any>();
   @Input() alimentosSeleccionados:any[]  = [];
   @Input() alimentos: any[] = [];
+  @Input() entradas: any[] = [];
 
   public text = '';
   public tipoAlerta = 'danger';
+  public consumo:any = {};
 
   constructor(private service: AppService) { }
 
   ngOnInit() {
+    this.service.consumoMateriaSecaPredicho(this.entradas).then(data => this.consumo = data);
     let alimentosS:any[] = this.alimentos;
     this.alimentos = [];
     this.alimentosSeleccionados.forEach(a => {

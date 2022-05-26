@@ -104,4 +104,12 @@ export class AppService {
     relacionCostoBeneficio(modelo: any): Promise<any>{
         return this.http.post(`${this.configUrl}/relacionCostoBeneficio`, modelo).toPromise();
     }
+
+    consumoMateriaSecaPredicho(entradaDto: any): Promise<any>{
+        return this.http.post(`${this.configUrl}/consumoMateriaSecaPredicho`, entradaDto).toPromise();
+    }
+
+    calculoBalance(modelo: any): Promise<any>{
+        return this.http.post(`${this.configUrl}/calculoBalance`, modelo).toPromise();
+    }
 }

@@ -263,7 +263,7 @@
         <span>Dieta</span>
       </ng-template>
       <app-dieta *ngIf="activeIndex1 == 2" [alimentosSeleccionados]="alimentosSeleccionados" (atras)="tabAnterior()"
-        [alimentos]="dieta" (confirmar)="dieta = $event" (continuar)="tabSiguiente()"></app-dieta>
+        [alimentos]="dieta" [entradas]="entrada" (confirmar)="dieta = $event" (continuar)="tabSiguiente()"></app-dieta>
     </p-tabPanel>
     <p-tabPanel [disabled]="activeIndex1 != 3">
       <ng-template pTemplate="header">

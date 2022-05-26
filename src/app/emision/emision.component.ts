@@ -97,8 +97,8 @@ export class EmisionComponent implements OnInit {
               this.emision.emisionN2oAnioUrinario, 
               this.emision.emisionN2oAnioFecal
             ],
-            backgroundColor: this.color,
-            hoverBackgroundColor: this.hover
+            backgroundColor: [ "#ef434d", "#f9a12c" ],
+            hoverBackgroundColor: [ "#F02B36", "#FA950E" ]
           }
         ]
       };
