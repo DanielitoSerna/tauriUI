@@ -11,6 +11,7 @@ export class RelacionComponent implements OnInit {
   @Output() confirmar = new EventEmitter<any>();
   @Output() atras = new EventEmitter<any>();
   @Output() abriDescargar = new EventEmitter<any>();
+  @Output() info = new EventEmitter<any>();
   @Input() data: any;
 
   public relacion: any = {};
@@ -46,5 +47,10 @@ export class RelacionComponent implements OnInit {
     } else {
       return '-';
     }
+  }
+
+
+  abrirInfo(tipo: any) {
+    this.info.emit(tipo);
   }
 }

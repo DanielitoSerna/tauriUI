@@ -6,7 +6,7 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 })
 export class AppService {
 
-    public configUrl = "http://localhost:8080/api";
+    public configUrl = "https://tauri-udea.herokuapp.com/api";
     constructor(private http: HttpClient) {}
 
     isProgress(): boolean {

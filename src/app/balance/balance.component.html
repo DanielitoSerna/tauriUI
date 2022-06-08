@@ -5,22 +5,28 @@
         <div class="columan-nombre">
         </div>
         <div class="columan">
-          <app-label [required]="false" label="NEL"></app-label>
+          <app-label [required]="false" label="ENL"
+            pTooltip="Energía neta de lactancia" tooltipPosition="top"></app-label>
         </div>
         <div class="columan">
-          <app-label [required]="false" label="PM"></app-label>
+          <app-label [required]="false" label="PM"
+          pTooltip="Proteína metabolizable" tooltipPosition="top"></app-label>
         </div>
         <div class="columan">
-          <app-label [required]="false" label="Ca"></app-label>
+          <app-label [required]="false" label="Ca"
+          pTooltip="Calcio" tooltipPosition="top"></app-label>
         </div>
         <div class="columan">
-          <app-label [required]="false" label="P"></app-label>
+          <app-label [required]="false" label="P"
+          pTooltip="Fósforo" tooltipPosition="top"></app-label>
         </div>
         <div class="columan">
-          <app-label [required]="false" label="K"></app-label>
+          <app-label [required]="false" label="K"
+          pTooltip="Potasio" tooltipPosition="top"></app-label>
         </div>
         <div class="columan">
-          <app-label [required]="false" label="Mg"></app-label>
+          <app-label [required]="false" label="Mg"
+          pTooltip="Magnesio" tooltipPosition="top"></app-label>
         </div>
       </div>
       <div class="fila-app margin p-text-bold">
@@ -218,42 +224,66 @@
   <div class="p-col-12 p-md-3 p-lg-3">
     <div class="tabla-balance">
       <div class="p-grid">
-        <div class="p-col-12 p-md-8 p-lg-8 fila">
-          Forraje (% CMSact)
+        <div class="p-col-6 p-md-8 p-lg-8 fila">
+          Forraje (%CMSact)
         </div>
-        <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">{{getValor(calculo.porcentajeForraje)}}</div>
-        <div class="p-col-12 p-md-8 p-lg-8">
-          Concentrado (% CMSact)
+        <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right fila">{{getValor(calculo.porcentajeForraje)}}</div>
+        <div class="p-col-6 p-md-8 p-lg-8">
+          Concentrado (%CMSact)
         </div>
-        <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">{{getValor(calculo.porcentajeConcentrado)}}</div>
-        <div class="p-col-12 p-md-8 p-lg-8 fila">
-          FDN (% CMSact)
+        <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right">{{getValor(calculo.porcentajeConcentrado)}}</div>
+        <div class="p-col-6 p-md-8 p-lg-8 fila" pTooltip="Fibra detergente neutra" tooltipPosition="top">
+          FDN (%CMSact)
         </div>
-        <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">{{getValor(calculo.fdn)}}</div>
-        <div class="p-col-12 p-md-8 p-lg-8">
-          FDA (% CMSact)
+        <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right fila">{{getValor(calculo.fdn)}}</div>
+        <div class="p-col-6 p-md-8 p-lg-8" pTooltip="Fibra detergente ácida" tooltipPosition="top">
+          FDA (%CMSact)
         </div>
-        <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">{{getValor(calculo.fda)}}</div>
-        <div class="p-col-12 p-md-8 p-lg-8 fila">
-          Almidón (% CMSact)
+        <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right">{{getValor(calculo.fda)}}</div>
+        <div class="p-col-6 p-md-8 p-lg-8 fila">
+          Almidón (%CMSact)
         </div>
-        <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">{{getValor(calculo.almidon)}}</div>
-        <div class="p-col-12 p-md-8 p-lg-8">
-          PB (% CMSact)
+        <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right fila">{{getValor(calculo.almidon)}}</div>
+        <div class="p-col-6 p-md-8 p-lg-8" pTooltip="Proteína bruta" tooltipPosition="top">
+          PB (%CMSact)
         </div>
-        <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">{{getValor(calculo.pb)}}</div>
-        <div class="p-col-12 p-md-8 p-lg-8 fila">
-          PDR (% PB)
+        <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right">{{getValor(calculo.pb)}}</div>
+        <div class="p-col-6 p-md-8 p-lg-8 fila" pTooltip="Proteína degradable en rumen" tooltipPosition="top">
+          PDR (%PB)
         </div>
-        <div class="p-col-12 p-md-4 p-lg-4 fila p-text-lg-right">{{getValor(calculo.pdr)}}</div>
-        <div class="p-col-12 p-md-8 p-lg-8">
-          PNDR (% PB)
+        <div class="p-col-6 p-md-4 p-lg-4 fila p-text-lg-right">{{getValor(calculo.pdr)}}</div>
+        <div class="p-col-6 p-md-8 p-lg-8" pTooltip="Proteína no degradable en rumen" tooltipPosition="top">
+          PNDR (%PB)
         </div>
-        <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">{{getValor(calculo.pndr)}}</div>
+        <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right">{{getValor(calculo.pndr)}}</div>
+      </div>
+    </div>
+    <span class="p-m-3"></span>
+    <div class="tabla-balance">
+      <div class="p-grid">
+        <div class="p-col-2 p-md-2 p-lg-2">
+          <div class="success" style="height: 17px;"></div>
+        </div>
+        <div class="p-col-10 p-md-10 p-lg-10">
+          Requerimiento cubierto.
+        </div>
+        <div class="p-col-2 p-md-2 p-lg-2">
+          <div class="warning" style="height: 17px;"></div>
+        </div>
+        <div class="p-col-10 p-md-10 p-lg-10">
+          Exceso en el aporte.
+        </div>
+        <div class="p-col-2 p-md-2 p-lg-2">
+          <div class="danger" style="height: 17px;"></div>
+        </div>
+        <div class="p-col-10 p-md-10 p-lg-10">
+          Deficiencia en el aporte.
+        </div>
       </div>
     </div>
   </div>
 </div>
+<span class="p-m-2"></span>
 <div class="footer">
   <button pButton pRipple type="button" class="p-button-success-app" label="Anterior" icon="pi pi-arrow-left" iconPos="left" (click)="anterior()"></button>
   <div class="p-mr-2"></div>

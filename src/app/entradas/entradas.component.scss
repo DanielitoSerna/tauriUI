@@ -11,8 +11,13 @@ button {
 }
 
 ::ng-deep .p-dropdown {
-  width: 230px !important;
+  width: 80% !important;
 }
+
+::ng-deep .p-inputnumber {
+  width: 80% !important;
+}
+
 
 ::ng-deep .p-picklist-source-controls {
   display: none !important;

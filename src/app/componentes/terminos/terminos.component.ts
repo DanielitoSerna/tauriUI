@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { AppService } from '../../app.services';
-import { SocialAuthService } from 'angularx-social-login';
 
 @Component({
   selector: 'app-terminos',
@@ -18,8 +17,7 @@ export class TerminosComponent implements OnInit {
   correo: string = '';
   tipo: string = 'U';
 
-  constructor(private service: AppService,
-              private socialAuthService: SocialAuthService) {}
+  constructor(private service: AppService) {}
 
   ngOnInit(): void {}
 
@@ -45,10 +43,7 @@ export class TerminosComponent implements OnInit {
   }
 
   cancelar() {
-    this.socialAuthService.signOut();
-    localStorage.removeItem("nombreUsuario");
-    localStorage.removeItem("nombre");
-    localStorage.removeItem("apellido");
+    localStorage.clear();
     window.location.reload();
   }
 }

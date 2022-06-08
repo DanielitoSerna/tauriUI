@@ -23,12 +23,12 @@
                 Nombre de la simulación
                 <p-sortIcon field="nombre"></p-sortIcon>
               </th>
-              <th>País</th>
-              <th  pSortableColumn="departamento">
+              <th class="column-app">País</th>
+              <th class="column-app"  pSortableColumn="departamento">
                 Departamento/Estado
                 <p-sortIcon field="departamento"></p-sortIcon>
               </th>
-              <th  pSortableColumn="municipio">
+              <th class="column-app"  pSortableColumn="municipio">
                 Municipio
                 <p-sortIcon field="municipio"></p-sortIcon>
               </th>
@@ -38,7 +38,7 @@
               </th>
               <th></th>
           </tr>
-          <tr>
+          <tr class="column-app">
             <th>
               <p-columnFilter type="text" field="nombreReporte" [showMenu]="false" [matchMode]="'contains'"></p-columnFilter>
             </th>
@@ -52,15 +52,15 @@
               <p-columnFilter type="text" field="municipio.municipio" [showMenu]="false" [matchMode]="'contains'"></p-columnFilter>
             </th>
             <th></th>
-            <th class="td-actions"></th>
+            <th class="td-actions" class="column-app"></th>
           </tr>
       </ng-template>
       <ng-template pTemplate="body" let-customer>
           <tr>
               <td>{{customer.nombreReporte}}</td>
-              <td>{{customer.departamento.pais.pais}}</td>
-              <td>{{customer.departamento.nombreDepartamento}}</td>
-              <td>{{customer.municipio.municipio}}</td>
+              <td class="column-app">{{customer.departamento.pais.pais}}</td>
+              <td class="column-app">{{customer.departamento.nombreDepartamento}}</td>
+              <td class="column-app">{{customer.municipio.municipio}}</td>
               <td>{{customer.fechaCreacion | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
               <td class="td-actions">
                 <span class="pi pi-pencil funcionalidad animate__animated animate__zoomIn"

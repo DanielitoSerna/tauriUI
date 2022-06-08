@@ -11,7 +11,11 @@ button {
 }
 
 ::ng-deep .p-dropdown {
-  width: 230px !important;
+  width: 80% !important;
+}
+
+::ng-deep .p-inputnumber {
+  width: 80% !important;
 }
 
 ::ng-deep .p-picklist-source-controls {
@@ -51,4 +55,20 @@ button {
 .p-button-success-app:hover {
   background: #0e7774;
   border: 1px solid #0e7774;
+}
+
+@media screen and (max-width: 700px) {
+  .grid-alimentos-app {
+    display: none;
+  }
+
+  .span-apk {
+    margin-top: 150px;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .span-apk {
+    display: none;
+  }
 }

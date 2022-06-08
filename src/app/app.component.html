@@ -10,13 +10,18 @@
     <div style="width: 70%; margin-top: -11px;">
       <img style="height: 80px; width: 202px; margin-top: 7px;" alt="Angular Logo" src="./assets/logoTauri.png"/>
     </div>
-    <div *ngIf="!isLoggedin" style="padding-left: 10%; padding-top: 12px;">
-      <button id="google-auth-button" class="css-1i6ynxb p-button-success-app" type="button" tabindex="0" (click)="loginWithGoogle()">
-        <span class="css-1ujqpe8">
-          <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.331/static/media/google-logo.e086107b.svg" alt="">
-        </span>
-        <span class="css-19r5em7" style="font-size: 16px;"><span>Iniciar sesión con Google</span></span>
-      </button>
+    <div *ngIf="!isLoggedin" style="padding-top: 12px;" class="inciar-sesion">
+      <div>
+        <button class="css-1i6ynxb p-button-success-app" type="button" tabindex="0" #loginRef>
+          <span class="css-1ujqpe8">
+            <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.331/static/media/google-logo.e086107b.svg" alt="">
+          </span>
+          <span class="css-19r5em7" style="font-size: 16px;">
+            <div class="texto-login-app">Iniciar sesión con Google</div>
+            <div class="texto-login-apk">Iniciar sesión</div>
+          </span>
+        </button>
+      </div>      
     </div>
     <div *ngIf="isLoggedin" class="info-usuario">
       <div class="p-grid">
@@ -25,7 +30,7 @@
             <span class="">{{nombre?.substring(0, 1) + '' + apellido?.substring(0, 1)}}</span>
           </div>
         </div>
-        <div class="p-col-12 p-md-9 p-lg-9">
+        <div class="p-col-12 p-md-9 p-lg-9 nombres-usuario">
           <span class="nombre-usuario">{{nombreUsuario}}</span>
           &nbsp;
           <span class="descripcion">{{correo}}</span>
@@ -78,49 +83,60 @@
           </div>
           <router-outlet></router-outlet>
       </div>
-  </div>    
+  </div>  
 </div>
 <div *ngIf="!isLoggedin" class="body-app body-app-ini">    
-    <div style="padding: 20px;" class="animate__animated animate__bounceInRight">
-      <img class="banner" alt="Angular Logo" src="./assets/banner.gif"/>
-      
-      <div class="p-mt-3"></div>
-
+    <div style="padding: 20px;" class="animate__animated animate__bounceInRight">      
+      <div class="inciar-sesion-apk"></div>
       <p-card>
         <div class="p-grid">
-          <div class="p-col-12 p-md-3 p-lg-3">
-            <div class="p-mt-6"></div>
-            <a href="https://www.udea.edu.co" target="_blank" class="logo">
-              <img width="250" alt="Angular Logo" src="./assets/logo-udea.png"/>
-            </a>
-            <div class="p-mt-6"></div>
-            <a href="https://www.politecnicojic.edu.co" target="_blank" class="logo">
-              <img width="250" alt="Angular Logo" src="./assets/logo-poli.png"/>
-            </a>
+          <div class="p-col-12 p-md-6 p-lg-6">
+            <img style="width: 100%;" alt="Angular Logo" src="./assets/pantalla1.jpg"/>
           </div>
-          <div class="p-col-12 p-md-4 p-lg-9">
+          <div class="p-col-12 p-md-6 p-lg-6">
+            <h3>TAURI:</h3>
             <p class="app-parrafo">
-              Tauri es un software que a partir de información suministrada por el
-              usuario, permite calcular los requerimientos de proteína metabolizable y
-              energía neta de vacas lecheras de acuerdo con los estándares nutricionales
-              sugeridos por el NRC(2001).
+              Software que a través de herramientas de predicción del balance nutricional, la emisión
+              de gases de efecto invernadero y el análisis de la relación beneficio-costo, permite simular
+              diferentes escenarios para facilitar la toma de decisiones en sistemas de producción de
+              leche.
+            </p>
+            <h3>Instituciones:</h3>
+            <div class="p-grid">
+              <div class="p-col-12 p-md-6 p-lg-6">
+                <a href="https://www.udea.edu.co" target="_blank" class="logo">
+                  <img width="250" alt="Angular Logo" src="./assets/logo-udea.png"/>
+                </a>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-6">
+                <a href="https://www.politecnicojic.edu.co" target="_blank" class="logo">
+                  <img width="250" alt="Angular Logo" src="./assets/logo-poli.png"/>
+                </a>
+              </div>
+            </div>
+            <h3>Citación:</h3>
+            <p>
+              Tauri (Versión 1). (2022). Universidad de Antioquia - Politécnico Colombiano Jaime Isaza Cadavid. Medellín - Colombia
+            </p>
+          </div>
+          <div class="p-col-12 p-md-6 p-lg-6">
+            <h3>Autores:</h3>
+            <p class="app-parrafo">
+              Sandra Lucía Posada Ochoa, <span style="font-size: 14px;">Universidad de Antioquia</span><br>
+              Jaime Ricardo Rosero Noguera, <span style="font-size: 14px;">Universidad de Antioquia</span><br>
+              Claudia Alejandra Rosero Noguera, <span style="font-size: 14px;">Politécnico Colombiano Jaime Isaza Cadavid</span><br>
+              Luis Fernando González Alvarán, <span style="font-size: 14px;">Politécnico Colombiano Jaime Isaza Cadavid</span>
+            </p>
+          </div>
+          <div class="p-col-12 p-md-6 p-lg-6">
+            <h3>Contáctenos:</h3>
+            <p>A través de correo electrónico: taurimodel@gmail.com</p>
+            <h3>Apoyo:</h3>
+            <p class="app-parrafo">
+              Ministerio de Ciencia, Tecnología e Innovación, República de Colombia.
             </p>
             <p class="app-parrafo">
-                Por otra parte, esa misma información es empleada por modelos
-                matemáticos desarrollados en el trópico de altura para predecir el
-                consumo de materia seca y las emisiones de metano entérico producto de
-                la fermentación ruminal y óxido nitroso liberado al ambiente por los
-                procesos de nitrificación y denitrificación del nitrógeno presente en las
-                heces y la orina de animales en pastoreo.
-            </p>
-            <p class="app-parrafo">
-                Combinando los índices productivos del animal y los costos asociados con
-                su alimentación, Tauri calcula parámetros económicos que facilitan la
-                toma de decisiones.
-                La información entregada por el software puede ser empleada por el
-                usuario para ajustar planes de alimentación, balacear raciones acordes con
-                los requerimientos del animal y estimar el impacto que su sistema
-                productivo tiene sobre el ambiente.
+              &copy; 2022, <span style="font-size: 14px;">Universidad de Antioquia-Politécnico Colombiano Jaime Isaza Cadavid</span>
             </p>
           </div>
         </div>
@@ -128,3 +144,5 @@
   </div>
 
 </div>
+
+<app-informacion [visible]="informacion" (closed)="informacion = false" tipo="Citación"></app-informacion>

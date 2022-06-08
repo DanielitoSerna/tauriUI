@@ -44,6 +44,12 @@ export class EntradasComponent {
     {nombre: "Ondulada"}
   ];
 
+  public partos = [
+    {label: "1", value: 1},
+    {label: "2", value: 2},
+    {label: "Más de 2", value: 3}
+  ];
+
   public condiciones = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
 
   public departamentos = [];
@@ -71,6 +77,10 @@ export class EntradasComponent {
         this.entrada.nombreReporte = null;
         this.entrada.id = null;
       }
+    }
+
+    if(this.entrada.manejo == null) {
+      this.entrada.manejo = 'confinamiento';
     }
   }
 

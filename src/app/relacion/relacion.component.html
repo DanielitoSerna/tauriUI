@@ -1,44 +1,52 @@
 <div class="p-mt-2"></div>
-<div style="display: flex;">
-  <div class="tabla-app p-grid" style="margin: auto;">
-    <div class="p-col-12 p-md-8 p-lg-8 p-text-bold">
-      <app-label [required]="false" label="Eficiencia alimenticia (L/Kg MS)"></app-label>
-    </div>
-    <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
-      <span>{{getValor(relacion.eficienciaAlimentica)}}</span>
-    </div>
-    <div class="p-col-12 p-md-8 p-lg-8 p-text-bold">
-      <app-label [required]="false" label="Costo de la dieta ($/kg MS)"></app-label>
-    </div>
-    <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
-      <span>{{getValor(relacion.costoDieta)}}</span>
-    </div>
-    <div class="p-col-12 p-md-8 p-lg-8 p-text-bold">
-      <app-label [required]="false" label="Costo/L leche"></app-label>
-    </div>
-    <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
-      <span>{{getValor(relacion.costoLitroLeche)}}</span>
+<div class="p-grid">
+  <div  class="p-col-12 p-md-6 p-lg-6">
+    <div class="tabla-app p-grid">
+      <div class="p-col-8 p-md-8 p-lg-8 p-text-bold">
+        <span>Eficiencia alimenticia (L/kg MS)</span>
+        <span pTooltip="Mas información" tooltipPosition="top" class="app-info pi pi-info-circle" (click)="abrirInfo('Eficiencia alimenticia (L/kg MS)')"></span>
+      </div>
+      <div class="p-col-4 p-md-4 p-lg-4 p-text-lg-right">
+        <span>{{getValor(relacion.eficienciaAlimentica)}}</span>
+      </div>
+      <div class="p-col-8 p-md-8 p-lg-8 p-text-bold">
+        <span>Costo de la dieta ($/kg MS)</span>
+      </div>
+      <div class="p-col-4 p-md-4 p-lg-4 p-text-lg-right">
+        <span>{{getValor(relacion.costoDieta)}}</span>
+      </div>
+      <div class="p-col-8 p-md-8 p-lg-8 p-text-bold">
+        <span>Costo/L leche</span>
+        <span pTooltip="Mas información" tooltipPosition="top" class="app-info pi pi-info-circle" (click)="abrirInfo('Costo/L leche')"></span>
+      </div>
+      <div class="p-col-4 p-md-4 p-lg-4 p-text-lg-right">
+        <span>{{getValor(relacion.costoLitroLeche)}}</span>
+      </div>
     </div>
   </div>
-  <div class="p-mr-3"></div>
-  <div class="tabla-app p-grid" style="margin: auto;">
-    <div class="p-col-12 p-md-8 p-lg-8 p-text-bold">
-      <app-label [required]="false" label="Margen de utilidad bruta ($/L leche)"></app-label>
-    </div>
-    <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
-      <span>{{getValor(relacion.margenUtilidadBruta)}}</span>
-    </div>
-    <div class="p-col-12 p-md-8 p-lg-8 p-text-bold">
-      <app-label [required]="false" label="Margen porcentual (%)"></app-label>
-    </div>
-    <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
-      <span>{{getValor(relacion.margenPorcentual)}}</span>
-    </div>
-    <div class="p-col-12 p-md-8 p-lg-8 p-text-bold">
-      <app-label [required]="false" label="Relación precio de venta/Costo de alimentación"></app-label>
-    </div>
-    <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
-      <span>{{getValor(relacion.relacionPrecioVentaCostoAlimentacion)}}</span>
+  <div  class="p-col-12 p-md-6 p-lg-6">
+    <div class="tabla-app p-grid" style="margin: auto;">
+      <div class="p-col-8 p-md-8 p-lg-8 p-text-bold">
+        <span>Margen de utilidad bruta ($/L leche)</span>
+        <span pTooltip="Mas información" tooltipPosition="top" class="app-info pi pi-info-circle" (click)="abrirInfo('Margen de utilidad bruta ($/L leche)')"></span>
+      </div>
+      <div class="p-col-4 p-md-4 p-lg-4 p-text-lg-right">
+        <span>{{getValor(relacion.margenUtilidadBruta)}}</span>
+      </div>
+      <div class="p-col-8 p-md-8 p-lg-8 p-text-bold">
+        <span>Margen porcentual (%)</span>
+        <span pTooltip="Mas información" tooltipPosition="top" class="app-info pi pi-info-circle" (click)="abrirInfo('Margen porcentual (%)')"></span>
+      </div>
+      <div class="p-col-4 p-md-4 p-lg-4 p-text-lg-right">
+        <span>{{getValor(relacion.margenPorcentual)}}</span>
+      </div>
+      <div class="p-col-8 p-md-8 p-lg-8 p-text-bold">
+        <span>Relación precio de venta/Costo de alimentación</span>
+        <span pTooltip="Mas información" tooltipPosition="top" class="app-info pi pi-info-circle" (click)="abrirInfo('Relación precio de venta/Costo de alimentación')"></span>
+      </div>
+      <div class="p-col-4 p-md-4 p-lg-4 p-text-lg-right">
+        <span>{{getValor(relacion.relacionPrecioVentaCostoAlimentacion)}}</span>
+      </div>
     </div>
   </div>
 </div>

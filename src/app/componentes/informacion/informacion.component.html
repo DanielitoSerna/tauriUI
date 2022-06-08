@@ -28,7 +28,7 @@
               305 días y el período seco de 60 días.
             </p>
             <div class="app-bibliografica">
-              (Bouallegue y M’Hamdi, 2019), (Pollott, 2011).
+              Bouallegue y M’Hamdi (2020); Pollott (2011).
             </div>
           </div>
 
@@ -46,7 +46,7 @@
               <img style="margin: auto;" src="./assets/info/pesos.png">
             </div>
             <div class="app-bibliografica">
-              (Garzón, 2018), (Delgado y Franco, 2006), McDowell (1988).
+              Garzón (2018); Delgado y Franco (2006); McDowell (1988).
             </div>
           </div>
 
@@ -59,7 +59,7 @@
               <img style="margin: auto;" src="./assets/info/condicion.png">
             </div> 
             <div class="app-bibliografica">
-              (Heinrichs et al. 2022).
+              Heinrichs et al (2022).
             </div>
           </div>
 
@@ -67,13 +67,11 @@
             <p>
               Hace referencia al número de días que la vaca se encuentra produciendo leche contados a partir de la fecha de su último parto. Este valor es importante para calcular el consumo de materia seca del animal de acuerdo con los estándares del NRC (2001 y 2021). La curva de lactancia representa la producción de leche a lo largo del ciclo productivo e idealmente tiene una duración de 305 días.            
             </p>
-            <p>
-              La forma estándar de la curva de lactancia es la siguiente:
-              Imagen del archivo: CURVA DE LACTANCIA (EN POWER POINT). Fuente: Ricardo debe citar la fuente. También puede ser: Heinrichs, J., Jones, C.M., y Ishler, V.A., Body Condition Scoring as a Tool for Dairy Herd Management. Penn State Extension (2022)
-              <a href="https://extension.psu.edu/body-condition-scoring-as-a-tool-for-dairy-herd-management">https://extension.psu.edu/body-condition-scoring-as-a-tool-for-dairy-herd-management</a>              
-            </p>
+            <div style="display: flex;">
+              <img style="margin: auto; width: 650px;" src="./assets/info/lactancia.png">
+            </div>  
             <div class="app-bibliografica">
-              (Pollott, 2011).
+              Pollott (2011); Heinrichs et al. (2022).
             </div>
           </div>
 
@@ -88,7 +86,7 @@
               Relación entre los días de preñez y cantidad de energía metabolizable requerida.
             </p>          
             <div class="app-bibliografica">
-              (adaptado de Moe and Tyrrell, 1972).
+              Moe y Tyrrell (1972).
             </div>
           </div>
 
@@ -103,7 +101,7 @@
               edad (preferiblemente 24 meses).
             </p>
             <div class="app-bibliografica">
-              (Salazar-Carranza et al. 2013).
+              Salazar-Carranza et al. (2013).
             </div>
           </div>
 
@@ -121,7 +119,7 @@
               <img style="margin: auto;" src="./assets/info/intervalo.png">
             </div> 
             <div class="app-bibliografica">
-              (Ossa et al. 2006),  Zambrano et al. (2014).
+              Ossa et al. (2006);  Zambrano et al. (2014).
             </div>
           </div>
 
@@ -134,9 +132,17 @@
             <div style="display: flex;">
               <img style="margin: auto;" src="./assets/info/produccion.png">
             </div> 
-            <p>Tasa de aumento en la producción de leche en el punto medio entre el inicio y el pico de la lactancia.</p>
-            <p>Persistencia medida como la tasa de disminución de la producción de leche en el punto medio entre el 
+            <p style="font-size: 12px;">
+              <sup>1</sup>Tasa de aumento en la producción de leche en el punto medio entre el inicio y el pico de la lactancia.</p>
+            <p style="font-size: 12px;">
+              <sup>2</sup>Persistencia medida como la tasa de disminución de la producción de leche en el punto medio entre el 
               pico y el final de la lactancia; un valor más alto indica una persistencia más baja.</p>
+            <div class="app-bibliografica">
+              Pollott (2011).
+            </div>
+          </div>
+
+          <div *ngIf="tipo == 'Composición de la leche'" class="app-parrafo div-parrafo">
             <p>
               Entre otros factores, la producción de leche y sus constituyentes está determinada por la genética, el clima 
               y la nutrición. Durante la lactancia se registran cambios en la composición de la leche. La concentración 
@@ -153,7 +159,7 @@
               <img style="margin: auto;" src="./assets/info/produccion1.png">
             </div> 
             <div class="app-bibliografica">
-              (Pollott, 2011), (Bouallegue y M’Hamdi, 2020), Silvestre et al. (2009).
+              Bouallegue y M’Hamdi (2020); Silvestre et al (2009).
             </div>
           </div>
 
@@ -167,33 +173,295 @@
             <div style="display: flex;">
               <img style="margin: auto;" src="./assets/info/ganancia.png">
             </div> 
-            <p>
+            <p style="font-size: 12px;">
+              <sup>1</sup>
               Peso maduro: 680 y 454 kg para las razas Holstein y Jersey, respectivamente. 
               El peso ayunado corresponde al 96% del peso vivo.
             </p>
+            <div class="app-bibliografica">
+              Heinrichs y Jones (2022).
+            </div>
+          </div>
+
+          <div *ngIf="tipo == 'Citación'" class="app-parrafo div-parrafo">
+            <p>Bouallegue, M., y M’Hamdi, N., Mathematical Modeling of Lactation Curves: A Review of Parametric
+              Models, In Lactation in Farm Animals-Biology, Physiological Basis, Nutritional Requirements, and
+              Modelization, by N. M&#39;Hamdi, 95-114, IntechOpen Pub., ISBN:978-1-83968-560-6, London, United Kingdom
+              (2020) DOI: 10.5772/intechopen.78900.</p>
+            
+            <p>Delgado, F.A., y Franco, C.A. Análisis de Productividad de Ganado Lechero Holstein y Jersey en dos Fincas de
+              la Sabana de Bogotá. Trabajo de grado. Universidad de La Salle, Facultad de Administración Agropecuaria,
+              Bogotá (2006).
+              <a type="_blank" href="https://ciencia.lasalle.edu.co/cgi/viewcontent.cgi?article=1131&amp;context=administracion_agronegocios">https://ciencia.lasalle.edu.co/cgi/viewcontent.cgi?article=1131&amp;context=administracion_agronegocios</a></p>
             <p>
-              La eficiencia alimenticia es una medida que permite determinar la capacidad relativa de las vacas para convertir 
-              los nutrientes del alimento en leche o componentes de la leche. Corresponde a los litros de leche que se 
-              producen por cada kilogramo de materia seca consumida.
+              EPA. 2017. Inventory of U.S. Greenhouse Gas Emissions and Sinks: 1990–2015. EPA 430-P-17–001.
+Environmental Protection Agency (EPA), Washington DC. <a href="https://www.epa.gov/sites/default/files/2017-
+02/documents/2017_complete_report.pdf">https://www.epa.gov/sites/default/files/2017-
+02/documents/2017_complete_report.pdf</a>
             </p>
-            <p>El costo por litro de leche corresponde a la relación entre el costo de la dieta ($/kg MS) y la conversión 
-              alimenticia. La conversión alimenticia es el inverso de la eficiencia (1/eficiencia alimenticia), informando 
-              los kg de materia seca que se requieren para producir 1 L de leche.</p>
             <p>
-              El margen de utilidad bruta se obtiene por diferencia entre los ingresos por venta y el costo de producción 
-              del litro de leche. 
+              Garzón, D.F. Revisión bibliográfica del Efecto de la Clasificación Lineal en los Parámetros Productivos y
+Reproductivos de la Raza Holstein–Colombia. Trabajo de grado. Universidad de Cundinamarca, Facultad de
+Ciencias Agropecuarias (2018). <a type="_blank" href="https://repositorio.ucundinamarca.edu.co/handle/20.500.12558/1819">https://repositorio.ucundinamarca.edu.co/handle/20.500.12558/1819</a>
             </p>
             <p>
-              El margen porcentual resulta de la relación (margen de utilidad bruta/ingresos por venta del litro de leche) × 100. 
+              Heinrichs, J., y Jones, C.M., Monitoring Dairy Heifer Growth. PennState Extension (2022). 
+              <a type="_blank" href="https://extension.psu.edu/monitoring-dairy-heifer-growth">https://extension.psu.edu/monitoring-dairy-heifer-growth</a>
             </p>
             <p>
-              La relación precio de venta/costo de alimentación (PCA) corresponde al precio de venta de un litro de leche 
-              dividido por el costo de un kilogramo de materia seca de alimento (dieta). Este indicador, por tanto, 
-              corresponde a los kilogramos de materia seca de alimento que pueden ser comprados con los ingresos 
-              generados por la venta de un litro de leche. 
+              Heinrichs, J., Jones, C.M., y Ishler, V.A., Body Condition Scoring as a Tool for Dairy Herd Management. Penn
+State Extension (2022). 
+<a type="_blank" href="https://extension.psu.edu/body-condition-scoring-as-a-tool-for-dairy-herd-
+management">https://extension.psu.edu/body-condition-scoring-as-a-tool-for-dairy-herd-
+management</a>
+            </p>
+            <p>
+              Intergovernmental Panel on Climate Change (IPCC) Climate Change 2014: Mitigation of Climate Change.
+Contribution of Working Group Iii to the Fifth Assessment Report of the Intergovernmental Panel on Climate
+Change Cambridge University Press, Cambridge, United Kingdom and New York, NY, USA (2014).
+            </p>
+            <p>
+              Intergovernmental Panel of Climatic Change (IPCC), Eggleston, S., Buendia, L., y otros tres editores,
+Guidelines for National Greenhouse Gas Inventories, Vol. 1, 7.6-7.16, IGES, ISBN 4-88788-032-4 Kanagawa,
+Japan (2006).
+            </p>
+            <p>
+              Intergovernmental Panel of Climatic Change (IPCC), Calvo, E., Tanabe, L., y otros ocho editores, Refinement
+to the 2006 IPCC Guidelines for National Greenhouse Gas Inventories, Vol. 4, 10.1-10.88, IPCC, ISBN 978-4-
+88788-232-4, Switzerland (2019).
+            </p>
+            <p>
+              McDowell, R.E. Evaluation of Research on Jerseys. Final Report (1988).
+             <a type="_blank" href="https://www.usjersey.com/Portals/0/AJCA/2_Docs/ResearchFd/McDowell-Jersey-Research-Review-
+             1988.pdf">https://www.usjersey.com/Portals/0/AJCA/2_Docs/ResearchFd/McDowell-Jersey-Research-Review-
+             1988.pdf</a>
+            </p>
+            <p>
+              GMoe, P.W., y Tyrrell, H.F., Metabolizable Energy Requirements of Pregnant Dairy Cows,
+              <a type="_blank" href="https://doi.org/10.3168/jds.S0022-0302(72)85519-X">https://doi.org/10.3168/jds.S0022-0302(72)85519-X</a>, J. Dairy Sci., 55(4), 480-483 (1972).
+            </p>
+            <p>
+              National Research Council (NRC), Nutrient Requirements of Dairy Cattle, 7 a ed., 13-27 y 34-42, National
+Academy Press, ISBN: 0-309-51521-1 Washington, D.C., USA (2001).
+            </p>
+            <p>
+              National Research Council (NRC), Nutrient Requirements of Dairy Cattle, 8 a ed., 7-20, National Academy
+Press, ISBN: 0-309-67777-7 Washington, D.C., USA (2021).
+            </p>
+            <p>
+              Noguera, R.R. y Posada, S.L., Factor de Emisión de Metano Entérico para Vacas Holstein Lactantes en la Zona
+              Norte de Antioquia-Colombia, Livest. Res. Rural Dev., ISSN 0121-3784, 29(119) (2017).
+            </p>
+            <p>
+              Ordoñez, W.F., Modelación de la Emisión de Gases de Efecto Invernadero derivada de la Aplicación de
+Excretas Bovinas al Suelo. Trabajo de grado, Maestría en Ciencias Animales, Universidad de Antioquia,
+Facultad de Ciencias Agrarias (2022).
+            </p>
+            <p>
+              Ossa, G., Suárez, M., y Pérez, J., Factores Ambientales y Genéticos relacionados con el Intervalo entre Partos
+en la Raza Romosinuano, <a type="_blank" href="https://doi.org/10.21897/rmvz.443">https://doi.org/10.21897/rmvz.443</a>, Rev.MVZ Córdoba, 11(2), 799-805 (2006).
+            </p>
+            <p>
+              Pollott, G.E., Do Holstein Lactations of Varied Lengths have Different Characteristics?,
+              <a type="_blank" href="https://doi.org/10.3168/jds.2011-4467">https://doi.org/10.3168/jds.2011-4467</a>, J. Dairy Sci., 94(12), 6173–6180 (2011).
+            </p>
+            <p>
+              Posada, S.L., Rosero, R., Villegas, G., Bedoya, S., y Rendon, E., Balance Energético y Emisión de Metano en
+Ganado Lechero, Rev. Colomb. Cienc. Pecu., ISSN 0120-069, 32(supl), 175, (2019) Dirección web o doi.
+            </p>
+            <p>
+              Salazar-Carranza, M., Castillo-Badilla, G., y otros tres autores, Edad al Primer Parto en Vacas Holstein de
+Lechería Especializada en Costa Rica, Agron. Mesoam, ISSN: 1021-7444, 24(2), 233-243 (2013).
+            </p>
+            <p>
+              Silvestre, A.M., Martins, A.M., y otros tres autores, Lactation Curves for Milk, Fat and Protein in Dairy Cows:
+A full Approach, <a type="_blank" href="https://doi.org/10.1016/j.livsci.2008.09.017">https://doi.org/10.1016/j.livsci.2008.09.017</a>, Livest. Sci., 122(2-3), 308-313 (2009).
+            </p>
+            <p>
+              Villegas, G., Influencia de Diferentes Fuentes de Carbohidratos no Fibrosos sobre el Desempeño Productivo,
+las Emisiones de Metano Entérico y el Balance de Nitrógeno y Energía en Vacas Holstein. Trabajo de grado,
+Maestría en Ciencias Animales, Universidad de Antioquia, Facultad de Ciencias Agrarias (2020).
+            </p>
+            <p>
+              Zambrano, J.C., Rincón, J.C., y Echeverri, J.J., Parámetros Genéticos para Caracteres Productivos y
+Reproductivos en Holstein y Jersey Colombiano, <a type="_blank" href="https://dx.doi.org/10.4321/S0004-05922014000300010">https://dx.doi.org/10.4321/S0004-05922014000300010</a>,
+Arch. Zootec, 63(243), 495-506 (2014).
+            </p>
+          </div>
+          <div *ngIf="tipo == 'NRC (2001)'" class="app-parrafo div-parrafo">
+            <p>Ecuación propuesta por el NRC (2001) para predecir el consumo de materia seca
+              (CMS): CMS (kg/día)=(0.372 *FCM (kg/día) + 0.0968 *BW(kg)^0.75) * (1 – e(-
+              0.192 * (WOL + 3.67))). La ecuación requiere la siguiente información: Producción
+              de leche corregida al 4% de grasa (FCM); peso vivo (BW) y semanas de lactancia
+              (WOL)</p>
+              <div class="app-bibliografica">
+                NRC (2001).
+              </div>
+          </div>
+          <div *ngIf="tipo == 'NRC (2021)'" class="app-parrafo div-parrafo">
+            <p>
+              Ecuación propuesta por el NRC (2021) para predecir el consumo de materia seca
+(CMS): CMS(kg/día) = [(3.7 + Parity*5.7 + 0.305*MilkE (Mcal/día) + 0.022*BW (kg) +
+(-0.689 + Parity *-1.87) * BCS] × [1 − (0.212 + Parity × 0.136) * e(−0.053 × DIM)]
+La ecuación solicita información referente al parto (party) (“0” para un parto y “1”
+para más de un parto), energía en la leche (MilkE), peso vivo (BW), condición
+corporal (BSC) (escala 1 a 5) y días en leche (DIM)
             </p>
             <div class="app-bibliografica">
-              (Heinrichs y Jones, 2022).
+              NRC (2021).
             </div>
+          </div>
+          <div *ngIf="tipo == 'TAURI'" class="app-parrafo div-parrafo">
+            <p>
+              Modelo TAURI para predecir el consumo de materia seca (CMS) hace uso del
+peso vivo metabólico y la producción de leche corregida al 4% de grasa:
+CMS(kg/día)= 0.0906*PV^0.75 (kg)+0.3515*producción de leche corregida 4% de
+grasa (kg/día)
+            </p>
+            <div class="app-bibliografica">
+              TAURI (2022).
+            </div>
+          </div>
+          <div *ngIf="tipo == 'CH4/día'" class="app-parrafo div-parrafo">
+            <p>
+              TAURI predice la producción de metano (CH<sub>4</sub>) entérico en función del consumo
+de materia seca (CMS): CH<sub>4</sub>(l/día)= 21.1284*CMS (kg/día).
+Para expresar la producción de CH<sub>4</sub> en gramos es necesario considerar el peso
+de una mol de CH<sub>4</sub> (16.01g) y el volumen que ocupa esa mol en condiciones
+estándar (22.4 litros).
+            </p>
+            <div class="app-bibliografica">
+              TAURI (2022).
+            </div>
+          </div>
+          <div *ngIf="tipo == 'Factor de emisión (kg/animal/año)'" class="app-parrafo div-parrafo">
+            <p>
+              Un factor de emisión (FE) permite calcular la cantidad de un 
+              contaminante liberado a la atmósfera, generado a partir de una 
+              actividad. TAURI estima el factor de emisión de metano 
+              entérico para vacas lecheras como la sumatoria de la cantidad de 
+              metano entérico emitido por día, por animal, durante un periodo 
+              de 365 días.
+            </p>
+            <div class="app-bibliografica">
+              TAURI (2022).
+            </div>
+          </div>
+          <div *ngIf="tipo == 'Ym (Energía bruta perdida en forma de metano, %)'" class="app-parrafo div-parrafo">
+            <p>
+              El Ym es una tasa de conversión que corresponde a la cantidad de energía bruta
+consumida (animal/día) que se pierde en forma de metano. De acuerdo con el
+IPCC (2019) el valor Ym para vacas lecheras varía entre 5.7 y 6.5%.
+            </p>
+            <div class="app-bibliografica">
+              IPCC (2019).
+            </div>
+          </div>
+          <div *ngIf="tipo == 'CO2/día'" class="app-parrafo div-parrafo">
+            <p>
+              Experimentos realizados en el trópico de altura con vacas lecheras en cámaras
+respirométricas (Noguera y Posada, 2017; Posada et al., 2019; Villegas, 2020)
+permitieron establecer la dependencia entre las emisiones de metano (CH<sub>4</sub>) y el
+dióxido de carbono (CO<sub>2</sub>). La expresión matemática empleada por TAURI para
+modelar esta relación es: CO<sub>2</sub> (g/día)= 24.084 * CH<sub>4</sub> (g/día)+3280.5
+            </p>
+            <div class="app-bibliografica">
+              Noguera y Posada (2017); Posada et al. (2019); Villegas (2020).
+            </div>
+          </div>
+          <div *ngIf="tipo == 'CO2eq/día'" class="app-parrafo div-parrafo">
+            <p>
+              El dióxido de carbono equivalente (CO<sub>2</sub>-eq) es una medida métrica utilizada para
+comparar las emisiones de varios gases de efecto invernadero sobre la base de
+su potencial de calentamiento global (PCG), convirtiendo cantidades de otros
+gases a la equivalente cantidad de dióxido de carbono con el mismo potencial de
+calentamiento global (EPA, 2017). El PCG considerado para el CH<sub>4</sub> fue 28.
+            </p>
+            <div class="app-bibliografica">
+              EPA (2017).
+            </div>
+          </div>
+          <div *ngIf="tipo == 'Factor de emisión (kg/animal/año) CH4'" class="app-parrafo div-parrafo">
+            <p>
+              El factor de emisión de metano a partir de las heces empleado por TAURI fue 1.4
+g  CH<sub>4</sub>/ kg de materia seca fecal (Ordoñez, 2022). Las emisiones de metano a
+partir de la orina se consideraron inexistentes.
+            </p>
+            <div class="app-bibliografica">
+              Ordoñez (2022).
+            </div>
+          </div>
+          <div *ngIf="tipo == 'Factor de emisión (kg/animal/año) CO2'" class="app-parrafo div-parrafo">
+            <p>
+              Para determinar la emisión de dióxido de carbono a partir de las heces, TAURI
+adoptó el factor de emisión de 508.9 g  CO<sub>2</sub>/ kg de materia seca fecal. Para el
+caso de la orina, TAURI adoptó el factor de emisión de 30.2 g  CO<sub>2</sub>/ litro de orina
+(Ordoñez, 2022).
+            </p>
+            <div class="app-bibliografica">
+              Ordoñez (2022).
+            </div>
+          </div>
+          <div *ngIf="tipo == 'Factor de emisión (kg/animal/año) CO2eq'" class="app-parrafo div-parrafo">
+            <p>
+              El dióxido de carbono equivalente (CO<sub>2</sub>eq) es una medida de cuanto contribuye
+un gas al calentamiento global, en relación con el dióxido de carbono. El CO<sub>2</sub>eq
+de una cantidad de gas se calcula multiplicando la masa del gas por el potencial
+de calentamiento global (PCG) del gas (IPCC, 2006).
+            </p>
+            <p>
+              El PCG es una medida relativa de cuanto calor puede ser atrapado por un
+determinado gas de efecto invernadero, en comparación con un gas de referencia,
+por lo general, dióxido de carbono. El modelo TAURI asumió valores de PCG de 28
+y 298 para los gases metano y óxido nitroso, respectivamente (IPCC, 2014).
+            </p>
+            <div class="app-bibliografica">
+              IPCC (2006); IPCC (2014).
+            </div>
+          </div>
+          <div *ngIf="tipo == 'Factor de emisión (kg/animal/año) N2O'" class="app-parrafo div-parrafo">
+            <p>
+              El factor de emisión empleado por TAURI para estimar las emisiones de óxido
+nitroso a partir de las heces y orina fue: 0.0032 g de N-N<sub>2</sub>O por cada 100 g de
+nitrógeno fecal aplicado al suelo y 0.0167 g de N-N<sub>2</sub>O por cada 100 g de nitrógeno
+urinario aplicado al suelo, respectivamente (Ordoñez, 2022).
+            </p>
+            <div class="app-bibliografica">
+              Ordoñez (2022).
+            </div>
+          </div>
+          <div *ngIf="tipo == 'Eficiencia alimenticia (L/kg MS)'" class="app-parrafo div-parrafo">
+            <p>
+              La eficiencia alimenticia es una medida que permite determinar la capacidad relativa de las vacas para convertir los
+nutrientes del alimento en leche o componentes de la leche. Corresponde a los litros de leche que se
+producen por cada kilogramo de materia seca consumida.
+            </p>
+          </div>
+          <div *ngIf="tipo == 'Costo/L leche'" class="app-parrafo div-parrafo">
+            <p>
+              El costo por litro de leche corresponde a la relación entre el costo de la dieta ($/kg MS) y la conversión
+alimenticia. La conversión alimenticia es el inverso de la eficiencia (1/eficiencia alimenticia), informando los
+kg de materia seca que se requieren para producir 1 L de leche.
+            </p>
+          </div>
+          <div *ngIf="tipo == 'Margen de utilidad bruta ($/L leche)'" class="app-parrafo div-parrafo">
+            <p>
+              El margen de utilidad bruta se obtiene por diferencia entre los ingresos por venta y el costo de producción
+del litro de leche.
+            </p>
+          </div>
+          <div *ngIf="tipo == 'Margen porcentual (%)'" class="app-parrafo div-parrafo">
+            <p>
+              El margen porcentual resulta de la relación (margen de utilidad bruta/ingresos por venta del litro de leche) ×
+100.
+            </p>
+          </div>
+          <div *ngIf="tipo == 'Relación precio de venta/Costo de alimentación'" class="app-parrafo div-parrafo">
+            <p>
+              La relación precio de venta/costo de alimentación (PCA) corresponde al precio de venta de un litro de leche
+dividido por el costo de un kilogramo de materia seca de alimento (dieta). Este indicador, por tanto,
+corresponde a los kilogramos de materia seca de alimento que pueden ser comprados con los ingresos
+generados por la venta de un litro de leche.
+            </p>
           </div>
 </p-dialog>

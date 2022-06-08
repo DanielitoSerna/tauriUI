@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { Component} from '@angular/core';
 import { AppService } from '../app.services';
 
 @Component({
@@ -24,5 +24,10 @@ export class InicioComponent {
         localStorage.setItem("tipoUsuario", data[0].tipo);
       }
     })
+  }
+
+  logOut(): void {
+    localStorage.clear;
+    window.location.reload();
   }
 }

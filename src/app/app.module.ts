@@ -17,7 +17,6 @@ import { BibliotecaComponent } from './biblioteca/biblioteca.component';
 import { BalanceComponent } from './balance/balance.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
-import { GoogleLoginProvider } from 'angularx-social-login';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { EmisionComponent } from './emision/emision.component';
 import { NgChartsModule } from 'ng2-charts';
@@ -48,18 +47,6 @@ import { RelacionComponent } from './relacion/relacion.component';
     NgChartsModule
   ],
   providers: [
-    {
-      provide: 'SocialAuthServiceConfig',
-      useValue: {
-        autoLogin: false,
-        providers: [
-          {
-            id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider('326021480668-hhiucsmi7at1m2grc24ne5u01fh7q1v1.apps.googleusercontent.com'),
-          },
-        ],
-      } as SocialAuthServiceConfig,
-    },
     AppService
   ],
   bootstrap: [AppComponent]

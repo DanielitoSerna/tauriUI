@@ -11,6 +11,7 @@ export class DietaComponent implements OnInit {
   @Output() confirmar = new EventEmitter<any>();
   @Output() continuar = new EventEmitter<any>();
   @Output() atras = new EventEmitter<any>();
+  @Output() info = new EventEmitter<any>();
   @Input() alimentosSeleccionados:any[]  = [];
   @Input() alimentos: any[] = [];
   @Input() entradas: any[] = [];
@@ -149,6 +150,18 @@ export class DietaComponent implements OnInit {
       item.precio = 0;
       item.precioOf = 0;
     }
+  }
+
+  getValor(value: number) {
+    if(value != null) {
+      return value.toLocaleString("de-DE", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+    } else {
+      return '-';
+    }
+  }
+
+  abrirInfo(tipo: any) {
+    this.info.emit(tipo);
   }
 
 }

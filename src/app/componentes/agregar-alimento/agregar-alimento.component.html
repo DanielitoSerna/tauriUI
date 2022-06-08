@@ -93,9 +93,6 @@
 
             <div class="p-grid">
               <div class="p-col-12 p-md-6 p-lg-3">
-                  <app-label label="Almidón (%MS)" [required]="false"></app-label>
-              </div>
-              <div class="p-col-12 p-md-6 p-lg-3">
                 <app-label label="Fracción A (%PB)" [required]="false"></app-label>
               </div>
               <div class="p-col-12 p-md-6 p-lg-3">
@@ -104,11 +101,11 @@
               <div class="p-col-12 p-md-6 p-lg-3">
                 <app-label label="Fracción C (%PB)" [required]="false"></app-label>
               </div>
+              <div class="p-col-12 p-md-6 p-lg-3">
+                <app-label label="kd Fracción B (%/h)" [required]="false"></app-label>
+              </div>
             </div>
             <div class="p-grid">
-              <div class="p-col-12 p-md-6 p-lg-3">
-                <p-inputNumber [(ngModel)]="bibliotecaDto.almidon" suffix=" %" [min]="0" [max]="100" mode="decimal" placeholder="%" [minFractionDigits]="2"></p-inputNumber>
-              </div>
               <div class="p-col-12 p-md-6 p-lg-3">
                 <p-inputNumber [(ngModel)]="bibliotecaDto.fraccionA" suffix=" %" [min]="0" [max]="100" mode="decimal" placeholder="%" [minFractionDigits]="2"></p-inputNumber>
               </div>
@@ -118,19 +115,22 @@
               <div class="p-col-12 p-md-6 p-lg-3">
                 <p-inputNumber [(ngModel)]="bibliotecaDto.fraccionC" suffix=" %" [min]="0" [max]="100" mode="decimal" placeholder="%" [minFractionDigits]="2"></p-inputNumber>
               </div>
+              <div class="p-col-12 p-md-6 p-lg-3">
+                <p-inputNumber [(ngModel)]="bibliotecaDto.kdFraccionB" [min]="0" [max]="100" mode="decimal" placeholder="%" [minFractionDigits]="2"></p-inputNumber>
+              </div>
             </div>
 
             <div class="p-mt-2"></div>
 
             <div class="p-grid">
               <div class="p-col-12 p-md-6 p-lg-3">
-                  <app-label label="Digestibilidad PNDR (%PNDR)" [required]="false"></app-label>
-              </div>
-              <div class="p-col-12 p-md-6 p-lg-3">
-                <app-label label="kd Fracción B" [required]="false"></app-label>
-              </div>
-              <div class="p-col-12 p-md-6 p-lg-3">
                 <app-label label="PNDR (%PB)" [required]="false"></app-label>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-3">
+                  <app-label label="Digestibilidad PNDR (%)" [required]="false"></app-label>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-3">
+                <app-label label="Almidón (%MS)" [required]="false"></app-label>
               </div>
               <div class="p-col-12 p-md-6 p-lg-3">
                 <app-label label="Grasa cruda (%MS)" [required]="false"></app-label>
@@ -138,13 +138,13 @@
             </div>
             <div class="p-grid">
               <div class="p-col-12 p-md-6 p-lg-3">
+                <p-inputNumber [(ngModel)]="bibliotecaDto.pndr" suffix=" %" [min]="0" [max]="100" mode="decimal" placeholder="%" [minFractionDigits]="2"></p-inputNumber>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-3">
                 <p-inputNumber [(ngModel)]="bibliotecaDto.digestibilidadPndr" suffix=" %" [min]="0" [max]="100" mode="decimal" placeholder="%" [minFractionDigits]="2"></p-inputNumber>
               </div>
               <div class="p-col-12 p-md-6 p-lg-3">
-                <p-inputNumber [(ngModel)]="bibliotecaDto.kdFraccionB" [min]="0" [max]="100" mode="decimal" placeholder="%" [minFractionDigits]="2"></p-inputNumber>
-              </div>
-              <div class="p-col-12 p-md-6 p-lg-3">
-                <p-inputNumber [(ngModel)]="bibliotecaDto.pndr" suffix=" %" [min]="0" [max]="100" mode="decimal" placeholder="%" [minFractionDigits]="2"></p-inputNumber>
+                <p-inputNumber [(ngModel)]="bibliotecaDto.almidon" suffix=" %" [min]="0" [max]="100" mode="decimal" placeholder="%" [minFractionDigits]="2"></p-inputNumber>
               </div>
               <div class="p-col-12 p-md-6 p-lg-3">
                 <p-inputNumber [(ngModel)]="bibliotecaDto.grasaCruda" [min]="0" suffix=" %" [max]="100" mode="decimal" placeholder="%" [minFractionDigits]="2"></p-inputNumber>
@@ -192,7 +192,7 @@
                 <app-label label="Potasio (%MS)" [required]="false"></app-label>
               </div>
               <div class="p-col-12 p-md-6 p-lg-3">
-                <app-label label="Magnesio (mg/kg)" [required]="false"></app-label>
+                <app-label label="Magnesio (%MS)" [required]="false"></app-label>
               </div>
               <div class="p-col-12 p-md-6 p-lg-3">
                 <app-label label="Azufre (%MS)" [required]="false"></app-label>
@@ -206,7 +206,7 @@
                 <p-inputNumber [(ngModel)]="bibliotecaDto.porcentajeK" suffix=" %" [min]="0" [max]="100" mode="decimal" placeholder="%" [minFractionDigits]="2"></p-inputNumber>
               </div>
               <div class="p-col-12 p-md-6 p-lg-3">
-                <p-inputNumber [(ngModel)]="bibliotecaDto.porcentajeMg" suffix=" %" [min]="0" mode="decimal" placeholder="mg/kg" [minFractionDigits]="2"></p-inputNumber>
+                <p-inputNumber [(ngModel)]="bibliotecaDto.porcentajeMg" suffix=" %" [min]="0" mode="decimal" placeholder="%" [minFractionDigits]="2"></p-inputNumber>
               </div>
               <div class="p-col-12 p-md-6 p-lg-3">
                 <p-inputNumber [(ngModel)]="bibliotecaDto.porcentajeS" suffix=" %" [min]="0" [max]="100" mode="decimal" placeholder="%" [minFractionDigits]="2"></p-inputNumber>

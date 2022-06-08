@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {SocialAuthService, GoogleLoginProvider, SocialUser} from 'angularx-social-login';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AppService } from './app.services';
 import { Router } from '@angular/router';
 
@@ -12,20 +11,66 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'tauri';
 
-  socialUser!: SocialUser;
+  //socialUser!: SocialUser;
   isLoggedin?: boolean = false;
   nombreUsuario:string = '';
   nombre:string = '';
   apellido:string = '';
   correo: string = '';
   tipo: string = 'U';
+  informacion = false;
 
-  constructor(
-    private socialAuthService: SocialAuthService,
-    public service: AppService,
-    private router: Router
-  ) {
+  @ViewChild('loginRef') loginElement!: ElementRef;
+  auth2: any;
 
+  constructor( public service: AppService,
+              private router: Router) {
+    this.googleAuthSDK();
+  }
+
+  callLoginButton() {
+    this.auth2.attachClickHandler(this.loginElement.nativeElement, {},
+      (googleAuthUser:any) => {
+        let profile = googleAuthUser.getBasicProfile();
+        let nombre = profile.getName();
+        this.nombreUsuario = profile.getEmail();
+        this.nombre = nombre.substring(0, nombre.indexOf(" "));
+        this.apellido = nombre.substring(nombre.indexOf(" ") + 1, nombre.length);
+        this.correo = profile.getEmail();
+        localStorage.setItem("nombreUsuario", profile.getName());
+        localStorage.setItem("usuario", profile.getEmail());
+        localStorage.setItem("nombre", this.nombre);
+        localStorage.setItem("apellido", this.apellido);
+        localStorage.setItem("tipoUsuario", "U");
+        this.router.navigate(['/inicio']);
+        window.location.reload();
+      }, (error:any) => {
+        console.error(JSON.stringify(error, undefined, 2));
+      });
+    }
+     
+  googleAuthSDK() {
+    (<any>window)['googleSDKLoaded'] = () => {
+      (<any>window)['gapi'].load('auth2', () => {
+        this.auth2 = (<any>window)['gapi'].auth2.init({
+          client_id: '326021480668-thtspfp1j9k9l9jkhqhlvm7p17051elb.apps.googleusercontent.com',
+          cookiepolicy: 'single_host_origin',
+          scope: 'profile email',
+          plugin_name: "chat"
+        });
+        this.callLoginButton();
+      });
+    }
+      
+    (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement('script'); 
+      js.id = id;
+      js.src = "https://apis.google.com/js/platform.js?onload=googleSDKLoaded";
+      fjs?.parentNode?.insertBefore(js, fjs);
+    }(document, 'script', 'google-jssdk'));
+    
   }
 
   ngOnInit() {
@@ -35,33 +80,11 @@ export class AppComponent implements OnInit {
     this.apellido = String(localStorage.getItem("apellido"));
     this.correo = String(localStorage.getItem("usuario"));
     this.tipo = String(localStorage.getItem("tipoUsuario"));
-    this.socialAuthService.authState.subscribe((user) => {
-      this.socialUser = user;
-      this.isLoggedin = user != null;
-      if(this.isLoggedin) {
-        this.nombreUsuario = this.socialUser.name;
-        this.nombre = this.socialUser.firstName;
-        this.apellido = this.socialUser.lastName;
-        this.correo = this.socialUser.email;
-        localStorage.setItem("nombreUsuario", this.socialUser.name);
-        localStorage.setItem("usuario", this.socialUser.email);
-        localStorage.setItem("nombre", this.socialUser.firstName);
-        localStorage.setItem("apellido", this.socialUser.lastName);
-        localStorage.setItem("tipoUsuario", "U");
-        this.router.navigate(['/inicio']);
-      }
-    });
   }
 
-  loginWithGoogle(): void {
-    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
-  }
-  
   logOut(): void {
-    this.socialAuthService.signOut();
-    localStorage.removeItem("nombreUsuario");
-    localStorage.removeItem("nombre");
-    localStorage.removeItem("apellido");
+    localStorage.clear();
+    this.router.navigate(['/']);
     window.location.reload();
   }
 }

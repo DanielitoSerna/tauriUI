@@ -24,3 +24,9 @@
     background: #0e7774;
     border: 1px solid #0e7774;
   }
+
+@media screen and (max-width: 700px) {
+    .column-app {
+        display: none !important;
+    }
+}

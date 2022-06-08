@@ -84,17 +84,6 @@
   font-size: 14px !important;
 }
 
-.content{
-    width: 100%;
-    display: grid;
-    grid-template-columns: 50px 96%;
-}
-
-.contenido-principal {
-    height: calc(100vh - 88px);
-    overflow: auto;
-}
-
 .container {
     border-right: 1px solid #afc4d1;
     box-sizing: border-box;
@@ -103,7 +92,7 @@
     padding: 12px 0;
     padding-left: 0;
     transition: all 0.6s;
-    width: 50px;
+    width: 48px;
     background-color: #ffffff;
 }
 nav {
@@ -266,5 +255,96 @@ i {
   box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
   width: 96vw; 
   height: 275px;
+}
+
+
+@media screen and (max-width: 700px) {
+  
+  .content {
+    width: 100%;
+  }
+
+  .contenido-principal {
+    height: calc(100vh - 88px);
+    overflow: auto;
+  }
+
+  .banner-app {
+    display: none;
+  }
+
+  .nombres-usuario {
+    display: none;
+  }
+
+  .texto-login-app {
+    display: none !important;
+  }
+
+  .inicio-app {
+    display: none;
+  }
+
+  .container {
+    display: none;
+  }
+
+  .app_brandTopBar__container {
+    grid-template-columns:  0.57fr 0.57fr 1.2fr 1.6fr;
+  }
+
+  .app_brandTopBar__container {
+    display: none;
+  }
+
+  .inciar-sesion {
+    padding-right: 10px;
+  }
+  
+}
+
+@media screen and (min-width: 700px) {
+
+  .inciar-sesion-apk {
+    display: none;
+  }
+
+  .inicio-apk {
+    display: none;
+  }
+
+  .content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 48px 96%;
+  }
+
+  .contenido-principal {
+      height: calc(100vh - 88px);
+      overflow: auto;
+  }
+
+  .texto-login-apk {
+    display: none;
+  }
+
+  .inciar-sesion {
+    padding-left: 8%;
+  }
+
+}
+
+.link-citacion {
+  color: blue;
+  cursor: pointer;
+  width: 120px;
+  cursor: pointer;
+  width: 143px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.link-citacion:hover {
+  background-color: none !important;
 }
   

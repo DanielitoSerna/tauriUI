@@ -1,6 +1,6 @@
 <div class="p-mt-3"></div>
 <app-alerts [text]="text" [type]="tipoAlerta" *ngIf="text != ''" (change)="text = ''"></app-alerts>
-<div class="p-grid">
+<div class="p-grid grid-alimentos-app">
   <div class="p-col-12 p-md-4 p-lg-4">
     <button pButton pRipple type="button" class="p-button-success-app" 
     icon="pi pi-plus" label="Adicionar alimento a la biblioteca" (click)="alimentoDto = {}; agregar = true"></button>
@@ -52,170 +52,170 @@
       <p-panel header="Descipción del alimento" styleClass="panel-div">
         <div class="descripcion descripcion-alimento" *ngIf="seleccionado == null || alimentosSeleccionados.length == 0">
             <span class="pi pi-info-circle icon-info"></span>
-            Selecione un alimento de la lista de alimentos para ver la composisión del mismo
+            Selecione un alimento de la lista de alimentos para ver la composición del mismo
         </div>
         <div *ngIf="seleccionado != null && alimentosSeleccionados.length > 0" class="descripcion-alimento">
           <div class="p-grid">
-            <div class="p-col-12 p-md-8 p-lg-8 fila">
+            <div class="p-col-6 p-md-8 p-lg-8 fila">
               <span class="nombre-descripcion">Materia seca (%)</span>
             </div>
-            <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">
+            <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right fila">
               {{obtenerValor(seleccionado['ms'])}}
             </div>
-            <div class="p-col-12 p-md-8 p-lg-8">
-              <span class="nombre-descripcion">ED, (Mcal/kg MS)</span>
+            <div class="p-col-6 p-md-8 p-lg-8">
+              <span class="nombre-descripcion">ED (Mcal/kg MS)</span>
             </div>
-            <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+            <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right">
               {{obtenerValor(seleccionado['ed'])}}
             </div>
-            <div class="p-col-12 p-md-8 p-lg-8 fila">
+            <div class="p-col-6 p-md-8 p-lg-8 fila">
               <span class="nombre-descripcion">FDN (%MS)</span>
             </div>
-            <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">
+            <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right fila">
               {{obtenerValor(seleccionado['fdn'])}}
             </div>
-            <div class="p-col-12 p-md-8 p-lg-8">
-              <span class="nombre-descripcion">FDA (% MS)</span>
+            <div class="p-col-6 p-md-8 p-lg-8">
+              <span class="nombre-descripcion">FDA (%MS)</span>
             </div>
-            <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+            <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right">
               {{obtenerValor(seleccionado['fda'])}}
             </div>
-            <div class="p-col-12 p-md-8 p-lg-8 fila ">
-              <span class="nombre-descripcion">PB( %MS)</span>
+            <div class="p-col-6 p-md-8 p-lg-8 fila ">
+              <span class="nombre-descripcion">PB (%MS)</span>
             </div>
-            <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">
+            <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right fila">
               {{obtenerValor(seleccionado['pb'])}}
             </div>
-            <div class="p-col-12 p-md-8 p-lg-8">
+            <div class="p-col-6 p-md-8 p-lg-8">
               <span class="nombre-descripcion">Fracción A (%PB)</span>
             </div>
-            <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+            <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right">
               {{obtenerValor(seleccionado['fraccionA'])}}
             </div>
-            <div class="p-col-12 p-md-8 p-lg-8 fila">
-              <span class="nombre-descripcion">Fracción B (% PB)</span>
+            <div class="p-col-6 p-md-8 p-lg-8 fila">
+              <span class="nombre-descripcion">Fracción B (%PB)</span>
             </div>
-            <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">
+            <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right fila">
               {{obtenerValor(seleccionado['fraccionB'])}}
             </div>
-            <div class="p-col-12 p-md-8 p-lg-8">
-              <span class="nombre-descripcion">Fracción C (% PB)</span>
+            <div class="p-col-6 p-md-8 p-lg-8">
+              <span class="nombre-descripcion">Fracción C (%PB)</span>
             </div>
-            <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+            <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right">
               {{obtenerValor(seleccionado['fraccionC'])}}
             </div>
-            <div class="p-col-12 p-md-8 p-lg-8 fila ">
-              <span class="nombre-descripcion">kd Fracción B</span>
+            <div class="p-col-6 p-md-8 p-lg-8 fila ">
+              <span class="nombre-descripcion">kd Fracción B (%/h)</span>
             </div>
-            <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">
+            <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right fila">
               {{obtenerValor(seleccionado['kdFraccionB'])}}
             </div>
-            <div class="p-col-12 p-md-8 p-lg-8">
+            <div class="p-col-6 p-md-8 p-lg-8">
               <span class="nombre-descripcion">PNDR (%PB)</span>
             </div>
-            <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+            <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right">
               {{obtenerValor(seleccionado['pndr'])}}
             </div>
-            <div class="p-col-12 p-md-8 p-lg-8 fila">
-              <span class="nombre-descripcion">Digestibilidad PNDR (%PNDR)</span>
+            <div class="p-col-6 p-md-8 p-lg-8 fila">
+              <span class="nombre-descripcion">Digestibilidad PNDR (%)</span>
             </div>
-            <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">
+            <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right fila">
               {{obtenerValor(seleccionado['digestibilidadPndr'])}}
             </div>
-            <div class="p-col-12 p-md-8 p-lg-8">
-              <span class="nombre-descripcion">Grasa cruda (%MS)</span>
-            </div>
-            <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
-              {{obtenerValor(seleccionado['grasaCruda'])}}
-            </div>
-            <div class="p-col-12 p-md-8 p-lg-8 fila">
+            <div class="p-col-6 p-md-8 p-lg-8 fila">
               <span class="nombre-descripcion">Almidón (%MS)</span>
             </div>
-            <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">
+            <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right fila">
               {{obtenerValor(seleccionado['almidon'])}}
             </div>
-            <div class="p-col-12 p-md-8 p-lg-8">
+            <div class="p-col-6 p-md-8 p-lg-8">
+              <span class="nombre-descripcion">Grasa cruda (%MS)</span>
+            </div>
+            <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right">
+              {{obtenerValor(seleccionado['grasaCruda'])}}
+            </div>
+            <div class="p-col-6 p-md-8 p-lg-8">
               <span class="nombre-descripcion">Cenizas (%MS)</span>
             </div>
-            <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+            <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right">
               {{obtenerValor(seleccionado['ceniza'])}}
             </div>
-            <div class="p-col-12 p-md-8 p-lg-8 fila ">
+            <div class="p-col-6 p-md-8 p-lg-8 fila ">
               <span class="nombre-descripcion">Calcio (%MS)</span>
             </div>
-            <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">
+            <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right fila">
               {{obtenerValor(seleccionado['porcentajeCa'])}}
             </div>
-            <div class="p-col-12 p-md-8 p-lg-8">
+            <div class="p-col-6 p-md-8 p-lg-8">
               <span class="nombre-descripcion">Fósforo (%MS)</span>
             </div>
-            <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+            <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right">
               {{obtenerValor(seleccionado['porcentajeP'])}}
             </div>
-            <div class="p-col-12 p-md-8 p-lg-8 fila">
-              <span class="nombre-descripcion">Magnesio (mg/kg)</span>
+            <div class="p-col-6 p-md-8 p-lg-8 fila">
+              <span class="nombre-descripcion">Magnesio (%MS)</span>
             </div>
-            <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">
+            <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right fila">
               {{obtenerValor(seleccionado['porcentajeMg'])}}
             </div>
-            <div class="p-col-12 p-md-8 p-lg-8">
+            <div class="p-col-6 p-md-8 p-lg-8">
               <span class="nombre-descripcion">Potasio (%MS)</span>
             </div>
-            <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+            <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right">
               {{obtenerValor(seleccionado['porcentajeK'])}}
             </div>
-            <div class="p-col-12 p-md-8 p-lg-8 fila ">
+            <div class="p-col-6 p-md-8 p-lg-8 fila ">
               <span class="nombre-descripcion">Sodio (%MS)</span>
             </div>
-            <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">
+            <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right fila">
               {{obtenerValor(seleccionado['porcentajeNa'])}}
             </div>
-            <div class="p-col-12 p-md-8 p-lg-8">
+            <div class="p-col-6 p-md-8 p-lg-8">
               <span class="nombre-descripcion">Cloro (%MS)</span>
             </div>
-            <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+            <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right">
               {{obtenerValor(seleccionado['porcentajeCl'])}}
             </div>
-            <div class="p-col-12 p-md-8 p-lg-8 fila ">
+            <div class="p-col-6 p-md-8 p-lg-8 fila ">
               <span class="nombre-descripcion">Azufre (%MS)</span>
             </div>
-            <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">
+            <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right fila">
               {{obtenerValor(seleccionado['porcentajeS'])}}
             </div>
-            <div class="p-col-12 p-md-8 p-lg-8">
+            <div class="p-col-6 p-md-8 p-lg-8">
               <span class="nombre-descripcion">Coeficiente absorción Ca (g/g)</span>
             </div>
-            <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+            <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right">
               {{obtenerValor(seleccionado['coeficienteAbsorcionCa'])}}
             </div>
-            <div class="p-col-12 p-md-8 p-lg-8 fila">
+            <div class="p-col-6 p-md-8 p-lg-8 fila">
               <span class="nombre-descripcion">Coeficiente absorción P (g/g)</span>
             </div>
-            <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">
+            <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right fila">
               {{obtenerValor(seleccionado['coeficienteAbsorcionP'])}}
             </div>
-            <div class="p-col-12 p-md-8 p-lg-8">
-              <span class="nombre-descripcion">Coeficiente absorción mg (g/g)</span>
+            <div class="p-col-6 p-md-8 p-lg-8">
+              <span class="nombre-descripcion">Coeficiente absorción Mg (g/g)</span>
             </div>
-            <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+            <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right">
               {{obtenerValor(seleccionado['coeficienteAbsorcionMg'])}}
             </div>
-            <div class="p-col-12 p-md-8 p-lg-8 fila">
+            <div class="p-col-6 p-md-8 p-lg-8 fila">
               <span class="nombre-descripcion">Coeficiente absorción K (g/g)</span>
             </div>
-            <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">
+            <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right fila">
               {{obtenerValor(seleccionado['coeficienteAbsorcionK'])}}
             </div>
-            <div class="p-col-12 p-md-8 p-lg-8">
+            <div class="p-col-6 p-md-8 p-lg-8">
               <span class="nombre-descripcion">Coeficiente absorción Na (g/g)</span>
             </div>
-            <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right">
+            <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right">
               {{obtenerValor(seleccionado['coeficienteAbsorcionNa'])}}
             </div>
-            <div class="p-col-12 p-md-8 p-lg-8 fila">
+            <div class="p-col-6 p-md-8 p-lg-8 fila">
               <span class="nombre-descripcion">Coeficiente absorción Cl (g/g)</span>
             </div>
-            <div class="p-col-12 p-md-4 p-lg-4 p-text-lg-right fila">
+            <div class="p-col-6 p-md-4 p-lg-4 p-text-lg-right fila">
               {{obtenerValor(seleccionado['coeficienteAbsorcionCl'])}}
             </div>
           </div>
@@ -223,6 +223,7 @@
       </p-panel>
     </div>
 </div>
+<div class="span-apk"></div>
 <div class="p-mt-3"></div>
 <div class="footer">
   <button pButton pRipple type="button" class="p-button-success-app" label="Anterior" icon="pi pi-arrow-left" iconPos="left" (click)="anterior()"></button>

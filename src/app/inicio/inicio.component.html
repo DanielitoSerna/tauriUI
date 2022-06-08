@@ -1,33 +1,55 @@
+<div class="inicio-apk">
+  <div style="padding: 20px">
+    <button id="google-auth-button" class="css-1i6ynxb p-button-success-app" type="button" tabindex="0" (click)="logOut()">
+      <span class="pi pi pi-sign-in" style="font-size: 30px;"></span>
+      <span class="css-19r5em7"><span>Cerrar sesión</span></span>
+    </button>
+  </div>
+
+  <div style="padding: 20px">
+    <button id="google-auth-button" class="css-1i6ynxb p-button-success-app" type="button" tabindex="0" [routerLink]="['/reportes']">
+      <span class="pi pi-chart-line" style="font-size: 30px;"></span>
+      <span class="css-19r5em7"><span>Simulaciones</span></span>
+    </button>
+  </div>
+
+</div>
 <div style="padding: 20px;" class="animate__animated animate__bounceInRight">
   <p-card header="Bienvenido a Tauri">
   <ng-template pTemplate="header"></ng-template>
   <div class="p-grid">
     <div class="p-col-12 p-md-4 p-lg-4">
-      <img width="380" alt="Angular Logo" src="./assets/vaca.png"/>
+      <img style="width: 100%;" alt="Angular Logo" src="./assets/pantalla2.jpg"/>
     </div>
     <div class="p-col-12 p-md-4 p-lg-8">
       <p class="app-parrafo">
-        Tauri es un software que a partir de información suministrada por el
-        usuario, permite calcular los requerimientos de proteína metabolizable y
-        energía neta de vacas lecheras de acuerdo con los estándares nutricionales
-        sugeridos por el NRC(2001).
+        TAURI es un software que a partir de información suministrada por el
+        usuario, permite calcular los requerimientos de proteína, energía y
+        minerales de vacas lecheras de acuerdo con los estándares nutricionales
+        sugeridos por el NRC (2001).
       </p>
       <p class="app-parrafo">
-          Por otra parte, esa misma información es empleada por modelos
-          matemáticos desarrollados en el trópico de altura para predecir el
-          consumo de materia seca y las emisiones de metano entérico producto de
-          la fermentación ruminal y óxido nitroso liberado al ambiente por los
-          procesos de nitrificación y denitrificación del nitrógeno presente en las
-          heces y la orina de animales en pastoreo.
+        Por otra parte, esa misma información es empleada para predecir el
+        consumo de materia seca de acuerdo con los modelos propuestos por el
+        NRC (2001), NRC (2021) y ecuaciones derivadas de trabajos científicos
+        desarrolladas en el trópico de altura por el Grupo de Investigación en
+        Ciencias Agrarias (GRICA) de la Universidad de Antioquia. Estas
+        investigaciones también originaron algoritmos que permiten estimar las
+        emisiones de gases de efecto invernadero derivadas de la fermentación
+        ruminal y de los procesos asociados con la descomposición, nitrificación y
+        desnitrificación de los compuestos orgánicos presentes en las heces y la
+        orina de animales en pastoreo.
       </p>
       <p class="app-parrafo">
-          Combinando los índices productivos del animal y los costos asociados con
-          su alimentación, Tauri calcula parámetros económicos que facilitan la
-          toma de decisiones.
-          La información entregada por el software puede ser empleada por el
-          usuario para ajustar planes de alimentación, balacear raciones acordes con
-          los requerimientos del animal y estimar el impacto que su sistema
-          productivo tiene sobre el ambiente.
+        Combinando los índices productivos del animal y los costos asociados con
+        su alimentación, TAURI calcula parámetros económicos que facilitan la
+        toma de decisiones.
+      </p>
+      <p class="app-parrafo">
+        La información entregada por el software puede ser empleada por el
+        usuario para ajustar planes de alimentación, balancear raciones acordes
+        con los requerimientos del animal y estimar el impacto que su sistema
+        productivo tiene sobre el ambiente.
       </p>
       <div class="p-grid">
         <div class="p-col-12 p-md-4 p-lg-4">
@@ -42,9 +64,11 @@
             </a>
         </div>
       </div>
+      <p class="app-parrafo">
+        &copy; 2022, Universidad de Antioquia - Politécnico Colombiano Jaime Isaza Cadavid
+      </p>
     </div>
   </div>
 </p-card>
 </div>
-
 <app-terminos [visible]="terminos" (closed)="terminos = false"></app-terminos>

@@ -24,32 +24,27 @@
             <div class="p-grid">
               <div class="p-col-12 p-md-6 p-lg-4">
                   <app-label label="País"></app-label>
-              </div>
-              <div class="p-col-12 p-md-6 p-lg-4">
-                <app-label label="Departamento/Estado"></app-label>
-              </div>
-              <div class="p-col-12 p-md-6 p-lg-4">
-                <app-label label="Municipio"></app-label>
-              </div>
-            </div>
-            <div class="p-grid">
-              <div class="p-col-12 p-md-6 p-lg-4">
-                <p-dropdown [options]="paises" [(ngModel)]="entrada.departamento?.pais.id" styleClass="width_full"
+
+                  <p-dropdown [options]="paises" [(ngModel)]="entrada.departamento?.pais.id" styleClass="width_full"
                   placeholder="Seleccione..." optionLabel="pais" optionValue="id" (onChange)="consultarDepartamentos($event)"
                   [showClear]="true" optionDisabled="inactive" [required]="true">
                 </p-dropdown>
               </div>
               <div class="p-col-12 p-md-6 p-lg-4">
+                <app-label label="Departamento/Estado"></app-label>
+
                 <p-dropdown [options]="departamentos" [(ngModel)]="entrada.departamentoDto" styleClass="width_full"
-                  placeholder="Seleccione..." optionLabel="nombreDepartamento" optionValue="id"
-                  [showClear]="true" optionDisabled="inactive" [required]="true" (onChange)="consultarMunicipios($event)">
-                </p-dropdown>
+                placeholder="Seleccione..." optionLabel="nombreDepartamento" optionValue="id"
+                [showClear]="true" optionDisabled="inactive" [required]="true" (onChange)="consultarMunicipios($event)">
+              </p-dropdown>
               </div>
               <div class="p-col-12 p-md-6 p-lg-4">
+                <app-label label="Municipio"></app-label>
+
                 <p-dropdown [options]="municipios" [(ngModel)]="entrada.municipioDto" styleClass="width_full"
-                  placeholder="Seleccione..." optionLabel="municipio" optionValue="id"
-                  [showClear]="true" optionDisabled="inactive" [required]="true">
-                </p-dropdown>
+                placeholder="Seleccione..." optionLabel="municipio" optionValue="id"
+                [showClear]="true" optionDisabled="inactive" [required]="true">
+              </p-dropdown>
               </div>
             </div>
           </p-accordionTab>
@@ -57,32 +52,27 @@
             <div class="p-grid">
               <div class="p-col-12 p-md-6 p-lg-4">
                 <app-label label="Raza"></app-label>
+
+                <p-dropdown [options]="razas" [(ngModel)]="entrada.raza" styleClass="width_full"
+                placeholder="Seleccione..." optionLabel="nombre" optionValue="nombre"
+                [showClear]="true" optionDisabled="inactive" [required]="true">
+              </p-dropdown>
               </div>
               <div class="p-col-12 p-md-6 p-lg-4">
                 <app-label label="Tipo de animal"></app-label>
-              </div>
-              <div class="p-col-12 p-md-6 p-lg-4">
-                <app-label label="Peso corporal"></app-label>
-              </div>
-            </div>
-            <div class="p-grid">
-              <div class="p-col-12 p-md-6 p-lg-4">
-                <p-dropdown [options]="razas" [(ngModel)]="entrada.raza" styleClass="width_full"
-                  placeholder="Seleccione..." optionLabel="nombre" optionValue="nombre"
-                  [showClear]="true" optionDisabled="inactive" [required]="true">
-                </p-dropdown>
-              </div>
-              <div class="p-col-12 p-md-6 p-lg-4">
+
                 <p-dropdown [options]="tipos" [(ngModel)]="entrada.tipoAnimal" styleClass="width_full"
                   placeholder="Seleccione..." optionLabel="nombre" optionValue="nombre"
                   [showClear]="true" optionDisabled="inactive" [required]="true">
                 </p-dropdown>
-                <span pTooltip="Mas información" class="app-info pi pi-info-circle" (click)="abrirInfo('Tipo de animal')"></span>
+                <span pTooltip="Mas información" tooltipPosition="top" class="app-info pi pi-info-circle" (click)="abrirInfo('Tipo de animal')"></span>
               </div>
               <div class="p-col-12 p-md-6 p-lg-4">
-                <p-inputNumber [(ngModel)]="entrada.pesoCorporal" suffix=" Kg" [min]="0" mode="decimal" 
-                  [required]="true" decimalSeparator="," thousandSeparator="." placeholder="Kg"></p-inputNumber>
-                  <span pTooltip="Mas información" class="app-info pi pi-info-circle" (click)="abrirInfo('Peso corporal')"></span>
+                <app-label label="Peso corporal"></app-label>
+
+                <p-inputNumber [(ngModel)]="entrada.pesoCorporal" suffix=" kg" [min]="0" mode="decimal" style="width: 80% !important"
+                [required]="true" decimalSeparator="," thousandSeparator="." placeholder="kg"></p-inputNumber>
+                <span pTooltip="Mas información" tooltipPosition="top" class="app-info pi pi-info-circle" (click)="abrirInfo('Peso corporal')"></span>
               </div>
             </div>
   
@@ -91,28 +81,23 @@
             <div class="p-grid">
               <div class="p-col-12 p-md-6 p-lg-4">
                 <app-label label="Condición corporal"></app-label>
-              </div>
-              <div class="p-col-12 p-md-6 p-lg-4">
-                <app-label label="Días en leche"></app-label>
-              </div>
-              <div class="p-col-12 p-md-6 p-lg-4">
-                <app-label label="Días de preñez"></app-label>
-              </div>
-            </div>
-            <div class="p-grid">
-              <div class="p-col-12 p-md-6 p-lg-4">
+
                 <p-dropdown [options]="condiciones" [(ngModel)]="entrada.condicionCorporal" styleClass="width_full"
                 placeholder="Seleccione..." [showClear]="true" optionDisabled="inactive" [required]="true">
                 </p-dropdown>
-                <span pTooltip="Mas información" class="app-info pi pi-info-circle" (click)="abrirInfo('Condición corporal')"></span>
+                <span pTooltip="Mas información" tooltipPosition="top" class="app-info pi pi-info-circle" (click)="abrirInfo('Condición corporal')"></span>
               </div>
               <div class="p-col-12 p-md-6 p-lg-4">
-                <p-inputNumber [(ngModel)]="entrada.diasLeche" suffix=" días" [min]="0" mode="decimal" placeholder="días" [required]="true"></p-inputNumber>
-                <span pTooltip="Mas información" class="app-info pi pi-info-circle" (click)="abrirInfo('Días en leche')"></span>
+                <app-label label="Días en leche"></app-label>
+
+                <p-inputNumber [(ngModel)]="entrada.diasLeche" suffix=" días" [min]="0" mode="decimal" placeholder="días" [required]="true" style="width: 80% !important"></p-inputNumber>
+                <span pTooltip="Mas información" tooltipPosition="top" class="app-info pi pi-info-circle" (click)="abrirInfo('Días en leche')"></span>
               </div>
               <div class="p-col-12 p-md-6 p-lg-4">
-                <p-inputNumber [(ngModel)]="entrada.diasPrenez" suffix=" días" [min]="0" mode="decimal" placeholder="días" [required]="true"></p-inputNumber>
-                <span pTooltip="Mas información" class="app-info pi pi-info-circle" (click)="abrirInfo('Días de preñez')"></span>
+                <app-label label="Días de preñez"></app-label>
+
+                <p-inputNumber [(ngModel)]="entrada.diasPrenez" suffix=" días" [min]="0" mode="decimal" placeholder="días" [required]="true" style="width: 80% !important"></p-inputNumber>
+                <span pTooltip="Mas información" tooltipPosition="top" class="app-info pi pi-info-circle" (click)="abrirInfo('Días de preñez')"></span>
               </div>
             </div>
   
@@ -121,77 +106,67 @@
             <div class="p-grid">
               <div class="p-col-12 p-md-6 p-lg-4">
                 <app-label label="Número de partos"></app-label>
+
+                <p-dropdown [options]="partos" [(ngModel)]="entrada.numeroParto" styleClass="width_full"
+                  placeholder="Seleccione..." optionLabel="label" optionValue="value" (onChange)="consultarDepartamentos($event)"
+                  [showClear]="true" optionDisabled="inactive" [required]="true">
+                </p-dropdown>
+                <span pTooltip="Mas información" tooltipPosition="top" class="app-info pi pi-info-circle" (click)="abrirInfo('Número de partos')"></span>
               </div>
               <div class="p-col-12 p-md-6 p-lg-4">
                 <app-label label="Intervalo entre partos"></app-label>
+
+                <p-inputNumber [(ngModel)]="entrada.intervaloParto" suffix=" días" [min]="0" mode="decimal" placeholder="días" [required]="true" style="width: 80% !important"
+                [min]="(entrada.numeroParto > 0) ? 305 : 0" [max]="(entrada.numeroParto == 0) ? 0 : 1000"></p-inputNumber>
+                <span pTooltip="Mas información" tooltipPosition="top" class="app-info pi pi-info-circle" (click)="abrirInfo('Intervalo entre partos')"></span>
               </div>
               <div class="p-col-12 p-md-6 p-lg-4">
                 <app-label label="Ganancia de peso, kg/día"></app-label>
-              </div>
-            </div>
-            <div class="p-grid">
-              <div class="p-col-12 p-md-6 p-lg-4">
-                <p-inputNumber [(ngModel)]="entrada.numeroParto" [min]="0" mode="decimal" [required]="true"></p-inputNumber>
-                <span pTooltip="Mas información" class="app-info pi pi-info-circle" (click)="abrirInfo('Número de partos')"></span>
-              </div>
-              <div class="p-col-12 p-md-6 p-lg-4">
-                <p-inputNumber [(ngModel)]="entrada.intervaloParto" suffix=" días" [min]="0" mode="decimal" placeholder="días" [required]="true"></p-inputNumber>
-                <span pTooltip="Mas información" class="app-info pi pi-info-circle" (click)="abrirInfo('Intervalo entre partos')"></span>
-              </div>
-              <div class="p-col-12 p-md-6 p-lg-4">
-                <p-inputNumber [(ngModel)]="entrada.gananciaPeso" suffix=" Kg/día" [min]="0" mode="decimal" placeholder="kg" [required]="true" [minFractionDigits]="2"></p-inputNumber>
-                <span pTooltip="Mas información" class="app-info pi pi-info-circle" (click)="abrirInfo('Ganancia de peso')"></span>
+
+                <p-inputNumber [(ngModel)]="entrada.gananciaPeso" suffix=" kg/día" [min]="0" mode="decimal" placeholder="kg" [required]="true" [minFractionDigits]="2" style="width: 80% !important"></p-inputNumber>
+                <span pTooltip="Mas información" tooltipPosition="top" class="app-info pi pi-info-circle" (click)="abrirInfo('Ganancia de peso')"></span>
               </div>
             </div>
           </p-accordionTab>
-          <p-accordionTab header="Producción" [selected]="true">
-            <label>Composición de la leche</label>
-            <div class="p-mt-2"></div>
-  
+          <p-accordionTab header="Producción" [selected]="true">  
             <div class="p-grid">
               <div class="p-col-12 p-md-6 p-lg-3">
-                <app-label label="Grasa"></app-label>
+                <app-label label="Producción de leche, litros/día"></app-label>
+
+                <p-inputNumber [(ngModel)]="entrada.produccionLeche" [min]="0" mode="decimal" [required]="true" [minFractionDigits]="2" placeholder="litros/día" style="width: 80% !important"></p-inputNumber>
+                <span pTooltip="Mas información" tooltipPosition="top" class="app-info pi pi-info-circle" (click)="abrirInfo('Producción de leche')"></span>
               </div>
               <div class="p-col-12 p-md-6 p-lg-3">
-                <app-label label="Proteína cruda"></app-label>
-              </div>
-              <div class="p-col-12 p-md-6 p-lg-3">
-                <app-label label="Lactosa"></app-label>
-              </div>
-              <div class="p-col-12 p-md-6 p-lg-3">
-                <app-label label="Precio de venta (Litro)"></app-label>
-              </div>
-            </div>
-            <div class="p-grid">
-              <div class="p-col-12 p-md-6 p-lg-3">
-                <p-inputNumber [(ngModel)]="entrada.grasa" suffix=" %" [min]="0" [max]="100" mode="decimal" [minFractionDigits]="2" placeholder="%" [required]="true"
-                decimalSeparator="," thousandSeparator="."></p-inputNumber>
-              </div>
-              <div class="p-col-12 p-md-6 p-lg-3">
-                <p-inputNumber [(ngModel)]="entrada.proteinaCruda" suffix=" %" [min]="0" [max]="100" mode="decimal" [minFractionDigits]="2" placeholder="%" [required]="true"
-                decimalSeparator="," thousandSeparator="."></p-inputNumber>
-              </div>
-              <div class="p-col-12 p-md-6 p-lg-3">
-                <p-inputNumber [(ngModel)]="entrada.lactosa" suffix=" %" [min]="0" [max]="100" mode="decimal" [minFractionDigits]="2" placeholder="%" [required]="true"
-                  decimalSeparator="," thousandSeparator="."></p-inputNumber>
-              </div>
-              <div class="p-col-12 p-md-6 p-lg-3">
+                <app-label label="Precio de venta ($/litro)"></app-label>
+
                 <p-inputNumber [(ngModel)]="entrada.precioVenta" prefix="$ " mode="decimal" [minFractionDigits]="2" placeholder="$" [required]="true"
-                decimalSeparator="," thousandSeparator="."></p-inputNumber>
+                decimalSeparator="," thousandSeparator="." style="width: 80% !important"></p-inputNumber>
               </div>
             </div>
             
             <div class="p-mt-2"></div>
+            <label>Composición de la leche</label>
+            <span pTooltip="Mas información" tooltipPosition="top" class="app-info pi pi-info-circle" (click)="abrirInfo('Composición de la leche')"></span>
+            <div class="p-mt-2"></div>
 
             <div class="p-grid">
               <div class="p-col-12 p-md-6 p-lg-3">
-                <app-label label="Producción de leche, litros/día"></app-label>
+                <app-label label="Grasa"></app-label>
+
+                <p-inputNumber [(ngModel)]="entrada.grasa" suffix=" %" [min]="0" [max]="100" mode="decimal" [minFractionDigits]="2" placeholder="%" [required]="true"
+                decimalSeparator="," thousandSeparator="." style="width: 80% !important"></p-inputNumber>
               </div>
-            </div>
-            <div class="p-grid">
               <div class="p-col-12 p-md-6 p-lg-3">
-                <p-inputNumber [(ngModel)]="entrada.produccionLeche" [min]="0" mode="decimal" [required]="true" placeholder="litros/día"></p-inputNumber>
-                <span pTooltip="Mas información" class="app-info pi pi-info-circle" (click)="abrirInfo('Producción de leche')"></span>
+                <app-label label="Proteína cruda"></app-label>
+
+                <p-inputNumber [(ngModel)]="entrada.proteinaCruda" suffix=" %" [min]="0" [max]="100" mode="decimal" [minFractionDigits]="2" placeholder="%" [required]="true"
+                decimalSeparator="," thousandSeparator="." style="width: 80% !important"></p-inputNumber>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-3">
+                <app-label label="Lactosa"></app-label>
+
+                <p-inputNumber [(ngModel)]="entrada.lactosa" suffix=" %" [min]="0" [max]="100" mode="decimal" [minFractionDigits]="2" placeholder="%" [required]="true"
+                  decimalSeparator="," thousandSeparator="." style="width: 80% !important"></p-inputNumber>
               </div>
             </div>
             <p-divider></p-divider>
@@ -199,12 +174,12 @@
   
             <div class="p-grid">
               <div class="field-radiobutton">
-                <p-radioButton value="confinamiento" [(ngModel)]="entrada.manejo"></p-radioButton>
+                <p-radioButton name="radioManejo" value="confinamiento" [(ngModel)]="entrada.manejo"></p-radioButton>
                 <label class="p-text-bold label">&nbsp;Confinamiento</label>
               </div>
               <div class="p-mr-3"></div>
               <div class="field-radiobutton">
-                <p-radioButton value="pastoreo" [(ngModel)]="entrada.manejo"></p-radioButton>
+                <p-radioButton name="radioManejo" value="pastoreo" [(ngModel)]="entrada.manejo"></p-radioButton>
                 <label class="p-text-bold label">&nbsp;Pastoreo</label>
               </div>
             </div>
@@ -212,25 +187,20 @@
             <div class="p-grid">
               <div class="p-col-12 p-md-6 p-lg-4">
                 <app-label label="Distancia entre la sala ordeño y la pradera" [required]="entrada.manejo == 'pastoreo'"></app-label>
+
+                <p-inputNumber [(ngModel)]="entrada.distancia" suffix=" m" [min]="0" [disabled]="entrada.manejo == 'confinamiento'"
+                  mode="decimal" [minFractionDigits]="2" placeholder="m" [required]="entrada.manejo == 'pastoreo'"
+                  decimalSeparator="," thousandSeparator="." style="width: 80% !important"></p-inputNumber>
               </div>
               <div class="p-col-12 p-md-6 p-lg-4">
                 <app-label label="Número de viajes" [required]="entrada.manejo == 'pastoreo'"></app-label>
+
+                <p-inputNumber [(ngModel)]="entrada.numeroViajes" [disabled]="entrada.manejo == 'confinamiento'"
+                  [min]="0" mode="decimal" [required]="entrada.manejo == 'pastoreo'" style="width: 80% !important"></p-inputNumber>
               </div>
               <div class="p-col-12 p-md-6 p-lg-4">
                 <app-label label="Topografía" [required]="entrada.manejo == 'pastoreo'"></app-label>
-              </div>
-            </div>
-            <div class="p-grid">
-              <div class="p-col-12 p-md-6 p-lg-4">
-                <p-inputNumber [(ngModel)]="entrada.distancia" suffix=" m" [min]="0" [disabled]="entrada.manejo == 'confinamiento'"
-                  mode="decimal" [minFractionDigits]="2" placeholder="m" [required]="entrada.manejo == 'pastoreo'"
-                  decimalSeparator="," thousandSeparator="."></p-inputNumber>
-              </div>
-              <div class="p-col-12 p-md-6 p-lg-4">
-                <p-inputNumber [(ngModel)]="entrada.numeroViajes" [disabled]="entrada.manejo == 'confinamiento'"
-                  [min]="0" mode="decimal" [required]="entrada.manejo == 'pastoreo'"></p-inputNumber>
-              </div>
-              <div class="p-col-12 p-md-6 p-lg-4">
+
                 <p-dropdown [options]="tipografias" [(ngModel)]="entrada.tipografia" styleClass="width_full"
                   placeholder="Seleccione..." optionLabel="nombre" optionValue="nombre"
                   [showClear]="true" optionDisabled="inactive"
@@ -263,7 +233,8 @@
         <span>Dieta</span>
       </ng-template>
       <app-dieta *ngIf="activeIndex1 == 2" [alimentosSeleccionados]="alimentosSeleccionados" (atras)="tabAnterior()"
-        [alimentos]="dieta" [entradas]="entrada" (confirmar)="dieta = $event" (continuar)="tabSiguiente()"></app-dieta>
+        [alimentos]="dieta" [entradas]="entrada" (confirmar)="dieta = $event" (continuar)="tabSiguiente()"
+        (info)="abrirInfo($event)"></app-dieta>
     </p-tabPanel>
     <p-tabPanel [disabled]="activeIndex1 != 3">
       <ng-template pTemplate="header">
@@ -281,7 +252,7 @@
         <span>Emisión GEI</span>
       </ng-template>
       <app-emision *ngIf="activeIndex1 == 4" [data]="{entradaDto: entrada, dietaDtos: dieta}" 
-      (atras)="tabAnterior()" (confirmar)="tabSiguiente()"></app-emision>
+      (atras)="tabAnterior()" (confirmar)="tabSiguiente()" (info)="abrirInfo($event)"></app-emision>
     </p-tabPanel>
     <p-tabPanel [disabled]="activeIndex1 != 5">
       <ng-template pTemplate="header">
@@ -290,7 +261,8 @@
         <span>Relación beneficio - costo</span>
       </ng-template>
       <app-relacion *ngIf="activeIndex1 == 5" [data]="{entradaDto: entrada, dietaDtos: dieta}" 
-      (atras)="tabAnterior()" (confirmar)="guardar(false)" (abriDescargar)="guardar(true)"></app-relacion>
+      (atras)="tabAnterior()" (confirmar)="guardar(false)" 
+      (abriDescargar)="guardar(true)" (info)="abrirInfo($event)"></app-relacion>
     </p-tabPanel>
   </p-tabView>
 </div>
