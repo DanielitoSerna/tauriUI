@@ -21,6 +21,12 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { EmisionComponent } from './emision/emision.component';
 import { NgChartsModule } from 'ng2-charts';
 import { RelacionComponent } from './relacion/relacion.component';
+import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
+
+const googleLoginOptions = {
+  scope: 'profile email',
+  plugin_name:'login' //you can use any name here
+}; 
 
 
 @NgModule({
@@ -47,7 +53,25 @@ import { RelacionComponent } from './relacion/relacion.component';
     NgChartsModule
   ],
   providers: [
-    AppService
+    AppService,
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '326021480668-thtspfp1j9k9l9jkhqhlvm7p17051elb.apps.googleusercontent.com', 
+               googleLoginOptions
+            )
+          }
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    }
   ],
   bootstrap: [AppComponent]
 })

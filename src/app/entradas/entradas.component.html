@@ -108,7 +108,7 @@
                 <app-label label="Número de partos"></app-label>
 
                 <p-dropdown [options]="partos" [(ngModel)]="entrada.numeroParto" styleClass="width_full"
-                  placeholder="Seleccione..." optionLabel="label" optionValue="value" (onChange)="consultarDepartamentos($event)"
+                  placeholder="Seleccione..." optionLabel="label" optionValue="value"
                   [showClear]="true" optionDisabled="inactive" [required]="true">
                 </p-dropdown>
                 <span pTooltip="Mas información" tooltipPosition="top" class="app-info pi pi-info-circle" (click)="abrirInfo('Número de partos')"></span>

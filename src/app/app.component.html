@@ -12,7 +12,7 @@
     </div>
     <div *ngIf="!isLoggedin" style="padding-top: 12px;" class="inciar-sesion">
       <div>
-        <button class="css-1i6ynxb p-button-success-app" type="button" tabindex="0" #loginRef>
+        <button class="css-1i6ynxb p-button-success-app" type="button" tabindex="0" #loginRef (click)="callLoginButton()">
           <span class="css-1ujqpe8">
             <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.331/static/media/google-logo.e086107b.svg" alt="">
           </span>

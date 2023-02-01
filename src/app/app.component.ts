@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AppService } from './app.services';
 import { Router } from '@angular/router';
+import { SocialAuthService } from 'angularx-social-login';
+import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 
 
 @Component({
@@ -24,53 +26,32 @@ export class AppComponent implements OnInit {
   auth2: any;
 
   constructor( public service: AppService,
-              private router: Router) {
+              private router: Router,
+              private authService: SocialAuthService) {
     this.googleAuthSDK();
   }
 
   callLoginButton() {
-    this.auth2.attachClickHandler(this.loginElement.nativeElement, {},
-      (googleAuthUser:any) => {
-        let profile = googleAuthUser.getBasicProfile();
-        let nombre = profile.getName();
-        this.nombreUsuario = profile.getEmail();
-        this.nombre = nombre.substring(0, nombre.indexOf(" "));
-        this.apellido = nombre.substring(nombre.indexOf(" ") + 1, nombre.length);
-        this.correo = profile.getEmail();
-        localStorage.setItem("nombreUsuario", profile.getName());
-        localStorage.setItem("usuario", profile.getEmail());
-        localStorage.setItem("nombre", this.nombre);
-        localStorage.setItem("apellido", this.apellido);
-        localStorage.setItem("tipoUsuario", "U");
-        this.router.navigate(['/inicio']);
-        window.location.reload();
-      }, (error:any) => {
-        console.error(JSON.stringify(error, undefined, 2));
-      });
-    }
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+  }
      
   googleAuthSDK() {
-    (<any>window)['googleSDKLoaded'] = () => {
-      (<any>window)['gapi'].load('auth2', () => {
-        this.auth2 = (<any>window)['gapi'].auth2.init({
-          client_id: '326021480668-thtspfp1j9k9l9jkhqhlvm7p17051elb.apps.googleusercontent.com',
-          cookiepolicy: 'single_host_origin',
-          scope: 'profile email',
-          plugin_name: "chat"
-        });
-        this.callLoginButton();
-      });
-    }
-      
-    (function(d, s, id){
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) {return;}
-      js = d.createElement('script'); 
-      js.id = id;
-      js.src = "https://apis.google.com/js/platform.js?onload=googleSDKLoaded";
-      fjs?.parentNode?.insertBefore(js, fjs);
-    }(document, 'script', 'google-jssdk'));
-    
+    this.authService.authState.subscribe((profile: any) => {
+      let nombre = profile.name;
+      this.nombreUsuario = profile.email;
+      this.nombre = nombre.substring(0, nombre.indexOf(" "));
+      this.apellido = nombre.substring(nombre.indexOf(" ") + 1, nombre.length);
+      this.correo = profile.email;
+      localStorage.setItem("nombreUsuario", nombre);
+      localStorage.setItem("usuario", this.correo);
+      localStorage.setItem("nombre", this.nombre);
+      localStorage.setItem("apellido", this.apellido);
+      localStorage.setItem("tipoUsuario", "U");
+      this.router.navigate(['/inicio']);
+      window.location.reload();
+    }, (error:any) => {
+      console.error(JSON.stringify(error, undefined, 2));
+    });
   }
 
   ngOnInit() {
@@ -83,6 +64,7 @@ export class AppComponent implements OnInit {
   }
 
   logOut(): void {
+    this.authService.signOut();
     localStorage.clear();
     this.router.navigate(['/']);
     window.location.reload();
